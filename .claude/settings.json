@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:renovabe.com.br)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3456)",
+      "Bash(curl -s http://localhost:3456)",
+      "PowerShell(Start-Process \"http://localhost:3456\")",
+      "Read(//c/Users/frank/OneDrive/Desktop/**)",
+      "Bash(findstr -i \"eva\\\\|skin\\\\|prod\\\\|bottle\\\\|frasco\\\\|caps\")",
+      "Bash(dir \"c:\\\\Users\\\\frank\\\\OneDrive\\\\Desktop\" /b /s)",
+      "Bash(findstr /i \"\\\\.png\\\\|\\\\.jpg\\\\|\\\\.jpeg\\\\|\\\\.webp\")",
+      "Bash(dir \"c:\\\\Users\\\\frank\\\\Downloads\" /b /s)",
+      "Bash(findstr /i \"eva\\\\|skin\\\\|produto\\\\|caps\\\\|\\\\.png\\\\|\\\\.jpg\")",
+      "WebFetch(domain:www.prasaude.com.br)",
+      "Bash(python3 -c ' *)",
+      "Bash(Start-Process \"http://localhost:3456\")",
+      "PowerShell(ngrok version 2>&1)",
+      "PowerShell(npx localtunnel --port 3456 2>&1)",
+      "PowerShell(Start-Process powershell -ArgumentList \"-NoExit\", \"-Command\", \"npx localtunnel --port 3456\" -WindowStyle Normal)",
+      "Bash(npx localtunnel *)",
+      "Read(//tmp/**)",
+      "Bash(jobs)",
+      "Bash(npx localtunnel --port 3456 > /tmp/lt.txt 2>&1 & *)",
+      "WebFetch(domain:prasaude.com.br)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://prasaude.com.br/wp-content/uploads/2026/04/PRA-SAUDE-EVA-2.png\" -OutFile \"C:\\\\Users\\\\frank\\\\OneDrive\\\\Desktop\\\\EVA SKIN\\\\public\\\\images\\\\produto-hero.png\" -UseBasicParsing; $f = Get-Item \"C:\\\\Users\\\\frank\\\\OneDrive\\\\Desktop\\\\EVA SKIN\\\\public\\\\images\\\\produto-hero.png\"; \"Downloaded: $\\($f.Length\\) bytes\")",
+      "PowerShell(Invoke-WebRequest -Uri \"https://prasaude.com.br/wp-content/uploads/2026/04/PRA-SAUDE-EVA-1.png\" -OutFile \"C:\\\\Users\\\\frank\\\\OneDrive\\\\Desktop\\\\EVA SKIN\\\\public\\\\images\\\\produto-hero.png\" -UseBasicParsing)",
+      "PowerShell(\"OK\")",
+      "PowerShell(Invoke-WebRequest -Uri \"https://prasaude.com.br/wp-content/uploads/2024/04/PRA-SAUDE-EVA-5.png\" -OutFile \"C:\\\\Users\\\\frank\\\\OneDrive\\\\Desktop\\\\EVA SKIN\\\\public\\\\images\\\\produto-hero.png\" -UseBasicParsing)",
+      "PowerShell(Rename-Item \"C:\\\\Users\\\\frank\\\\OneDrive\\\\Desktop\\\\EVA SKIN\\\\public\\\\images\\\\produto-hero.png.png\" \"produto-hero.png\")",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git rm *)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
+    ]
+  }
+}
