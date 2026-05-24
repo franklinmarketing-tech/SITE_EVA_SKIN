@@ -201,7 +201,14 @@ export default function Page() {
   useReveal()
   const [kit, setKit] = useState(kits[1])
   const [faq, setFaq] = useState<number | null>(null)
+  const [scrolled, setScrolled] = useState(false)
   const time = useCountdown()
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 600)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <>
@@ -263,6 +270,7 @@ export default function Page() {
         .b-icon{transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
         .faq-item{transition:border-color .2s}
         .faq-item:hover{border-color:rgba(139,92,246,.3)}
+        .sticky-cta{transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
         .nav-link{position:relative;transition:color .2s}
         .nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:linear-gradient(90deg,#8b5cf6,#a78bfa);transition:width .3s ease}
         .nav-link:hover::after{width:100%}
@@ -291,6 +299,21 @@ export default function Page() {
         .fade-up-3{animation:fade-up .7s .4s ease-out both}
         .fade-up-4{animation:fade-up .7s .55s ease-out both}
       `}</style>
+
+      {/* ── STICKY MOBILE CTA ── */}
+      <div className={`sticky-cta fixed bottom-0 left-0 right-0 z-50 lg:hidden ${scrolled ? 'translate-y-0' : 'translate-y-full'}`}
+        style={{ background: 'linear-gradient(135deg,#4c1d95,#7c3aed)', borderTop: '1px solid rgba(255,255,255,.12)', boxShadow: '0 -8px 32px rgba(109,40,217,.4)' }}>
+        <div className="px-4 py-3 flex items-center gap-3">
+          <div className="flex-1 min-w-0">
+            <p className="text-purple-300 text-[10px] font-semibold uppercase tracking-wider">Kit selecionado</p>
+            <p className="text-white font-black text-sm leading-tight">{kit.qty} {kit.qty === 1 ? 'Frasco' : 'Frascos'} — <span className="text-green-300">R$ {kit.price},00</span></p>
+          </div>
+          <a href={kit.link}
+            className="flex-shrink-0 bg-white text-purple-700 font-black px-5 py-3 rounded-xl text-sm shadow-xl active:scale-95 transition-transform">
+            COMPRAR AGORA →
+          </a>
+        </div>
+      </div>
 
       <div className="min-h-screen bg-white overflow-x-hidden">
 
@@ -501,20 +524,28 @@ export default function Page() {
         </section>
 
         {/* TRUST BAR */}
-        <section className="bg-gray-950 py-10 px-4">
-          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-            <Counter end={50800} suffix="+" label="Clientes Satisfeitas" />
-            <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-black text-white">4.9/5</div>
-              <div className="text-gray-400 text-xs mt-1">Avaliação Média</div>
+        <section style={{ background: '#0a0a14' }} className="py-10 px-4 border-t border-white/5">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+              <Counter end={50800} suffix="+" label="Clientes Satisfeitas" />
+              <div className="text-center">
+                <div className="text-3xl lg:text-4xl font-black text-white">4.9</div>
+                <div className="flex justify-center gap-0.5 my-1">{[...Array(5)].map((_,i)=><span key={i} className="text-amber-400 text-sm">★</span>)}</div>
+                <div className="text-gray-500 text-xs">Avaliação média</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl lg:text-4xl font-black text-white">24h</div>
+                <div className="text-gray-400 text-xs mt-1">Envio após confirmação</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl lg:text-4xl font-black text-white">30d</div>
+                <div className="text-gray-400 text-xs mt-1">Garantia incondicional</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-black text-white">24h</div>
-              <div className="text-gray-400 text-xs mt-1">Envio após confirmação</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-black text-white">30d</div>
-              <div className="text-gray-400 text-xs mt-1">Garantia Total</div>
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-5 border-t border-white/5">
+              {['🔒 Pagamento Seguro SSL', '📦 Embalagem discreta', '🇧🇷 Produto brasileiro', '✅ Registrado ANVISA', '💳 6x sem juros'].map(t => (
+                <span key={t} className="text-gray-600 text-xs font-medium">{t}</span>
+              ))}
             </div>
           </div>
         </section>
@@ -658,47 +689,61 @@ export default function Page() {
         <section className="py-24 px-4" style={{ background: '#08080f' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-14 reveal">
-              <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight">
+              <span className="text-purple-400 font-bold text-sm uppercase tracking-widest">Transformação Real</span>
+              <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight mt-3">
                 A diferença que Eva Skin{' '}
                 <span className="shimmer-text italic">faz na prática</span>
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* ANTES */}
-              <div className="reveal ba-before rounded-3xl p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-red-400 font-black text-lg">✗</span>
-                  </div>
-                  <h3 className="text-red-400 font-black text-xl uppercase tracking-wide">Antes</h3>
-                </div>
-                <ul className="space-y-4">
-                  {baItems.map((b, i) => (
-                    <li key={i} className="flex items-center gap-3 text-red-300">
-                      <span className="text-red-500 font-black text-lg flex-shrink-0">❌</span>
-                      <span className="font-medium">{b.before}</span>
-                    </li>
-                  ))}
-                </ul>
+            <div className="relative reveal">
+              {/* Center divider arrow */}
+              <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-14 h-14 bg-gradient-to-br from-purple-600 to-violet-700 rounded-full items-center justify-center shadow-2xl shadow-purple-900/60 border-4 border-gray-950">
+                <span className="text-white font-black text-xl">→</span>
               </div>
 
-              {/* DEPOIS */}
-              <div className="reveal reveal-delay-2 ba-after rounded-3xl p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
-                    <span className="text-green-400 font-black text-lg">✓</span>
+              <div className="grid md:grid-cols-2 gap-1">
+                {/* ANTES */}
+                <div className="ba-before rounded-3xl md:rounded-r-none p-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 bg-red-500/25 rounded-2xl flex items-center justify-center border border-red-500/20">
+                      <span className="text-red-400 font-black text-lg">✗</span>
+                    </div>
+                    <div>
+                      <p className="text-red-400 font-black text-xl uppercase tracking-wide">Sem Eva Skin</p>
+                      <p className="text-red-700 text-xs font-medium">Vida limitada pela dor</p>
+                    </div>
                   </div>
-                  <h3 className="text-green-400 font-black text-xl uppercase tracking-wide">Depois</h3>
+                  <ul className="space-y-3">
+                    {baItems.map((b, i) => (
+                      <li key={i} className="flex items-center gap-3 py-2 border-b border-red-900/20 last:border-0">
+                        <span className="w-6 h-6 bg-red-900/40 border border-red-800/30 rounded-full flex items-center justify-center flex-shrink-0 text-xs text-red-500">✗</span>
+                        <span className="font-medium text-red-300 text-sm">{b.before}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-4">
-                  {baItems.map((b, i) => (
-                    <li key={i} className="flex items-center gap-3 text-green-300">
-                      <span className="text-green-500 font-black text-lg flex-shrink-0">✅</span>
-                      <span className="font-medium">{b.after}</span>
-                    </li>
-                  ))}
-                </ul>
+
+                {/* DEPOIS */}
+                <div className="ba-after rounded-3xl md:rounded-l-none p-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 bg-green-500/25 rounded-2xl flex items-center justify-center border border-green-500/20">
+                      <span className="text-green-400 font-black text-lg">✓</span>
+                    </div>
+                    <div>
+                      <p className="text-green-400 font-black text-xl uppercase tracking-wide">Com Eva Skin</p>
+                      <p className="text-green-700 text-xs font-medium">Liberdade de se mover</p>
+                    </div>
+                  </div>
+                  <ul className="space-y-3">
+                    {baItems.map((b, i) => (
+                      <li key={i} className="flex items-center gap-3 py-2 border-b border-green-900/20 last:border-0">
+                        <span className="w-6 h-6 bg-green-900/40 border border-green-800/30 rounded-full flex items-center justify-center flex-shrink-0 text-xs text-green-400">✓</span>
+                        <span className="font-semibold text-green-300 text-sm">{b.after}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -1030,29 +1075,41 @@ export default function Page() {
           <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle,rgba(167,139,250,.15),transparent 70%)' }} />
 
           <div className="max-w-3xl mx-auto text-center relative z-10">
-            <span className="reveal inline-block text-purple-400 font-bold text-sm uppercase tracking-widest mb-5">Última Oportunidade</span>
+            <span className="reveal inline-block text-purple-400 font-bold text-sm uppercase tracking-widest mb-5">Sua saúde não pode esperar</span>
             <h2 className="reveal text-4xl lg:text-6xl font-black text-white mb-5 leading-tight">
-              Mova-se com{' '}
-              <span className="shimmer-text italic">liberdade</span>{' '}
-              novamente
+              Acorde amanhã{' '}
+              <span className="shimmer-text italic">sem dor</span>
             </h2>
-            <p className="reveal text-gray-300 text-xl mb-12 max-w-xl mx-auto leading-relaxed">
-              Junte-se a mais de 50.000 mulheres que já recuperaram a qualidade de vida com Eva Skin Caps.
+            <p className="reveal text-gray-300 text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+              Mais de 50.000 mulheres já recuperaram a liberdade de se mover. Sua vez chegou.
             </p>
 
-            <div className="reveal flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <MagBtn href={kit.link}
-                className="btn-mag bg-gradient-to-r from-purple-600 to-violet-600 text-white px-14 py-5 rounded-2xl text-xl font-black shadow-2xl shadow-purple-900/60">
-                GARANTIR MEU EVA SKIN CAPS →
-              </MagBtn>
+            {/* Kit mini-summary */}
+            <div className="reveal inline-flex items-center gap-4 glass rounded-2xl px-6 py-4 mb-8">
+              <div className="relative w-14 h-14 flex-shrink-0">
+                <Image src={kit.img} alt="Eva Skin" fill className="object-contain drop-shadow-lg" sizes="56px" />
+              </div>
+              <div className="text-left">
+                <p className="text-purple-300 text-xs font-semibold">{kit.qty} {kit.qty === 1 ? 'Frasco' : 'Frascos'} · {kit.days} dias</p>
+                <p className="text-white font-black text-2xl leading-none">R$ {kit.price},<span className="text-lg">00</span></p>
+                <p className="text-green-400 text-xs font-bold">PIX: R$ {kit.pix.toFixed(2).replace('.',',')} · {kit.disc} OFF</p>
+              </div>
             </div>
 
-            <div className="reveal flex flex-wrap items-center justify-center gap-6 text-gray-500 text-xs">
-              <span>🔒 SSL Seguro</span>
-              <span>🚚 Envio em 24h</span>
-              <span>🛡️ Garantia 30 dias</span>
-              <span>💳 6x sem juros</span>
-              <span>📦 Embalagem discreta</span>
+            <div className="reveal flex flex-col gap-3 items-center mb-8">
+              <MagBtn href={kit.link}
+                className="btn-mag bg-gradient-to-r from-purple-600 to-violet-600 text-white px-14 py-5 rounded-2xl text-xl font-black shadow-2xl shadow-purple-900/60 w-full sm:w-auto text-center">
+                GARANTIR MEU KIT AGORA →
+              </MagBtn>
+              <a href="#kits" className="text-gray-500 text-xs hover:text-gray-300 transition-colors underline underline-offset-2">
+                Ver todos os kits e preços
+              </a>
+            </div>
+
+            <div className="reveal flex flex-wrap items-center justify-center gap-5 text-gray-600 text-xs">
+              {['🔒 SSL Seguro', '🚚 Envio 24h', '🛡️ 30 dias garantia', '💳 6x sem juros', '📦 Embalagem discreta'].map(t => (
+                <span key={t} className="flex items-center gap-1">{t}</span>
+              ))}
             </div>
           </div>
         </section>
