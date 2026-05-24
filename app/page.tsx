@@ -144,8 +144,8 @@ const ingr = [
   {
     icon: '🦴', name: 'Colágeno Hidrolisado', grad: 'from-purple-600 to-indigo-700',
     tag: 'Articulações & Estrutura',
-    desc: 'Proteína estrutural que reveste e lubrifica as articulações, reduz inflamação e fortalece cartilagens, ossos e músculos.',
-    items: ['Alívio de dores articulares', 'Fortalece cartilagens', 'Impede perda óssea', 'Aumenta massa muscular', 'Saúde cardiovascular', 'Artrite, artrose e osteoporose'],
+    desc: 'Proteína estrutural que reveste e lubrifica as articulações, auxilia na redução do desconforto articular e contribui para a manutenção de cartilagens, ossos e músculos.',
+    items: ['Alívio de desconforto articular', 'Apoia a manutenção das cartilagens', 'Contribui para a saúde óssea', 'Auxilia no ganho de massa muscular', 'Saúde cardiovascular', 'Suporte para articulações e ossos'],
   },
   {
     icon: '💧', name: 'Ácido Hialurônico', grad: 'from-violet-600 to-purple-700',
@@ -155,14 +155,14 @@ const ingr = [
   },
   {
     icon: '🍇', name: 'Trans-Resveratrol', grad: 'from-fuchsia-600 to-purple-700',
-    tag: 'Anti-inflamatório & Proteção',
-    desc: 'Potente antioxidante que combate a inflamação nas articulações, protege contra doenças cardiovasculares e retarda o envelhecimento celular.',
-    items: ['Ação anti-inflamatória', 'Combate estresse oxidativo', 'Anti-envelhecimento', 'Regula colesterol', 'Melhora memória e foco', 'Proteção cardiovascular'],
+    tag: 'Antioxidante & Proteção',
+    desc: 'Potente antioxidante que auxilia na resposta inflamatória das articulações, contribui para a saúde cardiovascular e apoia a proteção contra o envelhecimento celular.',
+    items: ['Auxilia no equilíbrio inflamatório', 'Combate estresse oxidativo', 'Anti-envelhecimento celular', 'Contribui para equilíbrio do colesterol', 'Apoia memória e foco', 'Proteção cardiovascular'],
   },
 ]
 
 const photos = [
-  { img: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&auto=format&fit=crop', fallback: 'from-blue-950 to-purple-900', overlay: 'bg-gradient-to-t from-blue-950/95 via-blue-900/50 to-black/10', icon: '🏃‍♀️', stat: '80% das clientes', title: 'Articulações Livres', sub: 'Movimento sem dor em 30-45 dias', delay: 1 },
+  { img: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&auto=format&fit=crop', fallback: 'from-blue-950 to-purple-900', overlay: 'bg-gradient-to-t from-blue-950/95 via-blue-900/50 to-black/10', icon: '🏃‍♀️', stat: '80% das clientes relatam', title: 'Articulações Livres', sub: 'Mais liberdade de movimento com uso contínuo', delay: 1 },
   { img: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80&auto=format&fit=crop', fallback: 'from-rose-950 to-purple-900', overlay: 'bg-gradient-to-t from-rose-950/95 via-rose-900/50 to-black/10', icon: '✨', stat: '2x mais hidratação', title: 'Pele Radiante', sub: 'Hidratada, firme e luminosa', delay: 2 },
   { img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80&auto=format&fit=crop', fallback: 'from-indigo-950 to-violet-900', overlay: 'bg-gradient-to-t from-indigo-950/95 via-indigo-900/50 to-black/10', icon: '🦴', stat: '+40% resistência', title: 'Ossos e Músculos', sub: 'Estrutura fortalecida por dentro', delay: 3 },
   { img: 'https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?w=600&q=80&auto=format&fit=crop', fallback: 'from-emerald-950 to-teal-900', overlay: 'bg-gradient-to-t from-emerald-950/95 via-emerald-900/50 to-black/10', icon: '⏳', stat: '10 anos mais jovem', title: 'Anti-Envelhecimento', sub: 'Rugas e linhas visivelmente reduzidas', delay: 1 },
@@ -191,7 +191,7 @@ const faqs = [
   { q: 'Quanto tempo para aliviar as dores nas articulações?', a: 'A maioria das clientes relata melhora significativa nas dores articulares entre 30 e 45 dias de uso contínuo. Para resultados completos e duradouros, recomendamos 90 dias de uso.' },
   { q: 'Quantas cápsulas tomar por dia?', a: '2 cápsulas de 500mg por dia, preferencialmente com as refeições (almoço ou jantar) para melhor absorção dos nutrientes.' },
   { q: 'Pode ser usado junto com outros medicamentos?', a: 'Em geral sim, mas recomendamos consultar seu médico, especialmente se faz uso de anticoagulantes ou medicamentos para artrite.' },
-  { q: 'Funciona para artrite, artrose e osteoporose?', a: 'Sim. O Colágeno Hidrolisado e o Ácido Hialurônico são amplamente estudados para essas condições, ajudando na lubrificação e reconstrução das articulações.' },
+  { q: 'Pode ajudar com desconfortos em articulações, ossos e cartilagens?', a: 'O Colágeno Hidrolisado e o Ácido Hialurônico são amplamente estudados por sua contribuição para a saúde articular, auxiliando na lubrificação e na manutenção das cartilagens. Consulte seu médico para orientação específica sobre seu caso.' },
   { q: 'Tem garantia de devolução?', a: 'Garantia total de 30 dias. Se não ficar satisfeita por qualquer motivo, devolvemos 100% do dinheiro sem burocracia e sem perguntas.' },
   { q: 'Qual o prazo de entrega?', a: '5 a 15 dias úteis. Após confirmação do pagamento, enviamos em até 24 horas para todo o Brasil.' },
   { q: 'Quais formas de pagamento são aceitas?', a: 'Aceitamos PIX (com desconto especial), cartão de crédito em até 6x sem juros e boleto bancário.' },
@@ -383,7 +383,7 @@ export default function Page() {
               </h1>
 
               <p className="fade-up-3 text-gray-300 text-lg leading-relaxed mb-8 max-w-lg">
-                Eva Skin Caps combina <strong className="text-white">3 ativos científicos</strong> que regeneram articulações, aliviam dores e rejuvenescem sua pele — tudo em uma única cápsula diária.
+                Eva Skin Caps combina <strong className="text-white">3 ativos científicos</strong> que auxiliam na saúde das articulações, contribuem para o alívio de desconfortos e apóiam a renovação da pele — tudo em uma única cápsula diária.
               </p>
 
               {/* Price block */}
@@ -598,7 +598,7 @@ export default function Page() {
                   <span className="shimmer-text italic">Eva Skin entrega</span>
                 </h3>
                 <p className="text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-                  Com <strong className="text-white">3 ativos de comprovação científica</strong> na dose ideal, Eva Skin regenera, lubrifica e fortalece suas articulações de dentro para fora.
+                  Com <strong className="text-white">3 ativos de comprovação científica</strong> na dose ideal, Eva Skin nutre, lubrifica e fortalece suas articulações de dentro para fora.
                 </p>
                 <MagBtn href="#ingredientes" className="btn-mag inline-block bg-purple-600 text-white px-8 py-3 rounded-xl font-bold text-sm shadow-lg shadow-purple-900/50">
                   Ver os ingredientes →
@@ -671,7 +671,7 @@ export default function Page() {
         ══════════════════════════════════════ */}
         <section className="py-16 px-4" style={{ background: 'linear-gradient(135deg,#3b0764 0%,#5b21b6 50%,#3b0764 100%)' }}>
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-purple-200 font-semibold mb-3 text-sm uppercase tracking-widest">Pronta para sentir a diferença?</p>
+            <p className="text-purple-200 font-semibold mb-3 text-sm uppercase tracking-widest">Pronta para dar o primeiro passo?</p>
             <h3 className="text-3xl lg:text-4xl font-black text-white mb-6 leading-tight">
               Mais de 50.800 mulheres já recuperaram{' '}
               <span className="text-purple-200 italic">a liberdade de se mover</span>
@@ -763,9 +763,9 @@ export default function Page() {
 
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { n: '01', icon: '💊', title: 'Tome 2 cápsulas', desc: 'Dosagem diária ideal para resultados rápidos e duradouros.' },
+                { n: '01', icon: '💊', title: 'Tome 2 cápsulas', desc: 'Dosagem diária ideal para apoiar seus resultados de forma consistente.' },
                 { n: '02', icon: '🍽️', title: 'Com as refeições', desc: 'Tome junto ao almoço ou jantar para melhor absorção dos ativos.' },
-                { n: '03', icon: '📅', title: 'Use por 90 dias', desc: 'O ciclo completo garante resultados visíveis e permanentes.' },
+                { n: '03', icon: '📅', title: 'Use por 90 dias', desc: 'O ciclo completo potencializa os resultados progressivos do tratamento.' },
               ].map((s, i) => (
                 <div key={i} className={`reveal reveal-delay-${i + 1} glass rounded-3xl p-8 text-center`}>
                   <div className="text-5xl mb-4">{s.icon}</div>
@@ -813,6 +813,9 @@ export default function Page() {
               </h2>
               <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
                 Quanto mais frascos, maior o desconto —<br className="hidden sm:block" /> e melhores e mais duradouros os resultados.
+              </p>
+              <p className="mt-4 text-amber-400 text-sm font-bold tracking-wide">
+                ⚠️ Oferta válida enquanto durar o estoque — preços sujeitos a alteração sem aviso prévio.
               </p>
             </div>
 
@@ -981,8 +984,8 @@ export default function Page() {
             <div className="text-center mb-16 reveal">
               <span className="text-purple-600 font-bold text-sm uppercase tracking-widest">Histórias Reais</span>
               <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mt-3 leading-tight">
-                Mais de 50.000 mulheres{' '}
-                <span className="shimmer-text-dark italic">livres da dor</span>
+                O que nossas clientes{' '}
+                <span className="shimmer-text-dark italic">estão dizendo</span>
               </h2>
               <p className="text-gray-500 mt-4 text-lg">Resultados reais de clientes verificadas</p>
             </div>
@@ -1077,11 +1080,11 @@ export default function Page() {
           <div className="max-w-3xl mx-auto text-center relative z-10">
             <span className="reveal inline-block text-purple-400 font-bold text-sm uppercase tracking-widest mb-5">Sua saúde não pode esperar</span>
             <h2 className="reveal text-4xl lg:text-6xl font-black text-white mb-5 leading-tight">
-              Acorde amanhã{' '}
-              <span className="shimmer-text italic">sem dor</span>
+              Volte a se mover{' '}
+              <span className="shimmer-text italic">com liberdade</span>
             </h2>
             <p className="reveal text-gray-300 text-lg mb-8 max-w-xl mx-auto leading-relaxed">
-              Mais de 50.000 mulheres já recuperaram a liberdade de se mover. Sua vez chegou.
+              Mais de 50.000 mulheres já recuperaram a liberdade de se mover — dançar, caminhar, brincar com os netos. Sua vez chegou.
             </p>
 
             {/* Kit mini-summary */}
