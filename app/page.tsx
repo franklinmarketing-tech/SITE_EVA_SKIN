@@ -3,8 +3,8 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const LINK_1 = '#kiwify-1'
+const LINK_2 = '#kiwify-2'
 const LINK_3 = '#kiwify-3'
-const LINK_5 = '#kiwify-5'
 
 const pad = (n: number) => String(n).padStart(2, '0')
 
@@ -136,8 +136,8 @@ const Stars = () => (
 
 const kits = [
   { id: 1, qty: 1, badge: '', badgeCls: '', from: 127, price: 97, pix: 87.30, per: 97, inst: '3x de R$ 32,33', disc: '24%', days: 30, link: LINK_1, img: '/images/produto-hero.png' },
-  { id: 3, qty: 3, badge: '⭐ Mais Vendido', badgeCls: 'from-purple-600 to-violet-500', from: 381, price: 197, pix: 177.30, per: 65.67, inst: '6x de R$ 32,83', disc: '48%', days: 90, link: LINK_3, img: '/images/produto-3.png' },
-  { id: 5, qty: 5, badge: '🔥 Melhor Preço', badgeCls: 'from-amber-500 to-orange-500', from: 635, price: 247, pix: 222.30, per: 49.40, inst: '6x de R$ 41,17', disc: '61%', days: 150, link: LINK_5, img: '/images/produto-2.png' },
+  { id: 2, qty: 2, badge: '⭐ Mais Vendido', badgeCls: 'from-purple-600 to-violet-500', from: 254, price: 177, pix: 159.30, per: 88.50, inst: '6x de R$ 29,50', disc: '30%', days: 60, link: LINK_2, img: '/images/produto-2.png' },
+  { id: 3, qty: 3, badge: '🔥 Melhor Preço', badgeCls: 'from-amber-500 to-orange-500', from: 381, price: 237, pix: 213.30, per: 79.00, inst: '6x de R$ 39,50', disc: '38%', days: 90, link: LINK_3, img: '/images/produto-3.png' },
 ]
 
 const ingr = [
@@ -823,7 +823,7 @@ export default function Page() {
             <div className="grid md:grid-cols-3 gap-5 mb-10 items-stretch">
               {kits.map(k => {
                 const isOn = kit.id === k.id
-                const glowCls = k.id === 1 ? 'kcard-img-glow-purple' : k.id === 3 ? 'kcard-img-glow-violet' : 'kcard-img-glow-amber'
+                const glowCls = k.id === 1 ? 'kcard-img-glow-purple' : k.id === 2 ? 'kcard-img-glow-violet' : 'kcard-img-glow-amber'
                 const savings = k.from - k.price
                 return (
                   <button key={k.id} onClick={() => setKit(k)}
@@ -834,7 +834,7 @@ export default function Page() {
                     <div className="h-8 flex items-center justify-center mt-5 mb-2 px-6">
                       {k.badge && (
                         <span className={`bg-gradient-to-r ${k.badgeCls} text-white text-[11px] font-black px-5 py-1.5 rounded-full shadow-lg tracking-wide whitespace-nowrap`}
-                          style={{ boxShadow: k.id === 3 ? '0 0 20px rgba(139,92,246,.6)' : '0 0 20px rgba(245,158,11,.5)' }}>
+                          style={{ boxShadow: k.id === 2 ? '0 0 20px rgba(139,92,246,.6)' : '0 0 20px rgba(245,158,11,.5)' }}>
                           {k.badge}
                         </span>
                       )}
