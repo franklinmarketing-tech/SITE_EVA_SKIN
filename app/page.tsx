@@ -479,12 +479,24 @@ export default function Page() {
 
       <main className="min-h-screen bg-white overflow-x-hidden">
 
+        {/* TARJA FRETE GRÁTIS — destaque máximo no topo */}
+        <div className="py-2.5 text-center text-white font-black text-sm tracking-wide flex items-center justify-center gap-2 px-3"
+             style={{
+               background: 'linear-gradient(90deg,#15803d 0%,#16a34a 50%,#15803d 100%)',
+               boxShadow: '0 2px 12px rgba(22,163,74,.35)'
+             }}>
+          <span className="text-base">🚚</span>
+          <span className="uppercase tracking-[.15em] text-[12px] sm:text-sm">FRETE GRÁTIS</span>
+          <span className="text-green-200 hidden sm:inline">·</span>
+          <span className="text-green-100 text-[11px] sm:text-sm normal-case">para TODO o Brasil em qualquer pedido</span>
+        </div>
+
         {/* TOP TICKER */}
         <div className="bg-purple-950 text-purple-200 py-2 overflow-hidden text-xs font-medium">
           <div className="ticker-wrap whitespace-nowrap">
             {[...Array(2)].map((_, i) => (
               <span key={i} className="flex gap-10 pr-10">
-                <span>🚚 Frete Grátis acima de R$125</span>
+                <span>🚚 FRETE GRÁTIS para todo Brasil</span>
                 <span>🔒 Pagamento 100% Seguro</span>
                 <span>🛡️ Garantia de 30 dias</span>
                 <span>⭐ 50.800 compras esse mês</span>
@@ -983,6 +995,20 @@ export default function Page() {
               <p className="mt-4 text-amber-400 text-sm font-bold tracking-wide">
                 ⚠️ Oferta válida enquanto durar o estoque — preços sujeitos a alteração sem aviso prévio.
               </p>
+
+              {/* TARJA FRETE GRÁTIS — destaque acima dos kits */}
+              <div className="mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-2xl"
+                   style={{
+                     background: 'linear-gradient(135deg,rgba(22,163,74,.18),rgba(34,197,94,.25),rgba(22,163,74,.18))',
+                     border: '1.5px solid rgba(34,197,94,.45)',
+                     boxShadow: '0 8px 24px rgba(34,197,94,.18)'
+                   }}>
+                <span className="text-2xl">🚚</span>
+                <div className="text-left">
+                  <p className="text-green-300 text-xs font-black uppercase tracking-[.2em] leading-tight">Frete GRÁTIS</p>
+                  <p className="text-green-100 text-sm font-bold leading-tight">Em qualquer kit, para todo o Brasil</p>
+                </div>
+              </div>
             </div>
 
             {/* Kit cards grid */}
@@ -1087,6 +1113,17 @@ export default function Page() {
                           Você economiza R$ {savings},00
                         </span>
                       )}
+
+                      {/* ✅ TARJA FRETE GRÁTIS — destaque verde em todos os kits */}
+                      <div className="w-full mt-3 flex items-center justify-center gap-2 py-2 px-3 rounded-xl"
+                           style={{
+                             background: 'linear-gradient(90deg,rgba(22,163,74,.18),rgba(34,197,94,.24),rgba(22,163,74,.18))',
+                             border: '1px solid rgba(34,197,94,.4)',
+                             boxShadow: '0 0 16px rgba(34,197,94,.15)'
+                           }}>
+                        <span className="text-base">🚚</span>
+                        <span className="text-green-300 text-xs font-black tracking-wide uppercase">Frete GRÁTIS Brasil</span>
+                      </div>
                     </div>
 
                     {/* ── BUY BUTTON inside each card ── */}
@@ -1097,7 +1134,7 @@ export default function Page() {
                          className={`block w-full text-center font-black px-4 py-3.5 rounded-xl text-sm tracking-wide transition-transform duration-200 hover:scale-[1.03] active:scale-100 ${btnCls}`}>
                         COMPRAR {k.qty} {k.qty === 1 ? 'FRASCO' : 'FRASCOS'} →
                       </a>
-                      <p className="text-gray-500 text-[10px] mt-2 tracking-wide">🔒 Pagamento seguro · {k.qty >= 2 ? '🚚 Frete GRÁTIS incluso' : 'Garantia 30 dias'}</p>
+                      <p className="text-gray-500 text-[10px] mt-2 tracking-wide">🔒 Pagamento seguro · Garantia 30 dias</p>
                     </div>
                   </div>
                 )
@@ -1188,7 +1225,7 @@ export default function Page() {
                     { icon: '🔒', text: 'SSL Seguro' },
                     { icon: '💳', text: 'PIX · Cartão · Boleto' },
                     { icon: '🛡️', text: 'Garantia 30 dias' },
-                    { icon: '🚚', text: 'Frete Grátis +R$125' },
+                    { icon: '🚚', text: 'FRETE GRÁTIS Brasil' },
                     { icon: '⚡', text: 'Envio em 24h' },
                   ].map(({ icon, text }) => (
                     <span key={text} className="flex items-center gap-1.5 font-semibold">
