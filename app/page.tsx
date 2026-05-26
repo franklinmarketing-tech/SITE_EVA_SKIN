@@ -372,6 +372,14 @@ export default function Page() {
         @keyframes orbit-tilt{from{transform:rotateX(40deg) rotateY(20deg) rotateZ(0deg)}to{transform:rotateX(40deg) rotateY(20deg) rotateZ(360deg)}}
         @keyframes shimmer{0%{background-position:-300% center}100%{background-position:300% center}}
         @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        @keyframes airplane-fly{0%{transform:translateX(-30px) translateY(0) rotate(-8deg)}50%{transform:translateX(8px) translateY(-3px) rotate(-4deg)}100%{transform:translateX(-30px) translateY(0) rotate(-8deg)}}
+        @keyframes airplane-cross{0%{transform:translateX(-120%) rotate(-8deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateX(120%) rotate(-8deg);opacity:0}}
+        @keyframes shipping-glow{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4),0 8px 24px rgba(34,197,94,.2)}50%{box-shadow:0 0 0 8px rgba(34,197,94,0),0 12px 32px rgba(34,197,94,.3)}}
+        @keyframes banner-shine{0%{left:-100%}60%,100%{left:100%}}
+        .airplane-bounce{display:inline-block;animation:airplane-fly 2.4s ease-in-out infinite;transform-origin:center}
+        .airplane-cross{display:inline-block;animation:airplane-cross 4s linear infinite;transform-origin:center}
+        .shipping-banner{animation:shipping-glow 2.5s ease-in-out infinite;position:relative;overflow:hidden}
+        .shipping-banner::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);animation:banner-shine 3s infinite}
         @keyframes particle-float{0%,100%{transform:translateY(0) scale(1);opacity:.6}50%{transform:translateY(-20px) scale(1.3);opacity:1}}
         @keyframes fade-up{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
         @keyframes noise-move{0%{transform:translate(0,0)}25%{transform:translate(-2%,-1%)}50%{transform:translate(1%,2%)}75%{transform:translate(-1%,1%)}100%{transform:translate(0,0)}}
@@ -479,13 +487,12 @@ export default function Page() {
 
       <main className="min-h-screen bg-white overflow-x-hidden">
 
-        {/* TARJA FRETE GRÁTIS — destaque máximo no topo */}
-        <div className="py-2.5 text-center text-white font-black text-sm tracking-wide flex items-center justify-center gap-2 px-3"
+        {/* TARJA FRETE GRÁTIS — destaque máximo no topo c/ avião animado */}
+        <div className="shipping-banner py-2.5 text-center text-white font-black text-sm tracking-wide flex items-center justify-center gap-2 px-3"
              style={{
-               background: 'linear-gradient(90deg,#15803d 0%,#16a34a 50%,#15803d 100%)',
-               boxShadow: '0 2px 12px rgba(22,163,74,.35)'
+               background: 'linear-gradient(90deg,#14532d 0%,#15803d 25%,#16a34a 50%,#15803d 75%,#14532d 100%)',
              }}>
-          <span className="text-base">🚚</span>
+          <span className="airplane-bounce text-lg">✈️</span>
           <span className="uppercase tracking-[.15em] text-[12px] sm:text-sm">FRETE GRÁTIS</span>
           <span className="text-green-200 hidden sm:inline">·</span>
           <span className="text-green-100 text-[11px] sm:text-sm normal-case">para TODO o Brasil em qualquer pedido</span>
@@ -996,14 +1003,13 @@ export default function Page() {
                 ⚠️ Oferta válida enquanto durar o estoque — preços sujeitos a alteração sem aviso prévio.
               </p>
 
-              {/* TARJA FRETE GRÁTIS — destaque acima dos kits */}
-              <div className="mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-2xl"
+              {/* TARJA FRETE GRÁTIS — destaque acima dos kits c/ avião voando */}
+              <div className="shipping-banner mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-2xl"
                    style={{
-                     background: 'linear-gradient(135deg,rgba(22,163,74,.18),rgba(34,197,94,.25),rgba(22,163,74,.18))',
-                     border: '1.5px solid rgba(34,197,94,.45)',
-                     boxShadow: '0 8px 24px rgba(34,197,94,.18)'
+                     background: 'linear-gradient(135deg,rgba(22,163,74,.22),rgba(34,197,94,.32),rgba(22,163,74,.22))',
+                     border: '1.5px solid rgba(34,197,94,.55)',
                    }}>
-                <span className="text-2xl">🚚</span>
+                <span className="airplane-bounce text-2xl">✈️</span>
                 <div className="text-left">
                   <p className="text-green-300 text-xs font-black uppercase tracking-[.2em] leading-tight">Frete GRÁTIS</p>
                   <p className="text-green-100 text-sm font-bold leading-tight">Em qualquer kit, para todo o Brasil</p>
@@ -1114,15 +1120,14 @@ export default function Page() {
                         </span>
                       )}
 
-                      {/* ✅ TARJA FRETE GRÁTIS — destaque verde em todos os kits */}
-                      <div className="w-full mt-3 flex items-center justify-center gap-2 py-2 px-3 rounded-xl"
+                      {/* ✅ TARJA FRETE GRÁTIS — avião voando em todos os kits */}
+                      <div className="w-full mt-3 flex items-center justify-center gap-2 py-2 px-3 rounded-xl shipping-banner"
                            style={{
-                             background: 'linear-gradient(90deg,rgba(22,163,74,.18),rgba(34,197,94,.24),rgba(22,163,74,.18))',
-                             border: '1px solid rgba(34,197,94,.4)',
-                             boxShadow: '0 0 16px rgba(34,197,94,.15)'
+                             background: 'linear-gradient(90deg,rgba(22,163,74,.2),rgba(34,197,94,.3),rgba(22,163,74,.2))',
+                             border: '1px solid rgba(34,197,94,.5)',
                            }}>
-                        <span className="text-base">🚚</span>
-                        <span className="text-green-300 text-xs font-black tracking-wide uppercase">Frete GRÁTIS Brasil</span>
+                        <span className="airplane-bounce text-base">✈️</span>
+                        <span className="text-green-200 text-xs font-black tracking-wide uppercase">Frete GRÁTIS Brasil</span>
                       </div>
                     </div>
 
@@ -1209,6 +1214,21 @@ export default function Page() {
                     {kit.inst} sem juros &nbsp;·&nbsp;{' '}
                     <strong className="text-green-300">PIX: R$ {kit.pix.toFixed(2).replace('.', ',')}</strong>
                   </p>
+                </div>
+
+                {/* ✈️ FAIXA FRETE GRÁTIS — DESTAQUE MÁXIMO no card de compra */}
+                <div className="flex justify-center mb-6">
+                  <div className="shipping-banner inline-flex items-center gap-3 px-6 py-3 rounded-2xl"
+                       style={{
+                         background: 'linear-gradient(90deg,#15803d 0%,#16a34a 25%,#22c55e 50%,#16a34a 75%,#15803d 100%)',
+                         border: '2px solid rgba(255,255,255,.3)',
+                       }}>
+                    <span className="airplane-bounce text-2xl">✈️</span>
+                    <div className="text-left leading-tight">
+                      <p className="text-white text-[10px] font-bold uppercase tracking-[.25em] opacity-90">Vantagem exclusiva</p>
+                      <p className="text-white text-base font-black tracking-tight">FRETE GRÁTIS pra TODO Brasil</p>
+                    </div>
+                  </div>
                 </div>
 
                 {/* CTA button */}
