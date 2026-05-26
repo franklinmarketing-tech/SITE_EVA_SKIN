@@ -379,9 +379,8 @@ export default function Page() {
 
         .float{animation:float 4.5s ease-in-out infinite}
         .glow-ring-anim{animation:glow-ring-anim 2.5s ease-in-out infinite}
-        /* Shimmer finito (2 iters) para reduzir TBT — chama atenção sem CPU constante */
-        .shimmer-text{background:linear-gradient(90deg,#c4b5fd 0%,#fff 40%,#c4b5fd 60%,#fff 80%,#c4b5fd);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear 2}
-        .shimmer-text-dark{background:linear-gradient(90deg,#7c3aed 0%,#a78bfa 40%,#7c3aed 60%,#a78bfa 80%,#7c3aed);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear 2}
+        .shimmer-text{background:linear-gradient(90deg,#c4b5fd 0%,#fff 40%,#c4b5fd 60%,#fff 80%,#c4b5fd);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
+        .shimmer-text-dark{background:linear-gradient(90deg,#7c3aed 0%,#a78bfa 40%,#7c3aed 60%,#a78bfa 80%,#7c3aed);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
         .ticker-wrap{display:flex;animation:ticker 28s linear infinite}
         .hero-dots{background-image:radial-gradient(circle,rgba(139,92,246,.2) 1px,transparent 1px);background-size:30px 30px}
         .hero-noise::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1;animation:noise-move 8s steps(2) infinite}
@@ -403,7 +402,7 @@ export default function Page() {
         @keyframes kcard-bg-shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
         .kcard{transition:all .35s cubic-bezier(.34,1.56,.64,1);border:2px solid rgba(255,255,255,.07);background:rgba(255,255,255,.04)}
         .kcard:hover{border-color:rgba(139,92,246,.6)!important;box-shadow:0 0 0 1px rgba(139,92,246,.25),0 28px 56px -8px rgba(124,58,237,.28);transform:translateY(-8px) scale(1.01)}
-        .kcard-on{border-color:#8b5cf6!important;background:linear-gradient(145deg,rgba(109,40,217,.18),rgba(139,92,246,.12),rgba(76,29,149,.2))!important;box-shadow:0 0 0 3px rgba(139,92,246,.9),0 30px 70px -10px rgba(124,58,237,.5);transform:translateY(-6px) scale(1.03)!important}
+        .kcard-on{border-color:#8b5cf6!important;background:linear-gradient(145deg,rgba(109,40,217,.18),rgba(139,92,246,.12),rgba(76,29,149,.2))!important;animation:pulse-ring 2.4s ease-in-out infinite;transform:translateY(-6px) scale(1.03)!important}
         .kcard-on:hover{transform:translateY(-10px) scale(1.04)!important}
         .kcard-img-glow-purple{background:radial-gradient(ellipse 70% 55% at 50% 60%,rgba(139,92,246,.55) 0%,rgba(109,40,217,.2) 50%,transparent 80%)}
         .kcard-img-glow-violet{background:radial-gradient(ellipse 70% 55% at 50% 60%,rgba(167,139,250,.6) 0%,rgba(139,92,246,.25) 50%,transparent 80%)}
@@ -426,8 +425,6 @@ export default function Page() {
         .nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:linear-gradient(90deg,#8b5cf6,#a78bfa);transition:width .3s ease}
         .nav-link:hover::after{width:100%}
 
-        /* MAJOR PERF WIN: defer render de secoes below-the-fold (~70% menos LCP) */
-        .deferred{content-visibility:auto;contain-intrinsic-size:1px 800px}
         .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
         .reveal.visible{opacity:1;transform:translateY(0)}
         .reveal-delay-1{transition-delay:.1s}
@@ -720,7 +717,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             SEÇÃO DOR
         ══════════════════════════════════════ */}
-        <section id="dores" className="deferred py-24 px-4" style={{ background: '#0f0918' }}>
+        <section id="dores" className="py-24 px-4" style={{ background: '#0f0918' }}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16 reveal">
               <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: 'rgba(239,68,68,.12)', color: '#f87171', border: '1px solid rgba(239,68,68,.25)' }}>
@@ -778,7 +775,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             INGREDIENTES
         ══════════════════════════════════════ */}
-        <section id="ingredientes" className="deferred py-24 px-4" style={{ background: '#080811' }}>
+        <section id="ingredientes" className="py-24 px-4" style={{ background: '#080811' }}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 reveal">
               <span className="text-purple-400 font-bold text-sm uppercase tracking-widest">Fórmula Científica Premium</span>
@@ -815,7 +812,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             BENEFÍCIOS — PHOTO CARDS
         ══════════════════════════════════════ */}
-        <section id="beneficios" className="deferred py-24 px-4" style={{ background: '#07070d' }}>
+        <section id="beneficios" className="py-24 px-4" style={{ background: '#07070d' }}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 reveal">
               <span className="text-purple-400 font-bold text-sm uppercase tracking-widest">Transformação real</span>
@@ -836,7 +833,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             CTA INTERMEDIÁRIO
         ══════════════════════════════════════ */}
-        <section className="deferred py-16 px-4" style={{ background: 'linear-gradient(135deg,#3b0764 0%,#5b21b6 50%,#3b0764 100%)' }}>
+        <section className="py-16 px-4" style={{ background: 'linear-gradient(135deg,#3b0764 0%,#5b21b6 50%,#3b0764 100%)' }}>
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-purple-200 font-semibold mb-3 text-sm uppercase tracking-widest">Pronta para dar o primeiro passo?</p>
             <h3 className="text-3xl lg:text-4xl font-black text-white mb-6 leading-tight">
@@ -853,7 +850,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             ANTES / DEPOIS
         ══════════════════════════════════════ */}
-        <section className="deferred py-24 px-4" style={{ background: '#08080f' }}>
+        <section className="py-24 px-4" style={{ background: '#08080f' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-14 reveal">
               <span className="text-purple-400 font-bold text-sm uppercase tracking-widest">Transformação Real</span>
@@ -919,7 +916,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             COMO USAR
         ══════════════════════════════════════ */}
-        <section className="deferred py-24 px-4" style={{ background: '#1e0a3c' }}>
+        <section className="py-24 px-4" style={{ background: '#1e0a3c' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-14 reveal">
               <span className="text-purple-300 font-bold text-sm uppercase tracking-widest">Simples e Eficaz</span>
@@ -1209,7 +1206,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             DEPOIMENTOS
         ══════════════════════════════════════ */}
-        <section id="depoimentos" className="deferred py-24 px-4" style={{ background: '#fafafa' }}>
+        <section id="depoimentos" className="py-24 px-4" style={{ background: '#fafafa' }}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 reveal">
               <span className="text-purple-600 font-bold text-sm uppercase tracking-widest">Histórias Reais</span>
@@ -1261,7 +1258,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             FAQ
         ══════════════════════════════════════ */}
-        <section id="faq" className="deferred py-24 px-4 bg-white">
+        <section id="faq" className="py-24 px-4 bg-white">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-14 reveal">
               <span className="text-purple-600 font-bold text-sm uppercase tracking-widest">Tire suas dúvidas</span>

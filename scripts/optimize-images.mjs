@@ -19,13 +19,13 @@ async function optimize(input, output, opts = {}) {
 
 console.log('🖼️  Otimizando imagens...\n')
 
-// Produto hero (acima da dobra — qualidade alta, mas otimizado)
-await optimize(`${IMAGES_DIR}/produto-hero.png`, `${IMAGES_DIR}/produto-hero.webp`, { width: 900, quality: 88 })
+// Produto hero (acima da dobra — qualidade MÁXIMA pra nitidez perfeita)
+await optimize(`${IMAGES_DIR}/produto-hero.png`, `${IMAGES_DIR}/produto-hero.webp`, { width: 1400, quality: 98 })
 
-// Imagens dos kits
-await optimize(`${IMAGES_DIR}/produto-1.png`, `${IMAGES_DIR}/produto-1.webp`, { width: 700, quality: 85 })
-await optimize(`${IMAGES_DIR}/produto-2.png`, `${IMAGES_DIR}/produto-2.webp`, { width: 700, quality: 85 })
-await optimize(`${IMAGES_DIR}/produto-3.png`, `${IMAGES_DIR}/produto-3.webp`, { width: 700, quality: 85 })
+// Imagens dos kits (qualidade alta)
+await optimize(`${IMAGES_DIR}/produto-1.png`, `${IMAGES_DIR}/produto-1.webp`, { width: 1000, quality: 96 })
+await optimize(`${IMAGES_DIR}/produto-2.png`, `${IMAGES_DIR}/produto-2.webp`, { width: 1000, quality: 96 })
+await optimize(`${IMAGES_DIR}/produto-3.png`, `${IMAGES_DIR}/produto-3.webp`, { width: 1000, quality: 96 })
 
 // Imagens do bônus PDF (não-críticas, baixa prioridade)
 await optimize(`${PUBLIC_DIR}/bonus-banner-1200x630.png`, `${PUBLIC_DIR}/bonus-banner-1200x630.webp`, { width: 1200, quality: 82 })

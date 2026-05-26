@@ -105,10 +105,12 @@
       "Bash(git commit -m 'Remove emojis flutuantes dos PhotoCards de beneficios *)",
       "Bash(git commit -m 'Remove menção '\\\\''Yampi'\\\\'' do loading overlay *)",
       "Bash(awk '{print $5, $NF}')",
-      "Bash(node scripts/optimize-images.mjs)"
+      "Bash(node scripts/optimize-images.mjs)",
+      "Bash(cd \"c:/Users/frank/OneDrive/Desktop/EVA SKIN\" && rm public/images/produto-*.png && ls -la public/images/)"
     ],
     "additionalDirectories": [
-      "\\tmp"
+      "\\tmp",
+      "C:\\Users\\frank\\OneDrive\\Desktop\\EVA SKIN\\public\\images"
     ]
   }
 }
