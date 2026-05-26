@@ -1086,14 +1086,14 @@ export default function Page() {
                   : 'bg-white text-purple-700 shadow-[0_8px_24px_-4px_rgba(255,255,255,.18)]'
                 return (
                   <div key={k.id} onClick={() => setKit(k)}
-                    className={`kcard relative rounded-3xl text-center cursor-pointer flex flex-col ${isOn ? 'kcard-on' : ''}`}
-                    style={{ padding: '0 0 28px 0' }}>
+                    className={`kcard relative rounded-2xl text-center cursor-pointer flex flex-col ${isOn ? 'kcard-on' : ''}`}
+                    style={{ padding: '0 0 16px 0' }}>
 
-                    {/* Badge row — always occupies space to keep cards aligned */}
-                    <div className="h-8 flex items-center justify-center mt-5 mb-2 px-6">
+                    {/* Badge row — compacta */}
+                    <div className="h-6 flex items-center justify-center mt-3 mb-1 px-4">
                       {k.badge && (
-                        <span className={`bg-gradient-to-r ${k.badgeCls} text-white text-[11px] font-black px-5 py-1.5 rounded-full shadow-lg tracking-wide whitespace-nowrap`}
-                          style={{ boxShadow: k.id === 2 ? '0 0 20px rgba(139,92,246,.6)' : '0 0 20px rgba(245,158,11,.5)' }}>
+                        <span className={`bg-gradient-to-r ${k.badgeCls} text-white text-[10px] font-black px-3.5 py-1 rounded-full shadow-md tracking-wide whitespace-nowrap`}
+                          style={{ boxShadow: k.id === 2 ? '0 0 14px rgba(139,92,246,.5)' : '0 0 14px rgba(245,158,11,.4)' }}>
                           {k.badge}
                         </span>
                       )}
@@ -1101,101 +1101,85 @@ export default function Page() {
 
                     {/* Check badge */}
                     {isOn && (
-                      <div className="kcard-check absolute top-4 right-4">
-                        <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
+                      <div className="kcard-check absolute top-3 right-3">
+                        <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
                     )}
 
-                    {/* Image area — large */}
-                    <div className="relative mx-auto w-full px-6" style={{ height: '256px' }}>
-                      {/* Dramatic glow halo behind product */}
-                      <div className={`absolute inset-x-6 bottom-0 top-4 rounded-2xl ${glowCls}`}
-                        style={{ filter: 'blur(28px)', opacity: isOn ? 1 : 0.6, transition: 'opacity .35s ease' }} />
-                      {/* Animated float on selection */}
+                    {/* Image area — compacta */}
+                    <div className="relative mx-auto w-full px-4" style={{ height: '160px' }}>
+                      <div className={`absolute inset-x-4 bottom-0 top-3 rounded-xl ${glowCls}`}
+                        style={{ filter: 'blur(22px)', opacity: isOn ? 1 : 0.6, transition: 'opacity .35s ease' }} />
                       <div className={`relative w-full h-full ${isOn ? 'float' : ''}`}>
                         <ProductImg src={k.img} alt={`Kit ${k.qty} frasco(s) Eva Skin Caps`} />
                       </div>
                     </div>
 
-                    {/* Qty + days */}
-                    <div className="mt-5 px-6">
-                      <p className="font-black text-white text-xl tracking-tight">
-                        {k.qty} {k.qty === 1 ? 'Frasco' : 'Frascos'}
+                    {/* Qty + days — inline compacto */}
+                    <div className="mt-2 px-4">
+                      <p className="font-black text-white text-base tracking-tight leading-tight">
+                        {k.qty} {k.qty === 1 ? 'Frasco' : 'Frascos'} <span className="text-gray-500 text-xs font-medium">· {k.days} dias</span>
                       </p>
-                      <p className="text-gray-500 text-xs mt-0.5 mb-4">{k.days} dias de tratamento</p>
                     </div>
 
-                    {/* Divider */}
-                    <div className="mx-6 mb-4" style={{ height: '1px', background: 'rgba(255,255,255,.07)' }} />
+                    {/* Divider compacto */}
+                    <div className="mx-4 my-2" style={{ height: '1px', background: 'rgba(255,255,255,.07)' }} />
 
-                    {/* Pricing block — FOCO no preço unitário */}
-                    <div className="px-6 flex flex-col items-center gap-1">
-                      {/* Tarja de desconto destacada para kits 2 e 3 */}
+                    {/* Pricing block — compacto */}
+                    <div className="px-4 flex flex-col items-center">
+                      {/* Tarja de desconto kits 2 e 3 */}
                       {k.qty > 1 && (
-                        <span className="inline-block text-white text-[13px] font-black px-4 py-1.5 rounded-full mb-2 tracking-wider"
+                        <span className="inline-block text-white text-[11px] font-black px-3 py-1 rounded-full mb-1.5 tracking-wider"
                           style={{
                             background: k.qty === 3
                               ? 'linear-gradient(90deg,#dc2626,#ef4444,#dc2626)'
                               : 'linear-gradient(90deg,#16a34a,#22c55e,#16a34a)',
                             boxShadow: k.qty === 3
-                              ? '0 6px 16px rgba(220,38,38,.5)'
-                              : '0 6px 16px rgba(22,163,74,.5)',
-                            border: '1px solid rgba(255,255,255,.25)'
+                              ? '0 4px 12px rgba(220,38,38,.4)'
+                              : '0 4px 12px rgba(22,163,74,.4)',
+                            border: '1px solid rgba(255,255,255,.2)'
                           }}>
-                          🔥 {k.disc} DE DESCONTO
+                          🔥 {k.disc} OFF
                         </span>
                       )}
 
-                      {/* PREÇO POR FRASCO — destaque máximo */}
-                      <p className="text-purple-300 text-[10px] font-bold uppercase tracking-[.2em]">Preço por frasco</p>
-                      <p className="text-5xl font-black text-white leading-none mt-1">
-                        R$ {Math.floor(k.per)}<span className="text-2xl font-bold">,{(k.per % 1 * 100).toFixed(0).padStart(2, '0')}</span>
+                      {/* PREÇO POR FRASCO — destaque (reduzido) */}
+                      <p className="text-purple-300 text-[9px] font-bold uppercase tracking-[.18em]">Preço por frasco</p>
+                      <p className="text-4xl font-black text-white leading-none mt-0.5">
+                        R$ {Math.floor(k.per)}<span className="text-xl font-bold">,{(k.per % 1 * 100).toFixed(0).padStart(2, '0')}</span>
                       </p>
 
-                      {/* Total (menor, secundário) */}
+                      {/* Total + parcelas inline */}
                       {k.qty > 1 ? (
-                        <p className="text-gray-400 text-xs mt-2">Total: <span className="text-white font-bold">R$ {k.price},00</span> {k.qty > 1 && (<span className="text-gray-600 line-through ml-1">R$ {k.from},00</span>)}</p>
+                        <p className="text-gray-400 text-[11px] mt-1.5">Total: <span className="text-white font-bold">R$ {k.price},00</span> <span className="text-gray-600 line-through ml-1">R$ {k.from},00</span></p>
                       ) : (
-                        <p className="text-gray-600 text-xs mt-2 line-through">De R$ {k.from},00</p>
+                        <p className="text-gray-600 text-[11px] mt-1.5 line-through">De R$ {k.from},00</p>
                       )}
 
-                      {/* Installments */}
-                      <p className="text-gray-500 text-xs mt-1">{k.inst} sem juros</p>
+                      <p className="text-gray-500 text-[10px] mt-0.5">{k.inst} · <span className="text-green-400 font-bold">PIX R$ {k.pix.toFixed(2).replace('.', ',')}</span></p>
 
-                      {/* PIX */}
-                      <p className="text-green-400 text-sm font-black mt-1.5">
-                        PIX: R$ {k.pix.toFixed(2).replace('.', ',')}
-                      </p>
-
-                      {/* Savings chip */}
-                      {savings > 0 && (
-                        <span className="savings-chip inline-block text-[11px] font-bold px-3 py-1 rounded-full mt-2">
-                          Você economiza R$ {savings},00
-                        </span>
-                      )}
-
-                      {/* ✅ TARJA FRETE GRÁTIS — avião voando em todos os kits */}
-                      <div className="w-full mt-3 flex items-center justify-center gap-2 py-2 px-3 rounded-xl shipping-banner"
+                      {/* Savings + Frete grátis lado a lado */}
+                      <div className="w-full mt-2 flex items-center justify-center gap-2 py-1.5 px-2 rounded-lg shipping-banner"
                            style={{
                              background: 'linear-gradient(90deg,rgba(22,163,74,.2),rgba(34,197,94,.3),rgba(22,163,74,.2))',
                              border: '1px solid rgba(34,197,94,.5)',
                            }}>
-                        <span className="airplane-bounce inline-flex items-center flex-shrink-0"><IconPlane className="w-7 h-5" /></span>
-                        <span className="text-green-200 text-xs font-black tracking-wide uppercase">Frete GRÁTIS Brasil</span>
+                        <span className="airplane-bounce inline-flex items-center flex-shrink-0"><IconPlane className="w-6 h-4" /></span>
+                        <span className="text-green-200 text-[10px] font-black tracking-wide uppercase">Frete GRÁTIS</span>
                       </div>
                     </div>
 
-                    {/* ── BUY BUTTON inside each card ── */}
-                    <div className="px-5 mt-5">
+                    {/* ── BUY BUTTON — compacto ── */}
+                    <div className="px-4 mt-3">
                       <a href={k.link}
                          onClick={(e) => { e.stopPropagation(); setKit(k); triggerLoad() }}
                          onMouseEnter={() => prefetchCheckout(k.link)}
-                         className={`block w-full text-center font-black px-4 py-3.5 rounded-xl text-sm tracking-wide transition-transform duration-200 hover:scale-[1.03] active:scale-100 ${btnCls}`}>
+                         className={`block w-full text-center font-black px-3 py-2.5 rounded-lg text-sm tracking-wide transition-transform duration-200 hover:scale-[1.03] active:scale-100 ${btnCls}`}>
                         COMPRAR {k.qty} {k.qty === 1 ? 'FRASCO' : 'FRASCOS'} →
                       </a>
-                      <p className="text-gray-500 text-[10px] mt-2 tracking-wide">🔒 Pagamento seguro · Garantia 30 dias</p>
+                      <p className="text-gray-500 text-[9px] mt-1.5 tracking-wide">🔒 Pagamento seguro · 30 dias garantia</p>
                     </div>
                   </div>
                 )
