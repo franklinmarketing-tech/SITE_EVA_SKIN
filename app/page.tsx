@@ -2,9 +2,10 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
-const LINK_1 = '#kiwify-1'
-const LINK_2 = '#kiwify-2'
-const LINK_3 = '#kiwify-3'
+const YAMPI_BASE = 'https://pra-saude.pay.yampi.com.br/r/DH6V3EFXVZ'
+const LINK_1 = `${YAMPI_BASE}?quantity=1`
+const LINK_2 = `${YAMPI_BASE}?quantity=2&cupom=KIT2`
+const LINK_3 = `${YAMPI_BASE}?quantity=3&cupom=KIT3`
 
 const pad = (n: number) => String(n).padStart(2, '0')
 
