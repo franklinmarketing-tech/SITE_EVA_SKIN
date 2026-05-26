@@ -914,8 +914,13 @@ export default function Page() {
                 const isOn = kit.id === k.id
                 const glowCls = k.id === 1 ? 'kcard-img-glow-purple' : k.id === 2 ? 'kcard-img-glow-violet' : 'kcard-img-glow-amber'
                 const savings = k.from - k.price
+                const btnCls = k.id === 2
+                  ? 'bg-gradient-to-r from-purple-600 to-violet-500 text-white shadow-[0_12px_28px_-4px_rgba(124,58,237,.55)]'
+                  : k.id === 3
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-[0_12px_28px_-4px_rgba(245,158,11,.55)]'
+                  : 'bg-white text-purple-700 shadow-[0_8px_24px_-4px_rgba(255,255,255,.18)]'
                 return (
-                  <button key={k.id} onClick={() => setKit(k)}
+                  <div key={k.id} onClick={() => setKit(k)}
                     className={`kcard relative rounded-3xl text-center cursor-pointer flex flex-col ${isOn ? 'kcard-on' : ''}`}
                     style={{ padding: '0 0 28px 0' }}>
 
@@ -990,7 +995,17 @@ export default function Page() {
                         Economia de R$ {savings},00
                       </span>
                     </div>
-                  </button>
+
+                    {/* ── BUY BUTTON inside each card ── */}
+                    <div className="px-5 mt-5">
+                      <a href={k.link}
+                         onClick={(e) => { e.stopPropagation(); setKit(k); interceptBuy(k.qty)(e); }}
+                         className={`block w-full text-center font-black px-4 py-3.5 rounded-xl text-sm tracking-wide transition-transform duration-200 hover:scale-[1.03] active:scale-100 ${btnCls}`}>
+                        COMPRAR {k.qty} {k.qty === 1 ? 'FRASCO' : 'FRASCOS'} →
+                      </a>
+                      <p className="text-gray-500 text-[10px] mt-2 tracking-wide">🔒 Pagamento seguro · {k.qty >= 2 ? 'Frete fixo R$25,80' : 'Garantia 30 dias'}</p>
+                    </div>
+                  </div>
                 )
               })}
             </div>
