@@ -118,6 +118,62 @@ function IconCalendar({ className = '' }: { className?: string }) {
   )
 }
 
+/* ✈️ AVIÃO DE ENTREGA — SVG realista com gradient + linhas de velocidade */
+function IconPlane({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 64 40" className={className} fill="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="planeBody" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#ffffff"/>
+          <stop offset="50%" stopColor="#f1f5f9"/>
+          <stop offset="100%" stopColor="#cbd5e1"/>
+        </linearGradient>
+        <linearGradient id="planeAccent" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#16a34a"/>
+          <stop offset="100%" stopColor="#22c55e"/>
+        </linearGradient>
+        <linearGradient id="planeWing" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#e2e8f0"/>
+          <stop offset="100%" stopColor="#94a3b8"/>
+        </linearGradient>
+      </defs>
+
+      {/* Linhas de velocidade (motion lines) */}
+      <line x1="2" y1="14" x2="10" y2="14" stroke="#86efac" strokeWidth="1.5" strokeLinecap="round" opacity=".6"/>
+      <line x1="0" y1="20" x2="9" y2="20" stroke="#86efac" strokeWidth="1.5" strokeLinecap="round" opacity=".8"/>
+      <line x1="3" y1="26" x2="11" y2="26" stroke="#86efac" strokeWidth="1.5" strokeLinecap="round" opacity=".6"/>
+
+      {/* Corpo do avião (fuselagem) */}
+      <path d="M 12 17 Q 12 14, 16 14 L 44 14 Q 52 14, 58 20 Q 52 26, 44 26 L 16 26 Q 12 26, 12 23 Z"
+            fill="url(#planeBody)" stroke="#475569" strokeWidth=".5"/>
+
+      {/* Nariz/cockpit */}
+      <path d="M 50 16 Q 56 17, 58 20 Q 56 23, 50 24 L 50 16 Z" fill="url(#planeAccent)"/>
+
+      {/* Janelas do cockpit */}
+      <path d="M 52 18 Q 55 18.5, 56.5 20 Q 55 21.5, 52 22 L 52 18 Z" fill="#1e3a8a" opacity=".7"/>
+
+      {/* Janelas dos passageiros (4 círculos) */}
+      <circle cx="22" cy="20" r="1.4" fill="#1e3a8a" opacity=".6"/>
+      <circle cx="28" cy="20" r="1.4" fill="#1e3a8a" opacity=".6"/>
+      <circle cx="34" cy="20" r="1.4" fill="#1e3a8a" opacity=".6"/>
+      <circle cx="40" cy="20" r="1.4" fill="#1e3a8a" opacity=".6"/>
+
+      {/* Asa principal (debaixo) */}
+      <path d="M 22 24 L 38 24 L 32 33 L 18 33 Z" fill="url(#planeWing)" stroke="#475569" strokeWidth=".5"/>
+
+      {/* Asa de cima (cauda dorsal) */}
+      <path d="M 30 14 L 38 14 L 35 6 L 28 6 Z" fill="url(#planeWing)" stroke="#475569" strokeWidth=".5"/>
+
+      {/* Cauda traseira */}
+      <path d="M 12 17 L 8 8 L 14 11 L 14 14 Z" fill="url(#planeWing)" stroke="#475569" strokeWidth=".5"/>
+
+      {/* Listra verde decorativa no corpo */}
+      <path d="M 14 19 L 50 19" stroke="url(#planeAccent)" strokeWidth="1.5" opacity=".9"/>
+    </svg>
+  )
+}
+
 /* Ícones de DORES (anatômicos / situacionais) */
 function IconBed({ className = '' }: { className?: string }) {
   return (
@@ -492,7 +548,7 @@ export default function Page() {
              style={{
                background: 'linear-gradient(90deg,#14532d 0%,#15803d 25%,#16a34a 50%,#15803d 75%,#14532d 100%)',
              }}>
-          <span className="airplane-bounce text-lg">✈️</span>
+          <span className="airplane-bounce inline-flex items-center"><IconPlane className="w-7 h-5" /></span>
           <span className="uppercase tracking-[.15em] text-[12px] sm:text-sm">FRETE GRÁTIS</span>
           <span className="text-green-200 hidden sm:inline">·</span>
           <span className="text-green-100 text-[11px] sm:text-sm normal-case">para TODO o Brasil em qualquer pedido</span>
@@ -1009,7 +1065,7 @@ export default function Page() {
                      background: 'linear-gradient(135deg,rgba(22,163,74,.22),rgba(34,197,94,.32),rgba(22,163,74,.22))',
                      border: '1.5px solid rgba(34,197,94,.55)',
                    }}>
-                <span className="airplane-bounce text-2xl">✈️</span>
+                <span className="airplane-bounce inline-flex items-center flex-shrink-0"><IconPlane className="w-12 h-8" /></span>
                 <div className="text-left">
                   <p className="text-green-300 text-xs font-black uppercase tracking-[.2em] leading-tight">Frete GRÁTIS</p>
                   <p className="text-green-100 text-sm font-bold leading-tight">Em qualquer kit, para todo o Brasil</p>
@@ -1126,7 +1182,7 @@ export default function Page() {
                              background: 'linear-gradient(90deg,rgba(22,163,74,.2),rgba(34,197,94,.3),rgba(22,163,74,.2))',
                              border: '1px solid rgba(34,197,94,.5)',
                            }}>
-                        <span className="airplane-bounce text-base">✈️</span>
+                        <span className="airplane-bounce inline-flex items-center flex-shrink-0"><IconPlane className="w-7 h-5" /></span>
                         <span className="text-green-200 text-xs font-black tracking-wide uppercase">Frete GRÁTIS Brasil</span>
                       </div>
                     </div>
@@ -1223,7 +1279,7 @@ export default function Page() {
                          background: 'linear-gradient(90deg,#15803d 0%,#16a34a 25%,#22c55e 50%,#16a34a 75%,#15803d 100%)',
                          border: '2px solid rgba(255,255,255,.3)',
                        }}>
-                    <span className="airplane-bounce text-2xl">✈️</span>
+                    <span className="airplane-bounce inline-flex items-center flex-shrink-0"><IconPlane className="w-14 h-9" /></span>
                     <div className="text-left leading-tight">
                       <p className="text-white text-[10px] font-bold uppercase tracking-[.25em] opacity-90">Vantagem exclusiva</p>
                       <p className="text-white text-base font-black tracking-tight">FRETE GRÁTIS pra TODO Brasil</p>
