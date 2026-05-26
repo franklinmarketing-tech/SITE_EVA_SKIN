@@ -3,9 +3,9 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const YAMPI_BASE = 'https://pra-saude.pay.yampi.com.br/r/DH6V3EFXVZ'
-const LINK_1 = `${YAMPI_BASE}?quantity=1`
-const LINK_2 = `${YAMPI_BASE}?quantity=2&cupom=KIT2`
-const LINK_3 = `${YAMPI_BASE}?quantity=3&cupom=KIT3`
+const LINK_1 = `${YAMPI_BASE}:1`
+const LINK_2 = `${YAMPI_BASE}:2?promocode=KIT2`
+const LINK_3 = `${YAMPI_BASE}:3?promocode=KIT3`
 
 const pad = (n: number) => String(n).padStart(2, '0')
 
