@@ -456,7 +456,7 @@ export default function Page() {
           <div className="text-center px-6">
             <div className="mx-auto mb-5 w-16 h-16 rounded-full border-4 border-purple-500/30 border-t-purple-500 animate-spin" />
             <p className="text-white text-lg font-bold mb-1">Abrindo checkout seguro...</p>
-            <p className="text-purple-300 text-sm">Aguarde, estamos te redirecionando para a Yampi 🔒</p>
+            <p className="text-purple-300 text-sm">Aguarde, estamos te redirecionando 🔒</p>
           </div>
         </div>
       )}
