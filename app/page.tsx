@@ -277,9 +277,9 @@ const Stars = () => (
 )
 
 const kits = [
-  { id: 1, qty: 1, badge: '', badgeCls: '', from: 127, price: 97, pix: 87.30, per: 97, inst: '3x de R$ 32,33', disc: '24%', days: 30, link: LINK_1, img: '/images/produto-hero.png' },
-  { id: 2, qty: 2, badge: '⭐ Mais Vendido', badgeCls: 'from-purple-600 to-violet-500', from: 254, price: 177, pix: 159.30, per: 88.50, inst: '6x de R$ 29,50', disc: '30%', days: 60, link: LINK_2, img: '/images/produto-2.png' },
-  { id: 3, qty: 3, badge: '🔥 Melhor Preço', badgeCls: 'from-amber-500 to-orange-500', from: 381, price: 237, pix: 213.30, per: 79.00, inst: '6x de R$ 39,50', disc: '38%', days: 90, link: LINK_3, img: '/images/produto-3.png' },
+  { id: 1, qty: 1, badge: '', badgeCls: '', from: 127, price: 97, pix: 87.30, per: 97, inst: '3x de R$ 32,33', disc: '0%', days: 30, link: LINK_1, img: '/images/produto-hero.png' },
+  { id: 2, qty: 2, badge: '⭐ Mais Vendido', badgeCls: 'from-purple-600 to-violet-500', from: 194, price: 174, pix: 156.60, per: 87, inst: '6x de R$ 29,00', disc: '10%', days: 60, link: LINK_2, img: '/images/produto-2.png' },
+  { id: 3, qty: 3, badge: '🔥 Melhor Preço', badgeCls: 'from-amber-500 to-orange-500', from: 291, price: 231, pix: 207.90, per: 77, inst: '6x de R$ 38,50', disc: '20%', days: 90, link: LINK_3, img: '/images/produto-3.png' },
 ]
 
 const ingr = [
@@ -344,7 +344,6 @@ export default function Page() {
   const [kit, setKit] = useState(kits[1])
   const [faq, setFaq] = useState<number | null>(null)
   const [scrolled, setScrolled] = useState(false)
-  const [upsellFor, setUpsellFor] = useState<number | null>(null)
   const time = useCountdown()
 
   useEffect(() => {
@@ -352,17 +351,6 @@ export default function Page() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  // Upsell intercept: if user clicks buy on kit 1 or 2, show upgrade modal
-  const interceptBuy = (qty: number) => (e: React.MouseEvent) => {
-    if (qty < 3) {
-      e.preventDefault()
-      setUpsellFor(qty)
-    }
-  }
-
-  const upsellCurrent = upsellFor ? kits.find(k => k.qty === upsellFor) : null
-  const upsellNext = upsellFor ? kits.find(k => k.qty === upsellFor + 1) : null
 
   return (
     <>
@@ -454,82 +442,6 @@ export default function Page() {
         .fade-up-4{animation:fade-up .7s .55s ease-out both}
       `}</style>
 
-      {/* ── UPSELL MODAL ── */}
-      {upsellFor && upsellCurrent && upsellNext && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-[fade-up_.25s_ease-out]"
-             style={{ background: 'rgba(8,8,15,.85)', backdropFilter: 'blur(8px)' }}
-             onClick={() => setUpsellFor(null)}>
-          <div onClick={e => e.stopPropagation()}
-               className="relative w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl"
-               style={{ background: 'linear-gradient(160deg,#1a0b2e 0%,#2d1b4e 50%,#1a0b2e 100%)', border: '1px solid rgba(167,139,250,.25)' }}>
-
-            {/* Close button */}
-            <button onClick={() => setUpsellFor(null)}
-                    className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition-colors z-10"
-                    aria-label="Fechar">✕</button>
-
-            {/* Header banner */}
-            <div className="text-center pt-7 pb-5 px-6"
-                 style={{ background: 'linear-gradient(90deg,rgba(245,158,11,.15),rgba(168,85,247,.15),rgba(245,158,11,.15))' }}>
-              <span className="inline-block text-amber-300 text-[10px] font-black tracking-[.3em] uppercase mb-2">✨ Espera! Oferta especial</span>
-              <h3 className="text-white text-2xl sm:text-3xl font-black leading-tight">
-                Aproveite e <span className="text-amber-300 italic">economize mais R$ {(upsellCurrent.per * upsellNext.qty - upsellNext.price).toFixed(0)},00</span>
-              </h3>
-            </div>
-
-            {/* Comparison */}
-            <div className="p-6 sm:p-8">
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                {/* Current kit */}
-                <div className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)' }}>
-                  <p className="text-gray-400 text-[11px] font-bold uppercase tracking-wider mb-1">Você escolheu</p>
-                  <p className="text-white text-xl font-black mb-1">{upsellCurrent.qty} Frasco{upsellCurrent.qty > 1 ? 's' : ''}</p>
-                  <p className="text-gray-500 text-sm">R$ {upsellCurrent.per.toFixed(2).replace('.',',')}<span className="text-xs">/un</span></p>
-                  <p className="text-gray-400 text-lg font-bold mt-2">R$ {upsellCurrent.price},00</p>
-                </div>
-
-                {/* Upsell kit */}
-                <div className="rounded-2xl p-4 text-center relative"
-                     style={{ background: 'linear-gradient(135deg,rgba(245,158,11,.15),rgba(168,85,247,.2))', border: '1.5px solid rgba(245,158,11,.5)', boxShadow: '0 0 30px rgba(245,158,11,.2)' }}>
-                  <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] font-black px-3 py-0.5 rounded-full whitespace-nowrap tracking-wider">MELHOR ESCOLHA</span>
-                  <p className="text-amber-300 text-[11px] font-bold uppercase tracking-wider mb-1 mt-1">Adicione +1 frasco</p>
-                  <p className="text-white text-xl font-black mb-1">{upsellNext.qty} Frascos</p>
-                  <p className="text-amber-200 text-sm font-bold">R$ {upsellNext.per.toFixed(2).replace('.',',')}<span className="text-xs">/un</span></p>
-                  <p className="text-amber-300 text-lg font-black mt-2">R$ {upsellNext.price},00</p>
-                </div>
-              </div>
-
-              {/* Benefits list */}
-              <div className="rounded-2xl p-4 mb-5" style={{ background: 'rgba(34,197,94,.08)', border: '1px solid rgba(34,197,94,.2)' }}>
-                <p className="text-green-300 text-sm font-bold mb-2">✓ Você ganha ao fazer upgrade:</p>
-                <ul className="text-gray-200 text-sm space-y-1.5">
-                  <li>💰 Economia adicional de <strong className="text-green-300">R$ {(upsellCurrent.per * upsellNext.qty - upsellNext.price).toFixed(0)},00</strong> (preço por frasco menor)</li>
-                  <li>📅 <strong className="text-white">{upsellNext.days} dias</strong> de tratamento (vs {upsellCurrent.days} dias) — sem risco de acabar</li>
-                  <li>🎁 <strong className="text-amber-300">Bônus exclusivo:</strong> Guia "Mobilidade & Bem-Estar" em PDF</li>
-                </ul>
-              </div>
-
-              {/* Actions */}
-              <div className="flex flex-col gap-2.5">
-                <a href={upsellNext.link}
-                   onClick={() => setUpsellFor(null)}
-                   className="block w-full text-center bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-white font-black px-6 py-4 rounded-2xl text-base shadow-xl hover:scale-[1.02] active:scale-100 transition-transform"
-                   style={{ boxShadow: '0 18px 40px rgba(245,158,11,.4)' }}>
-                  ✨ SIM, QUERO {upsellNext.qty} FRASCOS POR R$ {upsellNext.price},00
-                </a>
-                <a href={upsellCurrent.link}
-                   onClick={() => setUpsellFor(null)}
-                   className="block w-full text-center text-gray-400 hover:text-white font-semibold px-6 py-3 rounded-2xl text-sm transition-colors">
-                  Continuar com {upsellCurrent.qty} frasco{upsellCurrent.qty > 1 ? 's' : ''} (R$ {upsellCurrent.price},00)
-                </a>
-              </div>
-
-              <p className="text-center text-gray-500 text-[10px] mt-4 tracking-wide">🔒 Compra 100% segura · Garantia de 30 dias</p>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* ── STICKY MOBILE CTA ── */}
       <div className={`sticky-cta fixed bottom-0 left-0 right-0 z-50 lg:hidden ${scrolled ? 'translate-y-0' : 'translate-y-full'}`}
         style={{ background: 'linear-gradient(135deg,#4c1d95,#7c3aed)', borderTop: '1px solid rgba(255,255,255,.12)', boxShadow: '0 -8px 32px rgba(109,40,217,.4)' }}>
@@ -538,7 +450,7 @@ export default function Page() {
             <p className="text-purple-300 text-[10px] font-semibold uppercase tracking-wider">Kit selecionado</p>
             <p className="text-white font-black text-sm leading-tight">{kit.qty} {kit.qty === 1 ? 'Frasco' : 'Frascos'} — <span className="text-green-300">R$ {kit.price},00</span></p>
           </div>
-          <a href={kit.link} onClick={interceptBuy(kit.qty)}
+          <a href={kit.link}
             className="flex-shrink-0 bg-white text-purple-700 font-black px-5 py-3 rounded-xl text-sm shadow-xl active:scale-95 transition-transform">
             COMPRAR AGORA →
           </a>
@@ -583,7 +495,7 @@ export default function Page() {
               ))}
             </nav>
 
-            <MagBtn href={kit.link} onClick={interceptBuy(kit.qty)}
+            <MagBtn href={kit.link}
               className="btn-mag bg-gradient-to-r from-purple-600 to-violet-600 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-purple-900/40">
               Comprar Agora →
             </MagBtn>
@@ -630,7 +542,7 @@ export default function Page() {
               </div>
 
               <div className="fade-up-4 flex flex-col sm:flex-row gap-3 mb-5">
-                <MagBtn href={LINK_1} onClick={interceptBuy(1)}
+                <MagBtn href={LINK_1}
                   className="btn-mag flex-1 text-center bg-gradient-to-r from-purple-600 to-violet-600 text-white px-8 py-4 rounded-2xl text-base font-black shadow-xl shadow-purple-900/50">
                   QUERO ALIVIAR MINHA DOR →
                 </MagBtn>
@@ -1110,41 +1022,57 @@ export default function Page() {
                     {/* Divider */}
                     <div className="mx-6 mb-4" style={{ height: '1px', background: 'rgba(255,255,255,.07)' }} />
 
-                    {/* Pricing block */}
+                    {/* Pricing block — FOCO no preço unitário */}
                     <div className="px-6 flex flex-col items-center gap-1">
-                      {/* Discount badge */}
-                      <span className="inline-block text-[11px] font-black px-3.5 py-1 rounded-full mb-1"
-                        style={{ background: 'rgba(139,92,246,.2)', color: '#c4b5fd', border: '1px solid rgba(139,92,246,.35)' }}>
-                        {k.disc} OFF
-                      </span>
+                      {/* Tarja de desconto destacada para kits 2 e 3 */}
+                      {k.qty > 1 && (
+                        <span className="inline-block text-white text-[13px] font-black px-4 py-1.5 rounded-full mb-2 tracking-wider"
+                          style={{
+                            background: k.qty === 3
+                              ? 'linear-gradient(90deg,#dc2626,#ef4444,#dc2626)'
+                              : 'linear-gradient(90deg,#16a34a,#22c55e,#16a34a)',
+                            boxShadow: k.qty === 3
+                              ? '0 6px 16px rgba(220,38,38,.5)'
+                              : '0 6px 16px rgba(22,163,74,.5)',
+                            border: '1px solid rgba(255,255,255,.25)'
+                          }}>
+                          🔥 {k.disc} DE DESCONTO
+                        </span>
+                      )}
 
-                      {/* Crossed original price */}
-                      <p className="text-gray-600 text-sm line-through">De R$ {k.from},00</p>
+                      {/* PREÇO POR FRASCO — destaque máximo */}
+                      <p className="text-purple-300 text-[10px] font-bold uppercase tracking-[.2em]">Preço por frasco</p>
+                      <p className="text-5xl font-black text-white leading-none mt-1">
+                        R$ {Math.floor(k.per)}<span className="text-2xl font-bold">,{(k.per % 1 * 100).toFixed(0).padStart(2, '0')}</span>
+                      </p>
 
-                      {/* Main price */}
-                      <p className="text-4xl font-black text-white leading-none mt-1">R$ {k.price}<span className="text-xl font-bold">,00</span></p>
+                      {/* Total (menor, secundário) */}
+                      {k.qty > 1 ? (
+                        <p className="text-gray-400 text-xs mt-2">Total: <span className="text-white font-bold">R$ {k.price},00</span> {k.qty > 1 && (<span className="text-gray-600 line-through ml-1">R$ {k.from},00</span>)}</p>
+                      ) : (
+                        <p className="text-gray-600 text-xs mt-2 line-through">De R$ {k.from},00</p>
+                      )}
 
                       {/* Installments */}
                       <p className="text-gray-500 text-xs mt-1">{k.inst} sem juros</p>
 
-                      {/* PIX price */}
+                      {/* PIX */}
                       <p className="text-green-400 text-sm font-black mt-1.5">
                         PIX: R$ {k.pix.toFixed(2).replace('.', ',')}
                       </p>
 
-                      {/* Per bottle */}
-                      <p className="text-gray-600 text-[11px]">= R$ {k.per.toFixed(2).replace('.', ',')}/frasco</p>
-
                       {/* Savings chip */}
-                      <span className="savings-chip inline-block text-[11px] font-bold px-3 py-1 rounded-full mt-2">
-                        Economia de R$ {savings},00
-                      </span>
+                      {savings > 0 && (
+                        <span className="savings-chip inline-block text-[11px] font-bold px-3 py-1 rounded-full mt-2">
+                          Você economiza R$ {savings},00
+                        </span>
+                      )}
                     </div>
 
                     {/* ── BUY BUTTON inside each card ── */}
                     <div className="px-5 mt-5">
                       <a href={k.link}
-                         onClick={(e) => { e.stopPropagation(); setKit(k); interceptBuy(k.qty)(e); }}
+                         onClick={(e) => { e.stopPropagation(); setKit(k); }}
                          className={`block w-full text-center font-black px-4 py-3.5 rounded-xl text-sm tracking-wide transition-transform duration-200 hover:scale-[1.03] active:scale-100 ${btnCls}`}>
                         COMPRAR {k.qty} {k.qty === 1 ? 'FRASCO' : 'FRASCOS'} →
                       </a>
@@ -1227,7 +1155,7 @@ export default function Page() {
 
                 {/* CTA button */}
                 <div className="flex justify-center mb-8">
-                  <MagBtn href={kit.link} onClick={interceptBuy(kit.qty)}
+                  <MagBtn href={kit.link}
                     className="btn-white-hover inline-block bg-white text-purple-700 px-12 py-5 rounded-2xl text-xl font-black shadow-2xl tracking-tight">
                     GARANTIR MEU DESCONTO →
                   </MagBtn>
@@ -1378,7 +1306,7 @@ export default function Page() {
             </div>
 
             <div className="reveal flex flex-col gap-3 items-center mb-8">
-              <MagBtn href={kit.link} onClick={interceptBuy(kit.qty)}
+              <MagBtn href={kit.link}
                 className="btn-mag bg-gradient-to-r from-purple-600 to-violet-600 text-white px-14 py-5 rounded-2xl text-xl font-black shadow-2xl shadow-purple-900/60 w-full sm:w-auto text-center">
                 GARANTIR MEU KIT AGORA →
               </MagBtn>
