@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Bônus PDF Square</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact}
+body{font-family:'Helvetica Neue',Arial,sans-serif;width:800px;height:800px;overflow:hidden;background:#08080f}
+.bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,#a855f7 0%,#7c3aed 25%,#4c1d95 55%,#1a0b2e 85%,#08080f 100%)}
+.bg::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.06}
+.container{position:relative;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;padding:60px 50px 40px;z-index:10;color:#fff;text-align:center}
+
+.label{display:inline-block;background:linear-gradient(90deg,#f59e0b,#fbbf24);color:#451a03;padding:9px 20px;border-radius:50px;font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;box-shadow:0 12px 24px rgba(245,158,11,.4)}
+.headline{font-family:Georgia,serif;font-size:38px;line-height:1.05;font-weight:900;margin-bottom:30px}
+.headline em{font-style:italic;background:linear-gradient(90deg,#fbbf24,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* PDF MOCKUP CENTER */
+.mockup-wrap{position:relative;width:280px;height:380px;margin:10px auto 25px;perspective:1500px}
+.mockup{position:absolute;width:280px;height:380px;border-radius:5px;overflow:hidden;transform:rotateY(-8deg);box-shadow:0 45px 90px rgba(0,0,0,.7),0 20px 35px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.05)}
+.mockup-inner{width:100%;height:100%;background:linear-gradient(135deg,#4c1d95 0%,#7c3aed 50%,#a855f7 100%);padding:35px 22px;display:flex;flex-direction:column;justify-content:space-between;text-align:center;color:#fff}
+.mockup .badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:5px 12px;border-radius:50px;font-size:6px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin:0 auto 12px}
+.mockup h1{font-family:Georgia,serif;font-size:26px;line-height:1.05;font-weight:900;font-style:italic;margin-bottom:10px}
+.mockup .orn{width:26px;height:2px;background:#fff;opacity:.6;margin:10px auto 12px}
+.mockup .subtitle{font-size:8px;opacity:.9;line-height:1.5;font-weight:300;margin-bottom:15px}
+.mockup .features{display:flex;flex-wrap:wrap;justify-content:center;gap:4px}
+.mockup .feat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:3px 6px;border-radius:6px;font-size:7px;font-weight:600}
+.mockup .footer{font-size:6px;opacity:.85;letter-spacing:1px;text-transform:uppercase}
+.mockup .footer strong{display:block;font-size:9px;letter-spacing:0;text-transform:none;margin-top:2px;font-weight:700}
+
+.page-back-1{position:absolute;width:280px;height:380px;left:8px;top:6px;background:#faf5ff;border-radius:5px;transform:rotateY(-8deg);box-shadow:0 5px 15px rgba(0,0,0,.3);z-index:-1}
+
+/* PRICE TAG */
+.price-section{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:18px}
+.price-icon{font-size:50px}
+.price-text{display:flex;flex-direction:column;align-items:flex-start}
+.price-text .from{font-size:14px;color:rgba(255,255,255,.55);text-decoration:line-through;font-weight:600}
+.price-text .now{font-size:32px;font-weight:900;color:#22c55e;line-height:1;text-shadow:0 4px 16px rgba(34,197,94,.5)}
+.price-text .label-now{font-size:11px;color:#a3e635;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="container">
+  <div class="label">🎁 Bônus Exclusivo Eva Skin Caps</div>
+  <h2 class="headline">Guia <em>"Mobilidade<br>& Bem-Estar"</em></h2>
+
+  <div class="mockup-wrap">
+    <div class="page-back-1"></div>
+    <div class="mockup">
+      <div class="mockup-inner">
+        <div>
+          <div class="badge">Bônus Exclusivo</div>
+          <h1>Mobilidade<br>& Bem-Estar</h1>
+          <div class="orn"></div>
+          <p class="subtitle">Alimentação anti-inflamatória, exercícios de baixo impacto e hábitos diários</p>
+          <div class="features">
+            <span class="feat">🥗 Receitas</span>
+            <span class="feat">🏃 Exercícios</span>
+            <span class="feat">🧘 Rotinas</span>
+          </div>
+        </div>
+        <div class="footer">PraSaúde<strong>Eva Skin Caps</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="price-section">
+    <span class="price-icon">🎁</span>
+    <div class="price-text">
+      <span class="from">DE R$ 47,00</span>
+      <span class="now">GRÁTIS</span>
+      <span class="label-now">na sua compra hoje</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

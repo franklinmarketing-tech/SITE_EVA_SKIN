@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Bônus PDF</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact}
+body{font-family:'Helvetica Neue',Arial,sans-serif;width:1200px;height:630px;overflow:hidden;background:#08080f}
+.bg{position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,#7c3aed 0%,#4c1d95 30%,#1a0b2e 70%,#08080f 100%)}
+.bg::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.06}
+.container{position:relative;width:100%;height:100%;display:flex;align-items:center;padding:0 80px;gap:60px;z-index:10}
+
+/* LEFT: PDF MOCKUP */
+.mockup-wrap{position:relative;width:420px;height:540px;flex-shrink:0;perspective:1500px}
+.mockup{position:absolute;width:380px;height:540px;left:20px;border-radius:6px;overflow:hidden;transform:rotateY(-12deg) rotateX(2deg);box-shadow:0 60px 100px rgba(0,0,0,.6),0 25px 40px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.05)}
+.mockup-inner{width:100%;height:100%;background:linear-gradient(135deg,#4c1d95 0%,#7c3aed 50%,#a855f7 100%);padding:50px 30px;display:flex;flex-direction:column;justify-content:space-between;text-align:center;color:#fff}
+.mockup .badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:6px 14px;border-radius:50px;font-size:8px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin:0 auto 18px}
+.mockup h1{font-family:Georgia,serif;font-size:36px;line-height:1.05;font-weight:900;font-style:italic;margin-bottom:14px}
+.mockup .orn{width:36px;height:2px;background:#fff;opacity:.6;margin:14px auto 18px}
+.mockup .subtitle{font-size:11px;opacity:.9;line-height:1.5;font-weight:300;margin-bottom:24px}
+.mockup .features{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.mockup .feat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:5px 9px;border-radius:8px;font-size:9px;font-weight:600}
+.mockup .footer{font-size:8px;opacity:.85;letter-spacing:1.5px;text-transform:uppercase}
+.mockup .footer strong{display:block;font-size:11px;letter-spacing:0;text-transform:none;margin-top:3px;font-weight:700}
+
+/* Page stack effect */
+.page-back-1{position:absolute;width:380px;height:540px;left:30px;top:8px;background:#faf5ff;border-radius:6px;transform:rotateY(-12deg) rotateX(2deg);box-shadow:0 5px 15px rgba(0,0,0,.3);z-index:-1}
+.page-back-2{position:absolute;width:380px;height:540px;left:40px;top:16px;background:#e9d5ff;border-radius:6px;transform:rotateY(-12deg) rotateX(2deg);box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:-2}
+
+/* RIGHT: PROMO TEXT */
+.promo{flex:1;color:#fff}
+.label{display:inline-block;background:linear-gradient(90deg,#f59e0b,#fbbf24);color:#451a03;padding:8px 18px;border-radius:50px;font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:22px;box-shadow:0 12px 24px rgba(245,158,11,.4)}
+.headline{font-family:Georgia,serif;font-size:52px;line-height:1.05;font-weight:900;margin-bottom:18px}
+.headline em{font-style:italic;background:linear-gradient(90deg,#fbbf24,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.desc{font-size:16px;line-height:1.55;color:rgba(255,255,255,.85);margin-bottom:24px;max-width:480px}
+.bullets{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+.bullet{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,.92)}
+.bullet::before{content:'✓';color:#22c55e;font-weight:bold;font-size:16px;flex-shrink:0;width:22px;height:22px;display:flex;align-items:center;justify-content:center;background:rgba(34,197,94,.15);border-radius:50%}
+.cta-row{display:flex;align-items:center;gap:20px}
+.cta-price{display:flex;flex-direction:column}
+.cta-price .from{font-size:13px;color:rgba(255,255,255,.5);text-decoration:line-through}
+.cta-price .now{font-size:32px;font-weight:900;color:#22c55e;line-height:1}
+.cta-price .label-now{font-size:11px;color:#22c55e;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+.cta-icon{font-size:64px}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="container">
+  <div class="mockup-wrap">
+    <div class="page-back-2"></div>
+    <div class="page-back-1"></div>
+    <div class="mockup">
+      <div class="mockup-inner">
+        <div>
+          <div class="badge">Bônus Exclusivo</div>
+          <h1>Mobilidade<br>& Bem-Estar</h1>
+          <div class="orn"></div>
+          <p class="subtitle">Alimentação anti-inflamatória, exercícios de baixo impacto e hábitos diários</p>
+          <div class="features">
+            <span class="feat">🥗 Receitas</span>
+            <span class="feat">🏃 Exercícios</span>
+            <span class="feat">🧘 Rotinas</span>
+          </div>
+        </div>
+        <div class="footer">PraSaúde<strong>Eva Skin Caps</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="promo">
+    <div class="label">🎁 Bônus Grátis na sua Compra</div>
+    <h2 class="headline">Guia <em>"Mobilidade<br>& Bem-Estar"</em></h2>
+    <p class="desc">10 páginas com tudo que você precisa fazer ALÉM do suplemento para multiplicar seus resultados.</p>
+    <div class="bullets">
+      <div class="bullet">25 alimentos que apoiam suas articulações</div>
+      <div class="bullet">5 receitas anti-inflamatórias práticas</div>
+      <div class="bullet">12 exercícios de baixo impacto em casa</div>
+      <div class="bullet">Rotina de alongamento matinal + noturna</div>
+    </div>
+    <div class="cta-row">
+      <div class="cta-icon">🎁</div>
+      <div class="cta-price">
+        <span class="from">DE R$ 47,00</span>
+        <span class="now">GRÁTIS</span>
+        <span class="label-now">na sua compra hoje</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
