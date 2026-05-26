@@ -484,7 +484,7 @@ export default function Page() {
           <div className="ticker-wrap whitespace-nowrap">
             {[...Array(2)].map((_, i) => (
               <span key={i} className="flex gap-10 pr-10">
-                <span>🚚 Frete Grátis acima de R$200</span>
+                <span>🚚 Frete Grátis acima de R$125</span>
                 <span>🔒 Pagamento 100% Seguro</span>
                 <span>🛡️ Garantia de 30 dias</span>
                 <span>⭐ 50.800 compras esse mês</span>
@@ -1097,7 +1097,7 @@ export default function Page() {
                          className={`block w-full text-center font-black px-4 py-3.5 rounded-xl text-sm tracking-wide transition-transform duration-200 hover:scale-[1.03] active:scale-100 ${btnCls}`}>
                         COMPRAR {k.qty} {k.qty === 1 ? 'FRASCO' : 'FRASCOS'} →
                       </a>
-                      <p className="text-gray-500 text-[10px] mt-2 tracking-wide">🔒 Pagamento seguro · {k.qty >= 2 ? 'Frete fixo R$25,80' : 'Garantia 30 dias'}</p>
+                      <p className="text-gray-500 text-[10px] mt-2 tracking-wide">🔒 Pagamento seguro · {k.qty >= 2 ? '🚚 Frete GRÁTIS incluso' : 'Garantia 30 dias'}</p>
                     </div>
                   </div>
                 )
@@ -1188,7 +1188,7 @@ export default function Page() {
                     { icon: '🔒', text: 'SSL Seguro' },
                     { icon: '💳', text: 'PIX · Cartão · Boleto' },
                     { icon: '🛡️', text: 'Garantia 30 dias' },
-                    { icon: '🚚', text: 'Frete Grátis +R$200' },
+                    { icon: '🚚', text: 'Frete Grátis +R$125' },
                     { icon: '⚡', text: 'Envio em 24h' },
                   ].map(({ icon, text }) => (
                     <span key={text} className="flex items-center gap-1.5 font-semibold">
