@@ -37,7 +37,7 @@ function useReveal() {
   }, [])
 }
 
-function MagBtn({ href, children, className = '' }: { href: string; children: React.ReactNode; className?: string }) {
+function MagBtn({ href, onClick, children, className = '' }: { href: string; onClick?: (e: React.MouseEvent) => void; children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLAnchorElement>(null)
   const move = (e: React.MouseEvent) => {
     const el = ref.current; if (!el) return
@@ -46,7 +46,7 @@ function MagBtn({ href, children, className = '' }: { href: string; children: Re
   }
   const leave = () => { if (ref.current) ref.current.style.transform = '' }
   return (
-    <a ref={ref} href={href} onMouseMove={move} onMouseLeave={leave}
+    <a ref={ref} href={href} onClick={onClick} onMouseMove={move} onMouseLeave={leave}
       className={`inline-block transition-transform duration-300 ease-out ${className}`}>
       {children}
     </a>
@@ -203,6 +203,7 @@ export default function Page() {
   const [kit, setKit] = useState(kits[1])
   const [faq, setFaq] = useState<number | null>(null)
   const [scrolled, setScrolled] = useState(false)
+  const [upsellFor, setUpsellFor] = useState<number | null>(null)
   const time = useCountdown()
 
   useEffect(() => {
@@ -210,6 +211,17 @@ export default function Page() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Upsell intercept: if user clicks buy on kit 1 or 2, show upgrade modal
+  const interceptBuy = (qty: number) => (e: React.MouseEvent) => {
+    if (qty < 3) {
+      e.preventDefault()
+      setUpsellFor(qty)
+    }
+  }
+
+  const upsellCurrent = upsellFor ? kits.find(k => k.qty === upsellFor) : null
+  const upsellNext = upsellFor ? kits.find(k => k.qty === upsellFor + 1) : null
 
   return (
     <>
@@ -301,6 +313,82 @@ export default function Page() {
         .fade-up-4{animation:fade-up .7s .55s ease-out both}
       `}</style>
 
+      {/* ── UPSELL MODAL ── */}
+      {upsellFor && upsellCurrent && upsellNext && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-[fade-up_.25s_ease-out]"
+             style={{ background: 'rgba(8,8,15,.85)', backdropFilter: 'blur(8px)' }}
+             onClick={() => setUpsellFor(null)}>
+          <div onClick={e => e.stopPropagation()}
+               className="relative w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl"
+               style={{ background: 'linear-gradient(160deg,#1a0b2e 0%,#2d1b4e 50%,#1a0b2e 100%)', border: '1px solid rgba(167,139,250,.25)' }}>
+
+            {/* Close button */}
+            <button onClick={() => setUpsellFor(null)}
+                    className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition-colors z-10"
+                    aria-label="Fechar">✕</button>
+
+            {/* Header banner */}
+            <div className="text-center pt-7 pb-5 px-6"
+                 style={{ background: 'linear-gradient(90deg,rgba(245,158,11,.15),rgba(168,85,247,.15),rgba(245,158,11,.15))' }}>
+              <span className="inline-block text-amber-300 text-[10px] font-black tracking-[.3em] uppercase mb-2">✨ Espera! Oferta especial</span>
+              <h3 className="text-white text-2xl sm:text-3xl font-black leading-tight">
+                Aproveite e <span className="text-amber-300 italic">economize mais R$ {(upsellCurrent.per * upsellNext.qty - upsellNext.price).toFixed(0)},00</span>
+              </h3>
+            </div>
+
+            {/* Comparison */}
+            <div className="p-6 sm:p-8">
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                {/* Current kit */}
+                <div className="rounded-2xl p-4 text-center" style={{ background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)' }}>
+                  <p className="text-gray-400 text-[11px] font-bold uppercase tracking-wider mb-1">Você escolheu</p>
+                  <p className="text-white text-xl font-black mb-1">{upsellCurrent.qty} Frasco{upsellCurrent.qty > 1 ? 's' : ''}</p>
+                  <p className="text-gray-500 text-sm">R$ {upsellCurrent.per.toFixed(2).replace('.',',')}<span className="text-xs">/un</span></p>
+                  <p className="text-gray-400 text-lg font-bold mt-2">R$ {upsellCurrent.price},00</p>
+                </div>
+
+                {/* Upsell kit */}
+                <div className="rounded-2xl p-4 text-center relative"
+                     style={{ background: 'linear-gradient(135deg,rgba(245,158,11,.15),rgba(168,85,247,.2))', border: '1.5px solid rgba(245,158,11,.5)', boxShadow: '0 0 30px rgba(245,158,11,.2)' }}>
+                  <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] font-black px-3 py-0.5 rounded-full whitespace-nowrap tracking-wider">MELHOR ESCOLHA</span>
+                  <p className="text-amber-300 text-[11px] font-bold uppercase tracking-wider mb-1 mt-1">Adicione +1 frasco</p>
+                  <p className="text-white text-xl font-black mb-1">{upsellNext.qty} Frascos</p>
+                  <p className="text-amber-200 text-sm font-bold">R$ {upsellNext.per.toFixed(2).replace('.',',')}<span className="text-xs">/un</span></p>
+                  <p className="text-amber-300 text-lg font-black mt-2">R$ {upsellNext.price},00</p>
+                </div>
+              </div>
+
+              {/* Benefits list */}
+              <div className="rounded-2xl p-4 mb-5" style={{ background: 'rgba(34,197,94,.08)', border: '1px solid rgba(34,197,94,.2)' }}>
+                <p className="text-green-300 text-sm font-bold mb-2">✓ Você ganha ao fazer upgrade:</p>
+                <ul className="text-gray-200 text-sm space-y-1.5">
+                  <li>💰 Economia adicional de <strong className="text-green-300">R$ {(upsellCurrent.per * upsellNext.qty - upsellNext.price).toFixed(0)},00</strong> (preço por frasco menor)</li>
+                  <li>📅 <strong className="text-white">{upsellNext.days} dias</strong> de tratamento (vs {upsellCurrent.days} dias) — sem risco de acabar</li>
+                  <li>🎁 <strong className="text-amber-300">Bônus exclusivo:</strong> Guia "Mobilidade & Bem-Estar" em PDF</li>
+                </ul>
+              </div>
+
+              {/* Actions */}
+              <div className="flex flex-col gap-2.5">
+                <a href={upsellNext.link}
+                   onClick={() => setUpsellFor(null)}
+                   className="block w-full text-center bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-white font-black px-6 py-4 rounded-2xl text-base shadow-xl hover:scale-[1.02] active:scale-100 transition-transform"
+                   style={{ boxShadow: '0 18px 40px rgba(245,158,11,.4)' }}>
+                  ✨ SIM, QUERO {upsellNext.qty} FRASCOS POR R$ {upsellNext.price},00
+                </a>
+                <a href={upsellCurrent.link}
+                   onClick={() => setUpsellFor(null)}
+                   className="block w-full text-center text-gray-400 hover:text-white font-semibold px-6 py-3 rounded-2xl text-sm transition-colors">
+                  Continuar com {upsellCurrent.qty} frasco{upsellCurrent.qty > 1 ? 's' : ''} (R$ {upsellCurrent.price},00)
+                </a>
+              </div>
+
+              <p className="text-center text-gray-500 text-[10px] mt-4 tracking-wide">🔒 Compra 100% segura · Garantia de 30 dias</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ── STICKY MOBILE CTA ── */}
       <div className={`sticky-cta fixed bottom-0 left-0 right-0 z-50 lg:hidden ${scrolled ? 'translate-y-0' : 'translate-y-full'}`}
         style={{ background: 'linear-gradient(135deg,#4c1d95,#7c3aed)', borderTop: '1px solid rgba(255,255,255,.12)', boxShadow: '0 -8px 32px rgba(109,40,217,.4)' }}>
@@ -309,7 +397,7 @@ export default function Page() {
             <p className="text-purple-300 text-[10px] font-semibold uppercase tracking-wider">Kit selecionado</p>
             <p className="text-white font-black text-sm leading-tight">{kit.qty} {kit.qty === 1 ? 'Frasco' : 'Frascos'} — <span className="text-green-300">R$ {kit.price},00</span></p>
           </div>
-          <a href={kit.link}
+          <a href={kit.link} onClick={interceptBuy(kit.qty)}
             className="flex-shrink-0 bg-white text-purple-700 font-black px-5 py-3 rounded-xl text-sm shadow-xl active:scale-95 transition-transform">
             COMPRAR AGORA →
           </a>
@@ -354,7 +442,7 @@ export default function Page() {
               ))}
             </nav>
 
-            <MagBtn href={kit.link}
+            <MagBtn href={kit.link} onClick={interceptBuy(kit.qty)}
               className="btn-mag bg-gradient-to-r from-purple-600 to-violet-600 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-purple-900/40">
               Comprar Agora →
             </MagBtn>
@@ -401,7 +489,7 @@ export default function Page() {
               </div>
 
               <div className="fade-up-4 flex flex-col sm:flex-row gap-3 mb-5">
-                <MagBtn href={LINK_1}
+                <MagBtn href={LINK_1} onClick={interceptBuy(1)}
                   className="btn-mag flex-1 text-center bg-gradient-to-r from-purple-600 to-violet-600 text-white px-8 py-4 rounded-2xl text-base font-black shadow-xl shadow-purple-900/50">
                   QUERO ALIVIAR MINHA DOR →
                 </MagBtn>
@@ -907,6 +995,35 @@ export default function Page() {
               })}
             </div>
 
+            {/* ── BÔNUS EXCLUSIVO BANNER ── */}
+            <div className="reveal mb-6 rounded-3xl overflow-hidden relative"
+                 style={{ background: 'linear-gradient(135deg,#451a03 0%,#78350f 40%,#92400e 80%,#451a03)', border: '1px solid rgba(245,158,11,.35)', boxShadow: '0 24px 60px -16px rgba(245,158,11,.3)' }}>
+              <div className="absolute inset-0 opacity-[.06] pointer-events-none"
+                   style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")' }} />
+              <div className="relative px-6 py-6 lg:px-10 lg:py-8 flex flex-col sm:flex-row items-center gap-5">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 rounded-2xl flex items-center justify-center text-5xl shadow-2xl"
+                     style={{ background: 'linear-gradient(135deg,#fbbf24,#f59e0b)', boxShadow: '0 12px 28px rgba(245,158,11,.45)' }}>
+                  🎁
+                </div>
+                <div className="flex-1 text-center sm:text-left">
+                  <span className="inline-block text-amber-300 text-[10px] font-black tracking-[.3em] uppercase mb-1">Bônus exclusivo · grátis</span>
+                  <h3 className="text-white text-xl sm:text-2xl font-black leading-tight mb-1">
+                    Guia <span className="italic">"Mobilidade & Bem-Estar"</span> em PDF
+                  </h3>
+                  <p className="text-amber-100/80 text-sm leading-relaxed">
+                    10 páginas com alimentação anti-inflamatória, 5 receitas práticas, 12 exercícios em casa e rotina de alongamentos.
+                    <span className="block sm:inline mt-1 sm:mt-0 sm:ml-1 text-amber-300 font-bold">Você recebe por email após a compra.</span>
+                  </p>
+                </div>
+                <div className="hidden sm:flex flex-col items-center gap-1 px-4 py-2 rounded-xl"
+                     style={{ background: 'rgba(0,0,0,.25)', border: '1px solid rgba(245,158,11,.3)' }}>
+                  <span className="text-amber-300 text-[10px] font-bold uppercase tracking-wider">Valor</span>
+                  <span className="text-white text-lg font-black line-through opacity-50">R$ 47</span>
+                  <span className="text-green-400 text-base font-black">GRÁTIS</span>
+                </div>
+              </div>
+            </div>
+
             {/* ── BUY BOX ── */}
             <div className="relative rounded-3xl overflow-hidden reveal buybox-shine"
               style={{ background: 'linear-gradient(145deg,#5b21b6,#7c3aed 40%,#4c1d95 80%,#3b0764)' }}>
@@ -950,7 +1067,7 @@ export default function Page() {
 
                 {/* CTA button */}
                 <div className="flex justify-center mb-8">
-                  <MagBtn href={kit.link}
+                  <MagBtn href={kit.link} onClick={interceptBuy(kit.qty)}
                     className="btn-white-hover inline-block bg-white text-purple-700 px-12 py-5 rounded-2xl text-xl font-black shadow-2xl tracking-tight">
                     GARANTIR MEU DESCONTO →
                   </MagBtn>
@@ -1101,7 +1218,7 @@ export default function Page() {
             </div>
 
             <div className="reveal flex flex-col gap-3 items-center mb-8">
-              <MagBtn href={kit.link}
+              <MagBtn href={kit.link} onClick={interceptBuy(kit.qty)}
                 className="btn-mag bg-gradient-to-r from-purple-600 to-violet-600 text-white px-14 py-5 rounded-2xl text-xl font-black shadow-2xl shadow-purple-900/60 w-full sm:w-auto text-center">
                 GARANTIR MEU KIT AGORA →
               </MagBtn>

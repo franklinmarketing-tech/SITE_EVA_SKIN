@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Guia Eva Skin Caps — Articulações Saudáveis & Mobilidade</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.65; font-size: 11pt; background: #fff; }
+  h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; }
+  .page { page-break-after: always; padding: 0; min-height: 257mm; position: relative; }
+  .page:last-child { page-break-after: auto; }
+
+  /* CAPA */
+  .cover { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #a855f7 100%); color: #fff; padding: 40mm 20mm; min-height: 257mm; display: flex; flex-direction: column; justify-content: space-between; text-align: center; }
+  .cover .badge { display: inline-block; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35); padding: 8px 22px; border-radius: 50px; font-size: 9pt; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 30px; }
+  .cover h1 { font-size: 36pt; line-height: 1.05; font-weight: 900; margin-bottom: 18px; font-style: italic; }
+  .cover .subtitle { font-size: 14pt; opacity: .92; max-width: 130mm; margin: 0 auto 50px; font-weight: 300; line-height: 1.5; }
+  .cover .ornament { width: 60px; height: 3px; background: #fff; margin: 0 auto 50px; opacity: .6; }
+  .cover .features { display: flex; justify-content: center; gap: 25px; margin-top: 30px; flex-wrap: wrap; }
+  .cover .feature { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); padding: 12px 18px; border-radius: 14px; font-size: 9pt; font-weight: 600; }
+  .cover .footer-cover { margin-top: auto; font-size: 9pt; opacity: .85; letter-spacing: 2px; text-transform: uppercase; }
+  .cover .footer-cover strong { display: block; font-size: 14pt; letter-spacing: 1px; text-transform: none; margin-top: 6px; font-weight: 700; }
+
+  /* CONTEÚDO */
+  .content { padding: 0; }
+  .chapter-num { color: #7c3aed; font-size: 9pt; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 8px; }
+  h2 { font-size: 24pt; color: #2d1b4e; line-height: 1.1; margin-bottom: 16px; font-style: italic; font-weight: 800; }
+  h3 { font-size: 14pt; color: #4c1d95; margin: 22px 0 10px; font-weight: 700; }
+  h4 { font-size: 11pt; color: #1a1a2e; margin: 14px 0 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  p { margin-bottom: 10px; }
+  .lead { font-size: 12pt; color: #4a4a6a; margin: 0 0 22px; line-height: 1.6; }
+  .divider { height: 2px; background: linear-gradient(90deg, #a855f7, transparent); margin: 20px 0 24px; width: 80px; }
+
+  ul, ol { margin: 8px 0 14px 22px; }
+  li { margin-bottom: 6px; }
+  ul.check li { list-style: none; position: relative; padding-left: 22px; }
+  ul.check li::before { content: '✓'; position: absolute; left: 0; color: #16a34a; font-weight: bold; font-size: 12pt; }
+  ul.cross li { list-style: none; position: relative; padding-left: 22px; }
+  ul.cross li::before { content: '✕'; position: absolute; left: 0; color: #dc2626; font-weight: bold; font-size: 12pt; }
+  ul.arrow li { list-style: none; position: relative; padding-left: 22px; }
+  ul.arrow li::before { content: '▸'; position: absolute; left: 0; color: #7c3aed; font-weight: bold; }
+
+  .card { background: #faf5ff; border-left: 4px solid #7c3aed; padding: 16px 20px; border-radius: 8px; margin: 16px 0; }
+  .card.warning { background: #fffbeb; border-left-color: #f59e0b; }
+  .card.success { background: #f0fdf4; border-left-color: #16a34a; }
+  .card.tip { background: #eff6ff; border-left-color: #3b82f6; }
+  .card h4 { margin-top: 0; color: #4c1d95; }
+  .card.warning h4 { color: #92400e; }
+  .card.success h4 { color: #166534; }
+  .card.tip h4 { color: #1e40af; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0; }
+  .item-box { background: #fff; border: 1px solid #e9d5ff; padding: 14px; border-radius: 10px; }
+  .item-box .num { color: #a855f7; font-weight: 900; font-size: 16pt; line-height: 1; display: block; margin-bottom: 6px; }
+  .item-box strong { color: #2d1b4e; display: block; margin-bottom: 4px; }
+  .item-box small { color: #6b7280; font-size: 9pt; line-height: 1.5; display: block; }
+
+  .recipe { background: linear-gradient(135deg, #faf5ff, #fff); border: 2px solid #e9d5ff; border-radius: 14px; padding: 18px; margin: 14px 0; page-break-inside: avoid; }
+  .recipe h4 { color: #4c1d95; margin-top: 0; font-size: 12pt; text-transform: none; letter-spacing: 0; }
+  .recipe .meta { display: flex; gap: 14px; font-size: 9pt; color: #6b7280; margin-bottom: 10px; }
+  .recipe .meta span { background: #f3e8ff; padding: 3px 10px; border-radius: 12px; font-weight: 600; }
+  .recipe .ingredients, .recipe .steps { margin-top: 10px; }
+
+  .exercise { background: #fff; border: 1.5px solid #d8b4fe; border-radius: 12px; padding: 16px; margin: 12px 0; page-break-inside: avoid; }
+  .exercise-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .exercise-header strong { color: #4c1d95; font-size: 12pt; }
+  .exercise-header .pill { background: #a855f7; color: #fff; padding: 3px 11px; border-radius: 50px; font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .exercise-body { color: #4a4a6a; }
+  .exercise-body strong { color: #2d1b4e; }
+
+  .schedule { background: #2d1b4e; color: #fff; border-radius: 14px; padding: 22px; margin: 18px 0; }
+  .schedule h4 { color: #d8b4fe; margin-top: 0; }
+  .schedule table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 10pt; }
+  .schedule th { text-align: left; padding: 8px; border-bottom: 1px solid rgba(255,255,255,.2); color: #d8b4fe; font-weight: 700; }
+  .schedule td { padding: 8px; border-bottom: 1px solid rgba(255,255,255,.08); }
+
+  blockquote { border-left: 3px solid #a855f7; padding: 8px 16px; margin: 18px 0; color: #4a4a6a; font-style: italic; background: #faf5ff; border-radius: 0 8px 8px 0; }
+
+  .footer-page { position: absolute; bottom: -10mm; left: 0; right: 0; text-align: center; font-size: 8pt; color: #9ca3af; padding-top: 6px; border-top: 1px solid #f3e8ff; }
+  .footer-page strong { color: #7c3aed; }
+
+  /* CONTRACAPA */
+  .back-cover { background: linear-gradient(135deg, #2d1b4e 0%, #4c1d95 100%); color: #fff; padding: 40mm 20mm; min-height: 257mm; display: flex; flex-direction: column; justify-content: center; text-align: center; }
+  .back-cover h2 { color: #fff; font-style: italic; font-size: 28pt; margin-bottom: 18px; }
+  .back-cover p { font-size: 13pt; line-height: 1.7; margin-bottom: 20px; opacity: .95; max-width: 130mm; margin-left: auto; margin-right: auto; }
+  .back-cover .signature { margin-top: 40px; font-size: 11pt; }
+  .back-cover .signature strong { display: block; font-size: 15pt; margin-bottom: 4px; }
+  .back-cover .legal { margin-top: 50px; font-size: 8pt; opacity: .65; max-width: 130mm; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+  .keep-together { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<!-- ============ CAPA ============ -->
+<div class="page cover">
+  <div>
+    <div class="badge">Bônus Exclusivo Eva Skin Caps</div>
+    <h1>Mobilidade<br>& Bem-Estar</h1>
+    <div class="ornament"></div>
+    <p class="subtitle">Guia completo de alimentação anti-inflamatória, exercícios de baixo impacto e hábitos diários para apoiar suas articulações em qualquer idade</p>
+    <div class="features">
+      <div class="feature">🥗 Alimentação</div>
+      <div class="feature">🏃‍♀️ Exercícios</div>
+      <div class="feature">🧘 Alongamentos</div>
+      <div class="feature">💆 Hábitos diários</div>
+    </div>
+  </div>
+  <div class="footer-cover">
+    Material desenvolvido por
+    <strong>PraSaúde · Eva Skin Caps</strong>
+  </div>
+</div>
+
+<!-- ============ INTRODUÇÃO ============ -->
+<div class="page content">
+  <div class="chapter-num">Introdução</div>
+  <h2>Bem-vinda à sua nova rotina de cuidado</h2>
+  <div class="divider"></div>
+
+  <p class="lead">Sua escolha por <strong>Eva Skin Caps</strong> mostra que você se importa com a sua saúde de forma integral — não só com o que aparece por fora, mas com o que sustenta o corpo por dentro.</p>
+
+  <p>O suplemento é apenas <strong>uma parte</strong> do cuidado completo. Os melhores resultados aparecem quando ele se soma a três pilares simples: alimentação que nutre, movimento que liberta e hábitos diários que renovam.</p>
+
+  <p>Este guia foi feito pensando em você — mulher que valoriza a beleza com saúde, e que quer continuar ativa, leve e disposta independente da idade.</p>
+
+  <div class="card success">
+    <h4>📌 O que você vai encontrar aqui</h4>
+    <ul class="arrow">
+      <li><strong>Capítulo 1</strong> — 25 alimentos que apoiam a saúde articular e 10 que merecem moderação</li>
+      <li><strong>Capítulo 2</strong> — 5 receitas práticas, anti-inflamatórias e saborosas</li>
+      <li><strong>Capítulo 3</strong> — 12 exercícios de baixo impacto que você faz em casa</li>
+      <li><strong>Capítulo 4</strong> — Rotina de alongamento matinal e noturna (10 minutos cada)</li>
+      <li><strong>Capítulo 5</strong> — 7 hábitos diários que multiplicam seus resultados</li>
+    </ul>
+  </div>
+
+  <div class="card warning">
+    <h4>⚠️ Aviso importante</h4>
+    <p style="margin: 0;">Este material tem caráter <strong>informativo e educativo</strong>. Não substitui consulta médica nem tratamento. Antes de iniciar qualquer programa de exercícios ou mudar significativamente sua alimentação, converse com um profissional de saúde — especialmente se você tem alguma condição preexistente.</p>
+  </div>
+
+  <h3 style="margin-top: 30px;">Como aproveitar ao máximo</h3>
+  <p>Vá com calma. Não tente aplicar tudo de uma vez. Escolha <strong>um capítulo por semana</strong> e vá incorporando o que faz sentido na sua rotina. A consistência sempre vence a intensidade.</p>
+
+  <blockquote>"Pequenas mudanças, repetidas todos os dias, criam grandes transformações. Comece hoje. Comece pequeno. Mas comece."</blockquote>
+
+  <div class="footer-page">Guia Mobilidade & Bem-Estar · <strong>PraSaúde Eva Skin Caps</strong> · Página 2</div>
+</div>
+
+<!-- ============ CAPÍTULO 1 — ALIMENTAÇÃO ============ -->
+<div class="page content">
+  <div class="chapter-num">Capítulo 1</div>
+  <h2>Alimentação que nutre suas articulações</h2>
+  <div class="divider"></div>
+
+  <p class="lead">A inflamação silenciosa no corpo é uma das principais aliadas do desconforto articular. A boa notícia: ela responde rapidamente quando você ajusta o que coloca no prato.</p>
+
+  <h3>🥦 25 alimentos para incluir na sua rotina</h3>
+
+  <h4>Anti-inflamatórios naturais</h4>
+  <div class="grid-3">
+    <div class="item-box"><span class="num">01</span><strong>Açafrão-da-terra</strong><small>Curcumina ajuda a modular processos inflamatórios. Use no arroz, sopa, frango.</small></div>
+    <div class="item-box"><span class="num">02</span><strong>Gengibre</strong><small>Chás, sucos ou ralado em pratos. Composto gingerol é poderoso.</small></div>
+    <div class="item-box"><span class="num">03</span><strong>Azeite extravirgem</strong><small>2 colheres por dia. Polifenóis preciosos. Não esquente demais.</small></div>
+    <div class="item-box"><span class="num">04</span><strong>Salmão e sardinha</strong><small>Ômega-3 EPA e DHA. 2-3x por semana, preferencialmente assados.</small></div>
+    <div class="item-box"><span class="num">05</span><strong>Chia e linhaça</strong><small>1 colher de sopa por dia. Bater no liquidificador absorve melhor.</small></div>
+    <div class="item-box"><span class="num">06</span><strong>Castanhas</strong><small>3 castanhas-do-Pará por dia já fornecem o selênio que o corpo precisa.</small></div>
+  </div>
+
+  <h4>Ricos em colágeno e seus precursores</h4>
+  <div class="grid-3">
+    <div class="item-box"><span class="num">07</span><strong>Caldo de osso</strong><small>Excelente fonte de colágeno tipo II. Cozinhe lentamente por 6-8 horas.</small></div>
+    <div class="item-box"><span class="num">08</span><strong>Gelatina natural</strong><small>Sem corante. Como sobremesa ou em receitas. 1 porção por dia.</small></div>
+    <div class="item-box"><span class="num">09</span><strong>Ovos (com a casca cozida)</strong><small>Aminoácidos essenciais. 1-2 por dia para a maioria das pessoas.</small></div>
+    <div class="item-box"><span class="num">10</span><strong>Frango caipira</strong><small>Proteína de qualidade. Prefira coxa e sobrecoxa com pele ocasionalmente.</small></div>
+    <div class="item-box"><span class="num">11</span><strong>Peixes brancos</strong><small>Tilápia, linguado, pescada. Fonte leve e nutritiva.</small></div>
+    <div class="item-box"><span class="num">12</span><strong>Frutas vermelhas</strong><small>Antocianinas e vitamina C — essenciais para o colágeno. 1 xícara por dia.</small></div>
+  </div>
+
+  <h4>Vegetais e folhas verdes</h4>
+  <div class="grid-3">
+    <div class="item-box"><span class="num">13</span><strong>Brócolis</strong><small>Sulforafano. Cozinhe no vapor por 3 minutos para preservar nutrientes.</small></div>
+    <div class="item-box"><span class="num">14</span><strong>Espinafre e couve</strong><small>Folatos e cálcio. Saladas, sucos verdes ou refogados rápidos.</small></div>
+    <div class="item-box"><span class="num">15</span><strong>Abacate</strong><small>Gorduras boas. Meio por dia. Vai bem em salada ou pasta.</small></div>
+    <div class="item-box"><span class="num">16</span><strong>Beterraba</strong><small>Cozida, em sucos ou assada. Nitratos que melhoram circulação.</small></div>
+    <div class="item-box"><span class="num">17</span><strong>Tomate cozido</strong><small>Licopeno é mais biodisponível quando aquecido. Molhos, sopas.</small></div>
+    <div class="item-box"><span class="num">18</span><strong>Couve-flor</strong><small>Cruciferous como o brócolis. Versátil — vapor, assada, em arroz.</small></div>
+  </div>
+
+  <h4>Frutas e sementes</h4>
+  <div class="grid-3">
+    <div class="item-box"><span class="num">19</span><strong>Abacaxi</strong><small>Bromelina natural. 2 fatias após refeições pesadas.</small></div>
+    <div class="item-box"><span class="num">20</span><strong>Mamão</strong><small>Papaína auxilia a digestão. Tome no café da manhã.</small></div>
+    <div class="item-box"><span class="num">21</span><strong>Frutas cítricas</strong><small>Laranja, limão, kiwi, acerola — vitamina C para colágeno.</small></div>
+    <div class="item-box"><span class="num">22</span><strong>Cúrcuma + pimenta-preta</strong><small>A combinação aumenta absorção da curcumina em até 2000%.</small></div>
+    <div class="item-box"><span class="num">23</span><strong>Chá-verde</strong><small>2 xícaras por dia. Antioxidantes potentes (EGCG).</small></div>
+    <div class="item-box"><span class="num">24</span><strong>Cacau 70%+</strong><small>20g por dia (2 quadradinhos). Flavonoides anti-inflamatórios.</small></div>
+  </div>
+
+  <div class="item-box" style="margin-top: 12px;">
+    <span class="num">25</span><strong>Água — sua aliada mais subestimada</strong>
+    <small>30ml por kg de peso por dia. Para uma mulher de 70kg, isso significa 2,1 litros. A cartilagem articular é composta por 70-80% de água. Hidratação adequada é literalmente nutrição articular.</small>
+  </div>
+
+  <div class="footer-page">Guia Mobilidade & Bem-Estar · <strong>PraSaúde Eva Skin Caps</strong> · Página 3</div>
+</div>
+
+<!-- ============ CAPÍTULO 1 PARTE 2 — EVITAR ============ -->
+<div class="page content">
+  <div class="chapter-num">Capítulo 1 — continuação</div>
+  <h2>10 alimentos que merecem moderação</h2>
+  <div class="divider"></div>
+
+  <p class="lead">Não estamos falando de "proibir" — o radicalismo não funciona a longo prazo. Estamos falando de <strong>reduzir a frequência</strong>. Quanto menor o consumo, melhor o ambiente interno para suas articulações.</p>
+
+  <ul class="cross">
+    <li><strong>Açúcar refinado</strong> — Aumenta processos inflamatórios. Substitua por mel, melado ou açúcar de coco com moderação.</li>
+    <li><strong>Frituras e óleos reaquecidos</strong> — Geram compostos pró-inflamatórios. Prefira assados, grelhados ou na airfryer.</li>
+    <li><strong>Embutidos</strong> (presunto, salame, salsicha) — Nitritos e sódio em excesso. Reserve para ocasiões especiais.</li>
+    <li><strong>Refrigerantes</strong> — Açúcar, ácido fosfórico (que rouba cálcio dos ossos) e zero nutriente. Troque por água com gás e limão.</li>
+    <li><strong>Margarina e gorduras trans</strong> — Leia rótulos. "Gordura vegetal hidrogenada" = trans.</li>
+    <li><strong>Carnes processadas em excesso</strong> — Bacon, linguiça. Ocasionalmente tudo bem, semanalmente não.</li>
+    <li><strong>Farinha branca refinada</strong> — Pães, biscoitos, massas brancas. Prefira versões integrais.</li>
+    <li><strong>Excesso de cafeína</strong> — Mais de 4 cafés por dia pode aumentar perda de cálcio. 2-3 está ótimo.</li>
+    <li><strong>Álcool em excesso</strong> — Desidrata articulações e atrapalha a regeneração tecidual. Vinho ocasional, sim. Diário, não.</li>
+    <li><strong>Sal em excesso</strong> — Máximo 5g por dia (1 colher de chá). Cuidado com produtos industrializados — já vêm cheios.</li>
+  </ul>
+
+  <div class="card tip">
+    <h4>💡 Regra dos 80/20</h4>
+    <p style="margin: 0;">Coma de forma anti-inflamatória <strong>80% do tempo</strong>. Nos 20% restantes, aproveite o churrasco com a família, a sobremesa do aniversário, a pizza da sexta. <strong>Equilíbrio é sustentabilidade.</strong> Restrição extrema cria recaída.</p>
+  </div>
+
+  <h3>🍽️ Como montar pratos anti-inflamatórios</h3>
+  <p>Divida visualmente seu prato em 3 partes:</p>
+
+  <div class="schedule">
+    <h4>O Prato Anti-inflamatório</h4>
+    <table>
+      <tr><th style="width: 30%;">Porção</th><th>O que colocar</th></tr>
+      <tr><td><strong style="color: #fff;">50% do prato</strong></td><td>Vegetais coloridos (crus + cozidos)</td></tr>
+      <tr><td><strong style="color: #fff;">25% do prato</strong></td><td>Proteína magra (peixe, frango, ovo, leguminosas)</td></tr>
+      <tr><td><strong style="color: #fff;">25% do prato</strong></td><td>Carboidrato complexo (arroz integral, batata-doce, quinoa)</td></tr>
+      <tr><td><strong style="color: #fff;">+ Tempero</strong></td><td>Azeite extravirgem, ervas frescas, alho, cúrcuma</td></tr>
+    </table>
+  </div>
+
+  <div class="footer-page">Guia Mobilidade & Bem-Estar · <strong>PraSaúde Eva Skin Caps</strong> · Página 4</div>
+</div>
+
+<!-- ============ CAPÍTULO 2 — RECEITAS ============ -->
+<div class="page content">
+  <div class="chapter-num">Capítulo 2</div>
+  <h2>5 receitas anti-inflamatórias</h2>
+  <div class="divider"></div>
+  <p class="lead">Simples, saborosas e práticas. Todas podem ser preparadas em menos de 30 minutos.</p>
+
+  <div class="recipe">
+    <h4>🥣 Suco Verde Anti-inflamatório</h4>
+    <div class="meta"><span>⏱ 5 min</span><span>🥄 1 porção</span><span>💚 Antioxidante</span></div>
+    <p><strong>Ingredientes:</strong></p>
+    <ul class="arrow">
+      <li>1 maçã verde</li>
+      <li>1 fatia de gengibre fresco (2cm)</li>
+      <li>1 punhado de couve</li>
+      <li>Suco de meio limão</li>
+      <li>1 colher de sopa de linhaça</li>
+      <li>200ml de água de coco</li>
+    </ul>
+    <p><strong>Modo de preparo:</strong> Bata tudo no liquidificador. Não coe (mantém as fibras). Beba em jejum, 20 minutos antes do café.</p>
+  </div>
+
+  <div class="recipe">
+    <h4>🐟 Salmão com Crosta de Cúrcuma</h4>
+    <div class="meta"><span>⏱ 20 min</span><span>🥄 2 porções</span><span>💪 Ômega-3</span></div>
+    <p><strong>Ingredientes:</strong></p>
+    <ul class="arrow">
+      <li>2 filés de salmão (150g cada)</li>
+      <li>1 colher de chá de cúrcuma</li>
+      <li>Pitada de pimenta-preta moída</li>
+      <li>2 dentes de alho amassados</li>
+      <li>Azeite extravirgem, sal e raspas de limão</li>
+    </ul>
+    <p><strong>Modo de preparo:</strong> Tempere os filés com todos os ingredientes. Asse no forno a 180°C por 12-15 minutos. Sirva com brócolis no vapor e arroz integral.</p>
+  </div>
+
+  <div class="recipe">
+    <h4>🍵 Golden Milk (Leite Dourado)</h4>
+    <div class="meta"><span>⏱ 10 min</span><span>🥄 1 porção</span><span>🌙 Noturno</span></div>
+    <p><strong>Ingredientes:</strong></p>
+    <ul class="arrow">
+      <li>1 xícara de leite vegetal (amêndoas ou coco)</li>
+      <li>1/2 colher de chá de cúrcuma</li>
+      <li>Pitada de pimenta-preta</li>
+      <li>1/4 colher de chá de canela</li>
+      <li>1 fatia fina de gengibre</li>
+      <li>1 colher de chá de mel (opcional)</li>
+    </ul>
+    <p><strong>Modo de preparo:</strong> Aqueça tudo em fogo baixo por 5 minutos sem ferver. Coe e beba ainda morno, 1 hora antes de dormir. Ajuda a relaxar e reduz inflamação noturna.</p>
+  </div>
+
+  <div class="recipe">
+    <h4>🥗 Salada Colorida com Sementes</h4>
+    <div class="meta"><span>⏱ 10 min</span><span>🥄 1 porção</span><span>🌈 Antioxidante</span></div>
+    <p><strong>Ingredientes:</strong></p>
+    <ul class="arrow">
+      <li>Folhas verdes variadas (rúcula, espinafre baby, alface)</li>
+      <li>1/2 abacate em cubos</li>
+      <li>1/4 de beterraba ralada crua</li>
+      <li>5 tomates-cereja</li>
+      <li>1 colher de sopa de sementes (chia, gergelim, girassol)</li>
+      <li>3 castanhas-do-Pará picadas</li>
+      <li>Molho: azeite + limão + sal + orégano</li>
+    </ul>
+    <p><strong>Modo de preparo:</strong> Misture tudo numa tigela grande. Polvilhe as sementes e castanhas por cima. Tempere na hora de servir.</p>
+  </div>
+
+  <div class="recipe">
+    <h4>🍫 Mousse de Cacau e Abacate</h4>
+    <div class="meta"><span>⏱ 5 min + gelar</span><span>🥄 2 porções</span><span>🍰 Sobremesa</span></div>
+    <p><strong>Ingredientes:</strong></p>
+    <ul class="arrow">
+      <li>1 abacate maduro</li>
+      <li>2 colheres de sopa de cacau 100%</li>
+      <li>2 colheres de sopa de mel ou tâmaras</li>
+      <li>1/2 colher de chá de essência de baunilha</li>
+      <li>Pitada de sal</li>
+    </ul>
+    <p><strong>Modo de preparo:</strong> Bata tudo no processador até ficar cremoso. Leve à geladeira por 30 minutos. Sobremesa cremosa, doce e cheia de gorduras boas.</p>
+  </div>
+
+  <div class="footer-page">Guia Mobilidade & Bem-Estar · <strong>PraSaúde Eva Skin Caps</strong> · Página 5</div>
+</div>
+
+<!-- ============ CAPÍTULO 3 — EXERCÍCIOS ============ -->
+<div class="page content">
+  <div class="chapter-num">Capítulo 3</div>
+  <h2>Movimento sem impacto</h2>
+  <div class="divider"></div>
+
+  <p class="lead">Articulações <strong>amam movimento</strong>. O que elas não gostam é de impacto excessivo ou de ficar paradas por muito tempo. Os exercícios a seguir são todos de baixo impacto e podem ser feitos em casa, sem equipamento.</p>
+
+  <div class="card tip">
+    <h4>📝 Antes de começar</h4>
+    <ul class="arrow" style="margin-bottom: 0;">
+      <li>Faça 5 minutos de aquecimento (caminhada no lugar, marchando)</li>
+      <li>Respeite seus limites — dor não é meta</li>
+      <li>Hidrate-se antes, durante e depois</li>
+      <li>Comece com 3x por semana e evolua aos poucos</li>
+    </ul>
+  </div>
+
+  <h3>12 exercícios para fazer em casa</h3>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>01 · Caminhada no lugar</strong><span class="pill">Aquecimento</span></div>
+    <div class="exercise-body">Marche no mesmo lugar elevando os joelhos na altura do quadril. <strong>3 minutos.</strong> Mantenha a postura ereta e respire pelo nariz.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>02 · Elevação de calcanhares</strong><span class="pill">Pernas</span></div>
+    <div class="exercise-body">Em pé, com apoio leve numa cadeira, fique na ponta dos pés e desça devagar. <strong>3 séries de 12 repetições.</strong> Fortalece panturrilhas e melhora circulação.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>03 · Agachamento parcial</strong><span class="pill">Pernas e glúteos</span></div>
+    <div class="exercise-body">Em pé, pés afastados largura dos quadris. Desça como se fosse sentar numa cadeira, descendo só 1/3. <strong>3 séries de 10.</strong> Mantenha joelhos alinhados com os dedões.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>04 · Marcha sentada</strong><span class="pill">Quadril</span></div>
+    <div class="exercise-body">Sentada com postura ereta, eleve um joelho de cada vez como se marchasse. <strong>2 minutos contínuos.</strong> Ótimo para quem trabalha sentada.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>05 · Rotação de tornozelos</strong><span class="pill">Mobilidade</span></div>
+    <div class="exercise-body">Sentada, eleve um pé e desenhe círculos lentos com o tornozelo. <strong>10 vezes em cada sentido, cada pé.</strong></div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>06 · Mini-flexão na parede</strong><span class="pill">Braços e peito</span></div>
+    <div class="exercise-body">De frente para parede, mãos na altura do peito. Aproxime o corpo da parede e empurre. <strong>3 séries de 10.</strong> Sem impacto, fortalece membros superiores.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>07 · Glúteo deitada</strong><span class="pill">Glúteos</span></div>
+    <div class="exercise-body">Deitada de barriga para cima, joelhos dobrados. Eleve o quadril contraindo o glúteo. Segure 2 segundos no alto. <strong>3 séries de 12.</strong></div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>08 · Abre e fecha de pernas</strong><span class="pill">Quadril</span></div>
+    <div class="exercise-body">Deitada de lado, eleve a perna de cima como uma "ostra abrindo". <strong>3 séries de 12 cada lado.</strong> Excelente para estabilizadores do quadril.</div>
+  </div>
+
+  <div class="footer-page">Guia Mobilidade & Bem-Estar · <strong>PraSaúde Eva Skin Caps</strong> · Página 6</div>
+</div>
+
+<!-- ============ CAPÍTULO 3 PARTE 2 + ATIVIDADES ============ -->
+<div class="page content">
+  <div class="chapter-num">Capítulo 3 — continuação</div>
+  <h2>Mais 4 exercícios e atividades</h2>
+  <div class="divider"></div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>09 · Prancha modificada</strong><span class="pill">Core</span></div>
+    <div class="exercise-body">Apoie joelhos e antebraços no chão. Mantenha o corpo alinhado. <strong>Segure 20 segundos. 3 séries.</strong> Aumente o tempo conforme ganha resistência.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>10 · Bicicleta no ar</strong><span class="pill">Abdômen</span></div>
+    <div class="exercise-body">Deitada, eleve as pernas e simule pedalar uma bicicleta no ar lentamente. <strong>1 minuto.</strong> Ativa abdômen sem impacto na lombar.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>11 · Rotação de tronco sentada</strong><span class="pill">Coluna</span></div>
+    <div class="exercise-body">Sentada com postura ereta, gire o tronco para a direita olhando por cima do ombro. Volte e vá para esquerda. <strong>10 repetições para cada lado.</strong></div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>12 · Caminhada de finalização</strong><span class="pill">Cardio leve</span></div>
+    <div class="exercise-body">Finalize sempre com 5-10 minutos de caminhada (no lugar, no corredor ou ao redor da casa). Ajuda na recuperação ativa.</div>
+  </div>
+
+  <h3 style="margin-top: 28px;">Atividades complementares para o dia a dia</h3>
+
+  <div class="grid-2">
+    <div class="item-box"><strong>🚶 Caminhada ao ar livre</strong><small>30 minutos, 4-5x por semana. Em ritmo confortável que ainda permita conversar.</small></div>
+    <div class="item-box"><strong>🏊 Hidroginástica</strong><small>O exercício queridinho das articulações: a água sustenta o corpo e elimina o impacto.</small></div>
+    <div class="item-box"><strong>🧘 Pilates</strong><small>Fortalece o core e melhora mobilidade. 2x por semana faz diferença em 4-6 semanas.</small></div>
+    <div class="item-box"><strong>🚴 Bicicleta ergométrica</strong><small>Excelente cardio sem impacto. 20-30 minutos em intensidade leve a moderada.</small></div>
+    <div class="item-box"><strong>💃 Dança</strong><small>Zumba, dança de salão, dança livre — coordena, alivia o stress e fortalece pernas.</small></div>
+    <div class="item-box"><strong>🌿 Tai chi chuan</strong><small>Movimentos lentos que melhoram equilíbrio. Reduz risco de quedas em qualquer idade.</small></div>
+  </div>
+
+  <div class="card warning">
+    <h4>🚫 Atividades para evitar (ou pegar leve)</h4>
+    <ul class="cross" style="margin-bottom: 0;">
+      <li>Corrida em asfalto duro (alto impacto)</li>
+      <li>Saltos repetitivos e prolongados</li>
+      <li>Levantamento de peso pesado sem orientação profissional</li>
+      <li>Esportes com mudanças bruscas de direção (tênis, futebol) se você já tem desconforto</li>
+    </ul>
+  </div>
+
+  <div class="footer-page">Guia Mobilidade & Bem-Estar · <strong>PraSaúde Eva Skin Caps</strong> · Página 7</div>
+</div>
+
+<!-- ============ CAPÍTULO 4 — ALONGAMENTOS ============ -->
+<div class="page content">
+  <div class="chapter-num">Capítulo 4</div>
+  <h2>Rotina de alongamentos diários</h2>
+  <div class="divider"></div>
+
+  <p class="lead">10 minutos pela manhã e 10 minutos à noite. É só isso que separa um corpo travado de um corpo livre.</p>
+
+  <h3>🌅 Rotina matinal (10 minutos)</h3>
+  <p>Faça assim que acordar, ainda na cama ou em pé ao lado dela. Prepara o corpo para o dia.</p>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>1. Alongamento na cama</strong><span class="pill">2 min</span></div>
+    <div class="exercise-body">Deitada de costas, estique os braços para cima da cabeça e as pernas para baixo. Sinta a coluna alongando. Respire fundo 5 vezes.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>2. Joelhos ao peito</strong><span class="pill">2 min</span></div>
+    <div class="exercise-body">Ainda deitada, abrace um joelho de cada vez puxando suavemente em direção ao peito. Segure 20 segundos cada lado. Depois os dois juntos.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>3. Gato e camelo</strong><span class="pill">2 min</span></div>
+    <div class="exercise-body">De quatro no chão, alterne entre arquear as costas para cima (gato) e afundar para baixo (camelo). 10 ciclos lentos.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>4. Inclinação lateral</strong><span class="pill">2 min</span></div>
+    <div class="exercise-body">Em pé, braço direito para cima, incline o tronco para esquerda. Segure 20 segundos. Troque o lado. Repita 3 vezes.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>5. Rotação de pescoço</strong><span class="pill">2 min</span></div>
+    <div class="exercise-body">Movimentos suaves e lentos: para frente e trás, lados, semicírculos. Nunca rotação completa. Respire devagar.</div>
+  </div>
+
+  <h3 style="margin-top: 24px;">🌙 Rotina noturna (10 minutos)</h3>
+  <p>Antes de dormir. Ajuda a relaxar e melhora a qualidade do sono.</p>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>1. Borboleta sentada</strong><span class="pill">2 min</span></div>
+    <div class="exercise-body">Sentada no chão, junte as solas dos pés e deixe os joelhos caírem para os lados. Inspire profundo. Sinta abrir o quadril.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>2. Postura da criança</strong><span class="pill">2 min</span></div>
+    <div class="exercise-body">Ajoelhada, sente nos calcanhares e estique os braços para frente, testa no chão. Posição extremamente relaxante para coluna e quadril.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>3. Torção deitada</strong><span class="pill">2 min</span></div>
+    <div class="exercise-body">Deitada, dobre os joelhos e leve-os para um lado, olhando para o lado oposto. Ótimo para relaxar a lombar. 1 minuto cada lado.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>4. Pernas na parede</strong><span class="pill">2 min</span></div>
+    <div class="exercise-body">Deitada com o quadril próximo à parede, suba as pernas pela parede formando 90 graus. Drena, descansa e prepara para um sono profundo.</div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-header"><strong>5. Respiração 4-7-8</strong><span class="pill">2 min</span></div>
+    <div class="exercise-body">Inspire pelo nariz contando 4. Segure por 7. Expire pela boca por 8 segundos. Repita 4 ciclos. Coloca o corpo em modo "descanso".</div>
+  </div>
+
+  <div class="footer-page">Guia Mobilidade & Bem-Estar · <strong>PraSaúde Eva Skin Caps</strong> · Página 8</div>
+</div>
+
+<!-- ============ CAPÍTULO 5 — HÁBITOS ============ -->
+<div class="page content">
+  <div class="chapter-num">Capítulo 5</div>
+  <h2>7 hábitos que multiplicam seus resultados</h2>
+  <div class="divider"></div>
+
+  <p class="lead">Alimentação certa + exercícios + estes hábitos = a fórmula completa. Pequenas mudanças, grandes impactos.</p>
+
+  <div class="card">
+    <h4>1 · Durma 7-9 horas de qualidade</h4>
+    <p style="margin: 0;">É durante o sono profundo que o corpo libera hormônios de reparo. Sono ruim = mais dor, mais inflamação, mais cansaço. <strong>Crie um ritual</strong>: tela desligada 1h antes, quarto escuro, temperatura amena, horário consistente.</p>
+  </div>
+
+  <div class="card">
+    <h4>2 · Quebre o sedentarismo a cada hora</h4>
+    <p style="margin: 0;">Mesmo que você se exercite, ficar 8h sentada faz mal. <strong>A cada 60 minutos</strong>, levante-se e movimente-se por 2-3 minutos. Pode ser ir ao banheiro, beber água, alongar. Configure um alarme se precisar.</p>
+  </div>
+
+  <div class="card">
+    <h4>3 · Sol nos braços por 15 minutos</h4>
+    <p style="margin: 0;">Vitamina D é essencial para a saúde óssea. <strong>15-20 minutos de sol</strong> (sem protetor, antes das 10h ou após às 16h) já fazem diferença. Se não for possível, converse com seu médico sobre suplementação.</p>
+  </div>
+
+  <div class="card">
+    <h4>4 · Cuide da sua postura</h4>
+    <p style="margin: 0;">Ombros para trás, queixo paralelo ao chão, peso distribuído nos dois pés. <strong>Postura errada por anos</strong> sobrecarrega articulações e gera desconforto crônico. Quando lembrar — corrija. Aos poucos vira automático.</p>
+  </div>
+
+  <div class="card">
+    <h4>5 · Hidrate, hidrate, hidrate</h4>
+    <p style="margin: 0;">Tenha sempre uma garrafa com você. <strong>2 litros por dia é o mínimo.</strong> Adicione fatias de limão, hortelã ou pepino para variar o sabor. A urina deve estar amarelo bem claro.</p>
+  </div>
+
+  <div class="card">
+    <h4>6 · Gerencie o estresse</h4>
+    <p style="margin: 0;">Cortisol crônico alto = inflamação crônica = piora articular. <strong>Encontre seu jeito</strong>: meditação, oração, caminhada, hobbies, terapia. 10 minutos por dia para você não é luxo, é necessidade.</p>
+  </div>
+
+  <div class="card">
+    <h4>7 · Tome Eva Skin Caps com consistência</h4>
+    <p style="margin: 0;">Os ativos (colágeno hidrolisado, ácido hialurônico e trans-resveratrol) precisam de continuidade. <strong>Tome todos os dias</strong>, no mesmo horário (de manhã com água é o melhor). Use por pelo menos 90 dias para sentir o efeito completo.</p>
+  </div>
+
+  <div class="schedule">
+    <h4>📅 Seu cronograma semanal sugerido</h4>
+    <table>
+      <tr><th>Dia</th><th>Manhã</th><th>Tarde/Noite</th></tr>
+      <tr><td><strong style="color: #fff;">SEG</strong></td><td>Caminhada 30min + alongamento</td><td>Exercícios em casa</td></tr>
+      <tr><td><strong style="color: #fff;">TER</strong></td><td>Alongamento matinal</td><td>Hidroginástica ou pilates</td></tr>
+      <tr><td><strong style="color: #fff;">QUA</strong></td><td>Caminhada 30min</td><td>Alongamento noturno</td></tr>
+      <tr><td><strong style="color: #fff;">QUI</strong></td><td>Alongamento matinal</td><td>Exercícios em casa</td></tr>
+      <tr><td><strong style="color: #fff;">SEX</strong></td><td>Caminhada 30min</td><td>Atividade prazerosa (dança, yoga)</td></tr>
+      <tr><td><strong style="color: #fff;">SÁB</strong></td><td>Atividade ao ar livre</td><td>Descanso ativo</td></tr>
+      <tr><td><strong style="color: #fff;">DOM</strong></td><td>Descanso ou caminhada leve</td><td>Preparar a semana</td></tr>
+    </table>
+  </div>
+
+  <div class="footer-page">Guia Mobilidade & Bem-Estar · <strong>PraSaúde Eva Skin Caps</strong> · Página 9</div>
+</div>
+
+<!-- ============ CONTRACAPA ============ -->
+<div class="page back-cover">
+  <h2>Você merece se sentir bem<br>todos os dias</h2>
+  <p>Este guia é só o começo. O que vai transformar sua vida é a <strong>consistência</strong> nas pequenas escolhas: o que você come, como se movimenta, como descansa, como cuida do seu corpo dia após dia.</p>
+  <p>Eva Skin Caps é sua aliada nessa jornada — uma forma prática de garantir os nutrientes que sua pele, seus cabelos e suas articulações precisam para envelhecer com leveza e saúde.</p>
+
+  <div class="signature">
+    Com carinho,
+    <strong>Equipe PraSaúde</strong>
+    Eva Skin Caps
+  </div>
+
+  <div class="legal">
+    Material informativo distribuído gratuitamente como bônus de compra do produto Eva Skin Caps. Eva Skin Caps é um suplemento alimentar (Notificação Anvisa). Não substitui uma alimentação variada e equilibrada nem dispensa orientação médica ou nutricional. Não recomendado para gestantes, lactantes e crianças. Em caso de dúvida, consulte um profissional de saúde.
+  </div>
+</div>
+
+</body>
+</html>
