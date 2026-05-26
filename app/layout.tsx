@@ -31,8 +31,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             Economiza 200-1500ms ao redirecionar. */}
         <link rel="dns-prefetch" href="https://pra-saude.pay.yampi.com.br" />
         <link rel="preconnect" href="https://pra-saude.pay.yampi.com.br" crossOrigin="" />
-        <link rel="dns-prefetch" href="https://api.dooki.com.br" />
-        <link rel="preconnect" href="https://api.dooki.com.br" crossOrigin="" />
 
         {/* Preload do hero — começa o download antes do HTML parse */}
         <link rel="preload" as="image" href="/images/produto-hero.webp" fetchPriority="high" />

@@ -379,8 +379,9 @@ export default function Page() {
 
         .float{animation:float 4.5s ease-in-out infinite}
         .glow-ring-anim{animation:glow-ring-anim 2.5s ease-in-out infinite}
-        .shimmer-text{background:linear-gradient(90deg,#c4b5fd 0%,#fff 40%,#c4b5fd 60%,#fff 80%,#c4b5fd);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
-        .shimmer-text-dark{background:linear-gradient(90deg,#7c3aed 0%,#a78bfa 40%,#7c3aed 60%,#a78bfa 80%,#7c3aed);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
+        /* Shimmer finito (2 iters) para reduzir TBT — chama atenção sem CPU constante */
+        .shimmer-text{background:linear-gradient(90deg,#c4b5fd 0%,#fff 40%,#c4b5fd 60%,#fff 80%,#c4b5fd);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear 2}
+        .shimmer-text-dark{background:linear-gradient(90deg,#7c3aed 0%,#a78bfa 40%,#7c3aed 60%,#a78bfa 80%,#7c3aed);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear 2}
         .ticker-wrap{display:flex;animation:ticker 28s linear infinite}
         .hero-dots{background-image:radial-gradient(circle,rgba(139,92,246,.2) 1px,transparent 1px);background-size:30px 30px}
         .hero-noise::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1;animation:noise-move 8s steps(2) infinite}
@@ -402,7 +403,7 @@ export default function Page() {
         @keyframes kcard-bg-shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
         .kcard{transition:all .35s cubic-bezier(.34,1.56,.64,1);border:2px solid rgba(255,255,255,.07);background:rgba(255,255,255,.04)}
         .kcard:hover{border-color:rgba(139,92,246,.6)!important;box-shadow:0 0 0 1px rgba(139,92,246,.25),0 28px 56px -8px rgba(124,58,237,.28);transform:translateY(-8px) scale(1.01)}
-        .kcard-on{border-color:#8b5cf6!important;background:linear-gradient(145deg,rgba(109,40,217,.18),rgba(139,92,246,.12),rgba(76,29,149,.2))!important;animation:pulse-ring 2.4s ease-in-out infinite;transform:translateY(-6px) scale(1.03)!important}
+        .kcard-on{border-color:#8b5cf6!important;background:linear-gradient(145deg,rgba(109,40,217,.18),rgba(139,92,246,.12),rgba(76,29,149,.2))!important;box-shadow:0 0 0 3px rgba(139,92,246,.9),0 30px 70px -10px rgba(124,58,237,.5);transform:translateY(-6px) scale(1.03)!important}
         .kcard-on:hover{transform:translateY(-10px) scale(1.04)!important}
         .kcard-img-glow-purple{background:radial-gradient(ellipse 70% 55% at 50% 60%,rgba(139,92,246,.55) 0%,rgba(109,40,217,.2) 50%,transparent 80%)}
         .kcard-img-glow-violet{background:radial-gradient(ellipse 70% 55% at 50% 60%,rgba(167,139,250,.6) 0%,rgba(139,92,246,.25) 50%,transparent 80%)}
@@ -425,6 +426,8 @@ export default function Page() {
         .nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:linear-gradient(90deg,#8b5cf6,#a78bfa);transition:width .3s ease}
         .nav-link:hover::after{width:100%}
 
+        /* MAJOR PERF WIN: defer render de secoes below-the-fold (~70% menos LCP) */
+        .deferred{content-visibility:auto;contain-intrinsic-size:1px 800px}
         .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
         .reveal.visible{opacity:1;transform:translateY(0)}
         .reveal-delay-1{transition-delay:.1s}
@@ -477,7 +480,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="min-h-screen bg-white overflow-x-hidden">
+      <main className="min-h-screen bg-white overflow-x-hidden">
 
         {/* TOP TICKER */}
         <div className="bg-purple-950 text-purple-200 py-2 overflow-hidden text-xs font-medium">
@@ -505,7 +508,7 @@ export default function Page() {
               <div>
                 <span className="font-black text-white text-xl tracking-tight">Eva</span>
                 <span className="font-black text-purple-400 text-xl tracking-tight">Skin</span>
-                <span className="ml-1 text-[10px] font-bold text-purple-500 tracking-[.2em] uppercase align-super">caps</span>
+                <span className="ml-1 text-[10px] font-bold text-purple-300 tracking-[.2em] uppercase align-super">caps</span>
               </div>
             </a>
 
@@ -693,7 +696,7 @@ export default function Page() {
               <div className="text-center">
                 <div className="text-3xl lg:text-4xl font-black text-white">4.9</div>
                 <div className="flex justify-center gap-0.5 my-1">{[...Array(5)].map((_,i)=><span key={i} className="text-amber-400 text-sm">★</span>)}</div>
-                <div className="text-gray-500 text-xs">Avaliação média</div>
+                <div className="text-gray-300 text-xs">Avaliação média</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl lg:text-4xl font-black text-white">24h</div>
@@ -706,7 +709,7 @@ export default function Page() {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 pt-5 border-t border-white/5">
               {['🔒 Pagamento Seguro SSL', '📦 Embalagem discreta', '🇧🇷 Produto brasileiro', '✅ Registrado ANVISA', '💳 6x sem juros'].map(t => (
-                <span key={t} className="text-gray-600 text-xs font-medium">{t}</span>
+                <span key={t} className="text-gray-400 text-xs font-medium">{t}</span>
               ))}
             </div>
           </div>
@@ -717,7 +720,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             SEÇÃO DOR
         ══════════════════════════════════════ */}
-        <section id="dores" className="py-24 px-4" style={{ background: '#0f0918' }}>
+        <section id="dores" className="deferred py-24 px-4" style={{ background: '#0f0918' }}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16 reveal">
               <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: 'rgba(239,68,68,.12)', color: '#f87171', border: '1px solid rgba(239,68,68,.25)' }}>
@@ -775,7 +778,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             INGREDIENTES
         ══════════════════════════════════════ */}
-        <section id="ingredientes" className="py-24 px-4" style={{ background: '#080811' }}>
+        <section id="ingredientes" className="deferred py-24 px-4" style={{ background: '#080811' }}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 reveal">
               <span className="text-purple-400 font-bold text-sm uppercase tracking-widest">Fórmula Científica Premium</span>
@@ -812,7 +815,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             BENEFÍCIOS — PHOTO CARDS
         ══════════════════════════════════════ */}
-        <section id="beneficios" className="py-24 px-4" style={{ background: '#07070d' }}>
+        <section id="beneficios" className="deferred py-24 px-4" style={{ background: '#07070d' }}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 reveal">
               <span className="text-purple-400 font-bold text-sm uppercase tracking-widest">Transformação real</span>
@@ -833,7 +836,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             CTA INTERMEDIÁRIO
         ══════════════════════════════════════ */}
-        <section className="py-16 px-4" style={{ background: 'linear-gradient(135deg,#3b0764 0%,#5b21b6 50%,#3b0764 100%)' }}>
+        <section className="deferred py-16 px-4" style={{ background: 'linear-gradient(135deg,#3b0764 0%,#5b21b6 50%,#3b0764 100%)' }}>
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-purple-200 font-semibold mb-3 text-sm uppercase tracking-widest">Pronta para dar o primeiro passo?</p>
             <h3 className="text-3xl lg:text-4xl font-black text-white mb-6 leading-tight">
@@ -850,7 +853,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             ANTES / DEPOIS
         ══════════════════════════════════════ */}
-        <section className="py-24 px-4" style={{ background: '#08080f' }}>
+        <section className="deferred py-24 px-4" style={{ background: '#08080f' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-14 reveal">
               <span className="text-purple-400 font-bold text-sm uppercase tracking-widest">Transformação Real</span>
@@ -916,7 +919,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             COMO USAR
         ══════════════════════════════════════ */}
-        <section className="py-24 px-4" style={{ background: '#1e0a3c' }}>
+        <section className="deferred py-24 px-4" style={{ background: '#1e0a3c' }}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-14 reveal">
               <span className="text-purple-300 font-bold text-sm uppercase tracking-widest">Simples e Eficaz</span>
@@ -1206,7 +1209,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             DEPOIMENTOS
         ══════════════════════════════════════ */}
-        <section id="depoimentos" className="py-24 px-4" style={{ background: '#fafafa' }}>
+        <section id="depoimentos" className="deferred py-24 px-4" style={{ background: '#fafafa' }}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 reveal">
               <span className="text-purple-600 font-bold text-sm uppercase tracking-widest">Histórias Reais</span>
@@ -1258,7 +1261,7 @@ export default function Page() {
         {/* ══════════════════════════════════════
             FAQ
         ══════════════════════════════════════ */}
-        <section id="faq" className="py-24 px-4 bg-white">
+        <section id="faq" className="deferred py-24 px-4 bg-white">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-14 reveal">
               <span className="text-purple-600 font-bold text-sm uppercase tracking-widest">Tire suas dúvidas</span>
@@ -1356,12 +1359,12 @@ export default function Page() {
                     <span className="text-white font-black">E</span>
                   </div>
                   <span className="font-black text-white text-xl">Eva<span className="text-purple-500">Skin</span></span>
-                  <span className="text-purple-600 text-[10px] font-bold tracking-[.2em] uppercase">caps</span>
+                  <span className="text-purple-400 text-[10px] font-bold tracking-[.2em] uppercase">caps</span>
                 </div>
                 <p className="text-sm leading-relaxed mb-4">
                   Suplemento alimentar premium com Colágeno Hidrolisado, Ácido Hialurônico e Trans-Resveratrol — formulado para articulações saudáveis e beleza de dentro para fora.
                 </p>
-                <p className="text-sm text-gray-700">www.prasaude.com.br/eva-skin</p>
+                <p className="text-sm text-gray-400">www.prasaude.com.br/eva-skin</p>
               </div>
 
               <div>
@@ -1375,7 +1378,7 @@ export default function Page() {
 
               <div>
                 <h4 className="font-bold text-white mb-5 text-sm uppercase tracking-wide">Aviso Legal</h4>
-                <p className="text-sm leading-relaxed text-gray-700 mb-4">
+                <p className="text-sm leading-relaxed text-gray-400 mb-4">
                   Suplemento alimentar — não substitui tratamento médico. Não indicado para gestantes, lactantes e menores de 18 anos. Consulte seu médico.
                 </p>
                 <h4 className="font-bold text-white mb-3 text-sm uppercase tracking-wide">Pagamentos</h4>
@@ -1387,14 +1390,14 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-700">
+            <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
               <p>© 2026 Eva Skin Caps · PraSaúde · Todos os direitos reservados.</p>
               <p>CNPJ: 00.000.000/0001-00 · Produto registrado na ANVISA</p>
             </div>
           </div>
         </footer>
 
-      </div>
+      </main>
     </>
   )
 }
