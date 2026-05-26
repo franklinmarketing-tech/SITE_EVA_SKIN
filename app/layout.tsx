@@ -26,6 +26,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        {/* Pré-resolve DNS + abre conexão TCP/TLS para o checkout Yampi
+            antes do clique. Economiza 200-1500ms ao redirecionar. */}
+        <link rel="dns-prefetch" href="https://pra-saude.pay.yampi.com.br" />
+        <link rel="preconnect" href="https://pra-saude.pay.yampi.com.br" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://api.dooki.com.br" />
+        <link rel="preconnect" href="https://api.dooki.com.br" crossOrigin="" />
+      </head>
       <body className="bg-white text-gray-900 font-sans">{children}</body>
     </html>
   )
