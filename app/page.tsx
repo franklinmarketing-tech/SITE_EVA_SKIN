@@ -241,6 +241,7 @@ function PhotoCard({ img, fallback, overlay, stat, title, sub, delay = 0 }: {
     <div className={`photo-card reveal reveal-delay-${delay} relative aspect-[3/4] rounded-3xl overflow-hidden group`}>
       {!imgErr ? (
         <img src={img} alt={title} onError={() => setImgErr(true)}
+          loading="lazy" decoding="async"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
       ) : (
         <div className={`absolute inset-0 bg-gradient-to-br ${fallback}`} />
@@ -271,9 +272,9 @@ const Stars = () => (
 )
 
 const kits = [
-  { id: 1, qty: 1, badge: '', badgeCls: '', from: 127, price: 97, pix: 87.30, per: 97, inst: '3x de R$ 32,33', disc: '0%', days: 30, link: LINK_1, img: '/images/produto-hero.png' },
-  { id: 2, qty: 2, badge: '⭐ Mais Vendido', badgeCls: 'from-purple-600 to-violet-500', from: 194, price: 174, pix: 156.60, per: 87, inst: '6x de R$ 29,00', disc: '10%', days: 60, link: LINK_2, img: '/images/produto-2.png' },
-  { id: 3, qty: 3, badge: '🔥 Melhor Preço', badgeCls: 'from-amber-500 to-orange-500', from: 291, price: 231, pix: 207.90, per: 77, inst: '6x de R$ 38,50', disc: '20%', days: 90, link: LINK_3, img: '/images/produto-3.png' },
+  { id: 1, qty: 1, badge: '', badgeCls: '', from: 127, price: 97, pix: 87.30, per: 97, inst: '3x de R$ 32,33', disc: '0%', days: 30, link: LINK_1, img: '/images/produto-hero.webp' },
+  { id: 2, qty: 2, badge: '⭐ Mais Vendido', badgeCls: 'from-purple-600 to-violet-500', from: 194, price: 174, pix: 156.60, per: 87, inst: '6x de R$ 29,00', disc: '10%', days: 60, link: LINK_2, img: '/images/produto-2.webp' },
+  { id: 3, qty: 3, badge: '🔥 Melhor Preço', badgeCls: 'from-amber-500 to-orange-500', from: 291, price: 231, pix: 207.90, per: 77, inst: '6x de R$ 38,50', disc: '20%', days: 90, link: LINK_3, img: '/images/produto-3.webp' },
 ]
 
 const ingr = [
@@ -614,7 +615,7 @@ export default function Page() {
 
                 {/* Product image */}
                 <div className="relative w-full h-full float z-10">
-                  <ProductImg src="/images/produto-hero.png" alt="Eva Skin Caps 1 frasco" />
+                  <ProductImg src="/images/produto-hero.webp" alt="Eva Skin Caps 1 frasco" />
                 </div>
 
                 {/* Floating badges */}
