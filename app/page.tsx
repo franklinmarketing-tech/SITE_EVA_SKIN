@@ -233,8 +233,8 @@ function Counter({ end, suffix = '', label = '' }: { end: number; suffix?: strin
   )
 }
 
-function PhotoCard({ img, fallback, overlay, icon, stat, title, sub, delay = 0 }: {
-  img: string; fallback: string; overlay: string; icon: string; stat: string; title: string; sub: string; delay?: number
+function PhotoCard({ img, fallback, overlay, stat, title, sub, delay = 0 }: {
+  img: string; fallback: string; overlay: string; stat: string; title: string; sub: string; delay?: number
 }) {
   const [imgErr, setImgErr] = useState(false)
   return (
@@ -247,10 +247,7 @@ function PhotoCard({ img, fallback, overlay, icon, stat, title, sub, delay = 0 }
       )}
       <div className={`absolute inset-0 ${overlay}`} />
       <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")' }} />
-      <div className="absolute inset-0 flex flex-col justify-between p-7 z-10">
-        <div className="w-14 h-14 rounded-2xl bg-black/30 backdrop-blur-md border border-white/20 flex items-center justify-center text-3xl shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
-          {icon}
-        </div>
+      <div className="absolute inset-0 flex flex-col justify-end p-7 z-10">
         <div>
           <div className="inline-block bg-black/50 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full mb-3 border border-white/20 shadow">{stat}</div>
           <h3 className="text-white text-2xl font-black leading-tight mb-2 drop-shadow-lg">{title}</h3>
@@ -301,12 +298,12 @@ const ingr = [
 ]
 
 const photos = [
-  { img: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&auto=format&fit=crop', fallback: 'from-blue-950 to-purple-900', overlay: 'bg-gradient-to-t from-blue-950/95 via-blue-900/50 to-black/10', icon: '🏃‍♀️', stat: '80% das clientes relatam', title: 'Articulações Livres', sub: 'Mais liberdade de movimento com uso contínuo', delay: 1 },
-  { img: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80&auto=format&fit=crop', fallback: 'from-rose-950 to-purple-900', overlay: 'bg-gradient-to-t from-rose-950/95 via-rose-900/50 to-black/10', icon: '✨', stat: '2x mais hidratação', title: 'Pele Radiante', sub: 'Hidratada, firme e luminosa', delay: 2 },
-  { img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80&auto=format&fit=crop', fallback: 'from-indigo-950 to-violet-900', overlay: 'bg-gradient-to-t from-indigo-950/95 via-indigo-900/50 to-black/10', icon: '🦴', stat: '+40% resistência', title: 'Ossos e Músculos', sub: 'Estrutura fortalecida por dentro', delay: 3 },
-  { img: 'https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?w=600&q=80&auto=format&fit=crop', fallback: 'from-emerald-950 to-teal-900', overlay: 'bg-gradient-to-t from-emerald-950/95 via-emerald-900/50 to-black/10', icon: '⏳', stat: '10 anos mais jovem', title: 'Anti-Envelhecimento', sub: 'Rugas e linhas visivelmente reduzidas', delay: 1 },
-  { img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&auto=format&fit=crop', fallback: 'from-amber-950 to-orange-900', overlay: 'bg-gradient-to-t from-amber-950/95 via-amber-900/50 to-black/10', icon: '💅', stat: '3x mais forte', title: 'Cabelos & Unhas', sub: 'Crescimento saudável e anti-quebra', delay: 2 },
-  { img: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&q=80&auto=format&fit=crop', fallback: 'from-purple-950 to-fuchsia-900', overlay: 'bg-gradient-to-t from-purple-950/95 via-purple-900/50 to-black/10', icon: '❤️', stat: 'Colesterol equilibrado', title: 'Saúde Cardiovascular', sub: 'Coração protegido pelo Resveratrol', delay: 3 },
+  { img: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&auto=format&fit=crop', fallback: 'from-blue-950 to-purple-900', overlay: 'bg-gradient-to-t from-blue-950/95 via-blue-900/50 to-black/10', stat: '80% das clientes relatam', title: 'Articulações Livres', sub: 'Mais liberdade de movimento com uso contínuo', delay: 1 },
+  { img: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80&auto=format&fit=crop', fallback: 'from-rose-950 to-purple-900', overlay: 'bg-gradient-to-t from-rose-950/95 via-rose-900/50 to-black/10', stat: '2x mais hidratação', title: 'Pele Radiante', sub: 'Hidratada, firme e luminosa', delay: 2 },
+  { img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80&auto=format&fit=crop', fallback: 'from-indigo-950 to-violet-900', overlay: 'bg-gradient-to-t from-indigo-950/95 via-indigo-900/50 to-black/10', stat: '+40% resistência', title: 'Ossos e Músculos', sub: 'Estrutura fortalecida por dentro', delay: 3 },
+  { img: 'https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?w=600&q=80&auto=format&fit=crop', fallback: 'from-emerald-950 to-teal-900', overlay: 'bg-gradient-to-t from-emerald-950/95 via-emerald-900/50 to-black/10', stat: '10 anos mais jovem', title: 'Anti-Envelhecimento', sub: 'Rugas e linhas visivelmente reduzidas', delay: 1 },
+  { img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&auto=format&fit=crop', fallback: 'from-amber-950 to-orange-900', overlay: 'bg-gradient-to-t from-amber-950/95 via-amber-900/50 to-black/10', stat: '3x mais forte', title: 'Cabelos & Unhas', sub: 'Crescimento saudável e anti-quebra', delay: 2 },
+  { img: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&q=80&auto=format&fit=crop', fallback: 'from-purple-950 to-fuchsia-900', overlay: 'bg-gradient-to-t from-purple-950/95 via-purple-900/50 to-black/10', stat: 'Colesterol equilibrado', title: 'Saúde Cardiovascular', sub: 'Coração protegido pelo Resveratrol', delay: 3 },
 ]
 
 const baItems = [
