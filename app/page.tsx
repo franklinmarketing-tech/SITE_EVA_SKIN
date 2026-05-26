@@ -257,9 +257,6 @@ function PhotoCard({ img, fallback, overlay, icon, stat, title, sub, delay = 0 }
           <p className="text-white/80 text-sm leading-relaxed drop-shadow">{sub}</p>
         </div>
       </div>
-      <div className="photo-overlay absolute inset-0 flex items-end justify-center pb-8 z-20">
-        <span className="text-white text-sm font-bold border border-white/50 px-5 py-2.5 rounded-full backdrop-blur-md bg-white/15 shadow-lg">Ver resultado →</span>
-      </div>
     </div>
   )
 }
@@ -385,8 +382,6 @@ export default function Page() {
         .card-hover:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 30px 60px -10px rgba(124,58,237,.3)}
         .photo-card{transition:all .5s ease;cursor:default}
         .photo-card:hover{transform:scale(1.04) translateY(-6px);box-shadow:0 40px 80px -20px rgba(0,0,0,.5)}
-        .photo-overlay{opacity:0;transition:opacity .4s ease}
-        .photo-card:hover .photo-overlay{opacity:1}
         .btn-mag{transition:transform .25s ease,box-shadow .25s ease}
         .btn-mag:hover{box-shadow:0 24px 60px rgba(124,58,237,.5);transform:translateY(-4px)}
         .btn-white-hover:hover{box-shadow:0 24px 60px rgba(255,255,255,.18);transform:translateY(-4px)}
