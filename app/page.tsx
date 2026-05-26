@@ -37,6 +37,147 @@ function useReveal() {
   }, [])
 }
 
+/* ── ÍCONES PREMIUM (SVG inline, estilo científico/farmacêutico) ── */
+function IconCollagen({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M10 4 C 18 8, 18 12, 10 16 C 18 20, 18 24, 10 28" />
+      <path d="M22 4 C 14 8, 14 12, 22 16 C 14 20, 14 24, 22 28" />
+      <line x1="12" y1="6" x2="20" y2="6" opacity=".55" />
+      <line x1="12" y1="10" x2="20" y2="10" opacity=".55" />
+      <line x1="12" y1="14" x2="20" y2="14" opacity=".55" />
+      <line x1="12" y1="18" x2="20" y2="18" opacity=".55" />
+      <line x1="12" y1="22" x2="20" y2="22" opacity=".55" />
+      <line x1="12" y1="26" x2="20" y2="26" opacity=".55" />
+    </svg>
+  )
+}
+
+function IconDroplet({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M16 3 C 16 3, 7 14, 7 21 C 7 25.97, 11.03 30, 16 30 C 20.97 30, 25 25.97, 25 21 C 25 14, 16 3, 16 3 Z" />
+      <path d="M11.5 20 C 11.5 22.5, 13.5 24.5, 16 24.5" opacity=".55" strokeWidth="1.5" />
+      <circle cx="13" cy="17" r=".7" fill="currentColor" opacity=".4" />
+    </svg>
+  )
+}
+
+function IconMolecule({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="9.5" cy="16" r="4.5" />
+      <circle cx="22.5" cy="16" r="4.5" />
+      <line x1="14" y1="16" x2="18" y2="16" />
+      <line x1="13.5" y1="13" x2="18.5" y2="13" opacity=".4" />
+      <line x1="13.5" y1="19" x2="18.5" y2="19" opacity=".4" />
+      <circle cx="4.5" cy="13.5" r=".8" fill="currentColor" />
+      <circle cx="27.5" cy="13.5" r=".8" fill="currentColor" />
+      <circle cx="4.5" cy="18.5" r=".8" fill="currentColor" />
+      <circle cx="27.5" cy="18.5" r=".8" fill="currentColor" />
+      <line x1="5.2" y1="13.5" x2="6.2" y2="14.2" opacity=".4" />
+      <line x1="26.8" y1="13.5" x2="25.8" y2="14.2" opacity=".4" />
+    </svg>
+  )
+}
+
+/* Ícones para "Como usar" e outros */
+function IconCapsule({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="5" y="11" width="22" height="10" rx="5" />
+      <line x1="16" y1="11" x2="16" y2="21" />
+      <path d="M9 14 L 11 14" opacity=".5" />
+      <path d="M9 17 L 12 17" opacity=".5" />
+    </svg>
+  )
+}
+
+function IconMeal({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="16" cy="16" r="10" />
+      <circle cx="16" cy="16" r="5" opacity=".5" />
+      <path d="M16 4 L 16 8" />
+      <path d="M16 24 L 16 28" />
+    </svg>
+  )
+}
+
+function IconCalendar({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="5" y="7" width="22" height="22" rx="3" />
+      <line x1="5" y1="13" x2="27" y2="13" />
+      <line x1="11" y1="4" x2="11" y2="10" />
+      <line x1="21" y1="4" x2="21" y2="10" />
+      <circle cx="11" cy="19" r="1.5" fill="currentColor" />
+      <circle cx="16" cy="19" r="1.5" fill="currentColor" opacity=".5" />
+      <circle cx="21" cy="19" r="1.5" fill="currentColor" opacity=".3" />
+    </svg>
+  )
+}
+
+/* Ícones de DORES (anatômicos / situacionais) */
+function IconBed({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 22 L 4 12 L 28 12 L 28 22" />
+      <path d="M4 22 L 28 22" />
+      <path d="M4 26 L 28 26" />
+      <circle cx="11" cy="15" r="2" />
+      <path d="M14 18 L 24 18 L 24 22" />
+    </svg>
+  )
+}
+
+function IconStairs({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 26 L 10 26 L 10 20 L 16 20 L 16 14 L 22 14 L 22 8 L 28 8" />
+      <line x1="4" y1="26" x2="28" y2="26" opacity=".4" />
+    </svg>
+  )
+}
+
+function IconClock({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="16" cy="16" r="11" />
+      <path d="M16 9 L 16 16 L 21 19" />
+      <line x1="16" y1="4" x2="16" y2="5.5" opacity=".5" />
+      <line x1="28" y1="16" x2="26.5" y2="16" opacity=".5" />
+    </svg>
+  )
+}
+
+function IconWave({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 16 Q 8 8, 12 16 T 20 16 T 28 16" />
+      <path d="M4 22 Q 8 18, 12 22 T 20 22 T 28 22" opacity=".5" />
+    </svg>
+  )
+}
+
+function IconBlock({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="16" cy="16" r="11" />
+      <line x1="8" y1="8" x2="24" y2="24" />
+    </svg>
+  )
+}
+
+function IconHeartCrack({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M16 27 C 16 27, 4 19, 4 11.5 C 4 7.36, 7.36 4, 11.5 4 C 13.93 4, 16 5.5, 16 5.5 C 16 5.5, 18.07 4, 20.5 4 C 24.64 4, 28 7.36, 28 11.5 C 28 19, 16 27, 16 27 Z" />
+      <path d="M14 12 L 17 16 L 14 19 L 18 22" opacity=".7" strokeWidth="1.5" />
+    </svg>
+  )
+}
+
 function MagBtn({ href, onClick, children, className = '' }: { href: string; onClick?: (e: React.MouseEvent) => void; children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLAnchorElement>(null)
   const move = (e: React.MouseEvent) => {
@@ -143,19 +284,19 @@ const kits = [
 
 const ingr = [
   {
-    icon: '🦴', name: 'Colágeno Hidrolisado', grad: 'from-purple-600 to-indigo-700',
+    Icon: IconCollagen, name: 'Colágeno Hidrolisado', grad: 'from-purple-600 to-indigo-700',
     tag: 'Articulações & Estrutura',
     desc: 'Proteína estrutural que reveste e lubrifica as articulações, auxilia na redução do desconforto articular e contribui para a manutenção de cartilagens, ossos e músculos.',
     items: ['Alívio de desconforto articular', 'Apoia a manutenção das cartilagens', 'Contribui para a saúde óssea', 'Auxilia no ganho de massa muscular', 'Saúde cardiovascular', 'Suporte para articulações e ossos'],
   },
   {
-    icon: '💧', name: 'Ácido Hialurônico', grad: 'from-violet-600 to-purple-700',
+    Icon: IconDroplet, name: 'Ácido Hialurônico', grad: 'from-violet-600 to-purple-700',
     tag: 'Lubrificação & Hidratação',
     desc: 'Lubrifica as articulações como um amortecedor natural e preenche células da pele, reduzindo rugas e mantendo hidratação profunda.',
     items: ['Lubrifica articulações', 'Reduz rigidez matinal', 'Rejuvenescimento da pele', 'Hidratação profunda', 'Reduz rugas e linhas finas', 'Saúde dos olhos'],
   },
   {
-    icon: '🍇', name: 'Trans-Resveratrol', grad: 'from-fuchsia-600 to-purple-700',
+    Icon: IconMolecule, name: 'Trans-Resveratrol', grad: 'from-fuchsia-600 to-purple-700',
     tag: 'Antioxidante & Proteção',
     desc: 'Potente antioxidante que auxilia na resposta inflamatória das articulações, contribui para a saúde cardiovascular e apoia a proteção contra o envelhecimento celular.',
     items: ['Auxilia no equilíbrio inflamatório', 'Combate estresse oxidativo', 'Anti-envelhecimento celular', 'Contribui para equilíbrio do colesterol', 'Apoia memória e foco', 'Proteção cardiovascular'],
@@ -548,7 +689,7 @@ export default function Page() {
                 {/* Floating badges */}
                 <div className="absolute top-6 -left-6 lg:-left-10 z-20 glass rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5 card-hover cursor-default">
                   <div className="w-9 h-9 bg-gradient-to-br from-purple-600 to-violet-700 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-base">🦴</span>
+                    <IconCollagen className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <p className="text-[10px] text-gray-500 leading-none">Ingrediente</p>
@@ -558,7 +699,7 @@ export default function Page() {
 
                 <div className="absolute top-1/2 -right-6 lg:-right-10 z-20 -translate-y-1/2 glass rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5 card-hover cursor-default">
                   <div className="w-9 h-9 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-base">💧</span>
+                    <IconDroplet className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <p className="text-[10px] text-gray-500 leading-none">Ingrediente</p>
@@ -568,7 +709,7 @@ export default function Page() {
 
                 <div className="absolute bottom-16 -left-6 lg:-left-10 z-20 glass rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5 card-hover cursor-default">
                   <div className="w-9 h-9 bg-gradient-to-br from-fuchsia-600 to-purple-700 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-base">🍇</span>
+                    <IconMolecule className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <p className="text-[10px] text-gray-500 leading-none">Ingrediente</p>
@@ -661,16 +802,18 @@ export default function Page() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
               {[
-                { icon: '😣', text: 'Dor ao levantar da cama toda manhã' },
-                { icon: '🦵', text: 'Joelhos que doem nas escadas' },
-                { icon: '🌅', text: 'Rigidez matinal que dura horas' },
-                { icon: '🔊', text: 'Estalos e inchaço nas articulações' },
-                { icon: '🚫', text: 'Dificuldade em agachar ou ajoelhar' },
-                { icon: '😔', text: 'Dores que impedem o que você ama' },
+                { Icon: IconBed, text: 'Dor ao levantar da cama toda manhã' },
+                { Icon: IconStairs, text: 'Joelhos que doem nas escadas' },
+                { Icon: IconClock, text: 'Rigidez matinal que dura horas' },
+                { Icon: IconWave, text: 'Estalos e inchaço nas articulações' },
+                { Icon: IconBlock, text: 'Dificuldade em agachar ou ajoelhar' },
+                { Icon: IconHeartCrack, text: 'Dores que impedem o que você ama' },
               ].map((p, i) => (
                 <div key={i} className="pain-item reveal flex items-center gap-4 p-5 rounded-2xl cursor-default" style={{ background: 'rgba(239,68,68,.06)', border: '1px solid rgba(239,68,68,.14)' }}>
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl flex-shrink-0" style={{ background: 'rgba(239,68,68,.1)' }}>{p.icon}</div>
-                  <span className="font-semibold text-gray-300">❌ &nbsp;{p.text}</span>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(239,68,68,.12)', border: '1px solid rgba(239,68,68,.2)' }}>
+                    <p.Icon className="w-6 h-6 text-red-300" />
+                  </div>
+                  <span className="font-semibold text-gray-300">{p.text}</span>
                 </div>
               ))}
             </div>
@@ -713,8 +856,8 @@ export default function Page() {
             <div className="grid md:grid-cols-3 gap-6">
               {ingr.map((ing, i) => (
                 <div key={ing.name} className={`ingr-card reveal reveal-delay-${i + 1} glass rounded-3xl p-8 cursor-default`}>
-                  <div className={`ingr-icon-wrap w-16 h-16 bg-gradient-to-br ${ing.grad} rounded-2xl flex items-center justify-center mb-5 shadow-lg text-3xl`}>
-                    {ing.icon}
+                  <div className={`ingr-icon-wrap w-16 h-16 bg-gradient-to-br ${ing.grad} rounded-2xl flex items-center justify-center mb-5 shadow-lg`}>
+                    <ing.Icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="inline-block bg-purple-500/20 text-purple-300 border border-purple-500/30 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
                     {ing.tag}
@@ -852,12 +995,14 @@ export default function Page() {
 
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { n: '01', icon: '💊', title: 'Tome 2 cápsulas', desc: 'Dosagem diária ideal para apoiar seus resultados de forma consistente.' },
-                { n: '02', icon: '🍽️', title: 'Com as refeições', desc: 'Tome junto ao almoço ou jantar para melhor absorção dos ativos.' },
-                { n: '03', icon: '📅', title: 'Use por 90 dias', desc: 'O ciclo completo potencializa os resultados progressivos do tratamento.' },
+                { n: '01', Icon: IconCapsule, title: 'Tome 2 cápsulas', desc: 'Dosagem diária ideal para apoiar seus resultados de forma consistente.' },
+                { n: '02', Icon: IconMeal, title: 'Com as refeições', desc: 'Tome junto ao almoço ou jantar para melhor absorção dos ativos.' },
+                { n: '03', Icon: IconCalendar, title: 'Use por 90 dias', desc: 'O ciclo completo potencializa os resultados progressivos do tratamento.' },
               ].map((s, i) => (
                 <div key={i} className={`reveal reveal-delay-${i + 1} glass rounded-3xl p-8 text-center`}>
-                  <div className="text-5xl mb-4">{s.icon}</div>
+                  <div className="mx-auto mb-5 w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600/30 to-violet-700/20 border border-purple-500/30 flex items-center justify-center">
+                    <s.Icon className="w-8 h-8 text-purple-300" />
+                  </div>
                   <div className="text-5xl font-black text-purple-500/30 mb-2">{s.n}</div>
                   <h3 className="font-black text-xl text-white mb-3">{s.title}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
