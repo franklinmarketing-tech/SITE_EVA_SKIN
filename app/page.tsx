@@ -1022,77 +1022,59 @@ export default function Page() {
         {/* ══════════════════════════════════════
             KIT SELECTOR
         ══════════════════════════════════════ */}
-        <section id="kits" className="relative py-16 px-4 overflow-hidden" style={{ background: '#07070f' }}>
+        <section id="kits" className="relative py-6 lg:py-8 px-4 overflow-hidden" style={{ background: '#07070f' }}>
           {/* Section background glow */}
           <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%,rgba(109,40,217,.18) 0%,transparent 65%)' }} />
           <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 50% 40% at 50% 100%,rgba(76,29,149,.12) 0%,transparent 70%)' }} />
 
           <div className="relative max-w-5xl mx-auto">
 
-            {/* Countdown bar */}
-            <div className="flex justify-center mb-6 reveal">
-              <div className="flex items-center gap-3 px-7 py-3.5 rounded-2xl" style={{ background: 'rgba(127,29,29,.45)', border: '1px solid rgba(220,38,38,.3)', backdropFilter: 'blur(12px)' }}>
-                <span className="w-2.5 h-2.5 bg-red-400 rounded-full animate-pulse flex-shrink-0" />
-                <span className="text-red-300 text-sm font-bold tracking-wide">Oferta expira em:</span>
-                <div className="flex items-center gap-1 ml-1">
+            {/* Countdown + Heading combinados — ULTRA compactos */}
+            <div className="flex flex-col items-center mb-3 lg:mb-4 reveal gap-2">
+              <div className="flex items-center gap-2 px-4 py-1.5 rounded-xl" style={{ background: 'rgba(127,29,29,.45)', border: '1px solid rgba(220,38,38,.3)', backdropFilter: 'blur(12px)' }}>
+                <span className="w-2 h-2 bg-red-400 rounded-full animate-pulse flex-shrink-0" />
+                <span className="text-red-300 text-[11px] font-bold tracking-wide">Oferta expira em:</span>
+                <div className="flex items-center gap-0.5 ml-0.5">
                   {[pad(time.h), pad(time.m), pad(time.s)].map((v, i) => (
-                    <span key={i} className="flex items-center gap-1">
-                      <span className="tabular-nums font-black text-xl text-red-100 min-w-[2.6rem] text-center px-2.5 py-1 rounded-lg" style={{ background: 'rgba(185,28,28,.5)' }}>{v}</span>
-                      {i < 2 && <span className="text-red-500 font-black text-lg leading-none -mt-0.5">:</span>}
+                    <span key={i} className="flex items-center gap-0.5">
+                      <span className="tabular-nums font-black text-sm text-red-100 min-w-[1.9rem] text-center px-1.5 py-0.5 rounded-md" style={{ background: 'rgba(185,28,28,.5)' }}>{v}</span>
+                      {i < 2 && <span className="text-red-500 font-black text-sm leading-none">:</span>}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Heading */}
-            <div className="text-center mb-6 reveal">
-              <p className="text-purple-400 text-xs font-black uppercase tracking-[.25em] mb-4">Escolha seu tratamento</p>
-              <h2 className="text-4xl lg:text-6xl font-black text-white mb-5 leading-[1.05] tracking-tight">
+            {/* Heading compacto */}
+            <div className="text-center mb-4 lg:mb-5 reveal">
+              <h2 className="text-2xl lg:text-3xl font-black text-white leading-[1.05] tracking-tight">
                 Escolha seu{' '}
                 <span className="shimmer-text italic">Kit Eva Skin</span>
               </h2>
-              <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
-                Quanto mais frascos, maior o desconto —<br className="hidden sm:block" /> e melhores e mais duradouros os resultados.
+              <p className="text-gray-400 text-xs lg:text-sm max-w-xl mx-auto leading-snug mt-1.5">
+                Quanto mais frascos, maior o desconto — e melhores resultados.
               </p>
-              <p className="mt-4 text-amber-400 text-sm font-bold tracking-wide">
-                ⚠️ Oferta válida enquanto durar o estoque — preços sujeitos a alteração sem aviso prévio.
-              </p>
-
-              {/* TARJA FRETE GRÁTIS — destaque acima dos kits c/ avião voando */}
-              <div className="shipping-banner mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-2xl"
-                   style={{
-                     background: 'linear-gradient(135deg,rgba(22,163,74,.22),rgba(34,197,94,.32),rgba(22,163,74,.22))',
-                     border: '1.5px solid rgba(34,197,94,.55)',
-                   }}>
-                <span className="airplane-bounce inline-flex items-center flex-shrink-0"><IconPlane className="w-12 h-8" /></span>
-                <div className="text-left">
-                  <p className="text-green-300 text-xs font-black uppercase tracking-[.2em] leading-tight">Frete GRÁTIS</p>
-                  <p className="text-green-100 text-sm font-bold leading-tight">Em qualquer kit, para todo o Brasil</p>
-                </div>
-              </div>
             </div>
 
-            {/* Kit cards grid */}
-            <div className="grid md:grid-cols-3 gap-5 mb-10 items-stretch">
+            {/* Kit cards grid — HYPER COMPACT para caber em 1366x768 */}
+            <div className="grid md:grid-cols-3 gap-3 lg:gap-4 mb-5 items-stretch">
               {kits.map(k => {
                 const isOn = kit.id === k.id
                 const glowCls = k.id === 1 ? 'kcard-img-glow-purple' : k.id === 2 ? 'kcard-img-glow-violet' : 'kcard-img-glow-amber'
-                const savings = k.from - k.price
                 const btnCls = k.id === 2
-                  ? 'bg-gradient-to-r from-purple-600 to-violet-500 text-white shadow-[0_12px_28px_-4px_rgba(124,58,237,.55)]'
+                  ? 'bg-gradient-to-r from-purple-600 to-violet-500 text-white shadow-[0_8px_20px_-4px_rgba(124,58,237,.55)]'
                   : k.id === 3
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-[0_12px_28px_-4px_rgba(245,158,11,.55)]'
-                  : 'bg-white text-purple-700 shadow-[0_8px_24px_-4px_rgba(255,255,255,.18)]'
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-[0_8px_20px_-4px_rgba(245,158,11,.55)]'
+                  : 'bg-white text-purple-700 shadow-[0_6px_18px_-4px_rgba(255,255,255,.18)]'
                 return (
                   <div key={k.id} onClick={() => setKit(k)}
                     className={`kcard relative rounded-2xl text-center cursor-pointer flex flex-col ${isOn ? 'kcard-on' : ''}`}
-                    style={{ padding: '0 0 12px 0' }}>
+                    style={{ padding: '0 0 8px 0' }}>
 
                     {/* Badge */}
                     {k.badge && (
                       <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-10">
-                        <span className={`bg-gradient-to-r ${k.badgeCls} text-white text-[9px] font-black px-3 py-0.5 rounded-full shadow-md tracking-wide whitespace-nowrap`}
+                        <span className={`bg-gradient-to-r ${k.badgeCls} text-white text-[9px] font-black px-2.5 py-0.5 rounded-full shadow-md tracking-wide whitespace-nowrap`}
                           style={{ boxShadow: k.id === 2 ? '0 0 12px rgba(139,92,246,.5)' : '0 0 12px rgba(245,158,11,.4)' }}>
                           {k.badge}
                         </span>
@@ -1101,83 +1083,79 @@ export default function Page() {
 
                     {/* Check badge */}
                     {isOn && (
-                      <div className="kcard-check absolute top-2 right-2">
+                      <div className="kcard-check absolute top-1.5 right-1.5">
                         <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
                     )}
 
-                    {/* Image area — ULTRA compacta */}
-                    <div className="relative mx-auto w-full px-3 pt-4" style={{ height: '120px' }}>
-                      <div className={`absolute inset-x-3 bottom-0 top-3 rounded-xl ${glowCls}`}
-                        style={{ filter: 'blur(18px)', opacity: isOn ? 1 : 0.6, transition: 'opacity .35s ease' }} />
+                    {/* Image area — HYPER compacta 88px */}
+                    <div className="relative mx-auto w-full px-3 pt-3" style={{ height: '88px' }}>
+                      <div className={`absolute inset-x-3 bottom-0 top-2 rounded-xl ${glowCls}`}
+                        style={{ filter: 'blur(14px)', opacity: isOn ? 1 : 0.55, transition: 'opacity .35s ease' }} />
                       <div className={`relative w-full h-full ${isOn ? 'float' : ''}`}>
                         <ProductImg src={k.img} alt={`Kit ${k.qty} frasco(s) Eva Skin Caps`} />
                       </div>
                     </div>
 
-                    {/* Qty + days inline */}
-                    <p className="font-black text-white text-sm tracking-tight leading-tight mt-1.5 px-3">
-                      {k.qty} {k.qty === 1 ? 'Frasco' : 'Frascos'} <span className="text-gray-500 text-[10px] font-medium">· {k.days}d</span>
-                    </p>
-
-                    {/* Pricing — sem divider, ultra compacto */}
-                    <div className="px-3 flex flex-col items-center mt-2">
-                      {/* Tarja desconto kits 2 e 3 */}
+                    {/* Qty + days + desconto inline */}
+                    <div className="px-2.5 mt-1 flex items-center justify-center gap-1.5 flex-wrap">
+                      <p className="font-black text-white text-[13px] tracking-tight leading-none">
+                        {k.qty} {k.qty === 1 ? 'Frasco' : 'Frascos'} <span className="text-gray-500 text-[9px] font-medium">· {k.days}d</span>
+                      </p>
                       {k.qty > 1 && (
-                        <span className="inline-block text-white text-[10px] font-black px-2.5 py-0.5 rounded-full mb-1 tracking-wide"
+                        <span className="text-white text-[9px] font-black px-1.5 py-[1px] rounded-full tracking-wide"
                           style={{
                             background: k.qty === 3
                               ? 'linear-gradient(90deg,#dc2626,#ef4444)'
                               : 'linear-gradient(90deg,#16a34a,#22c55e)',
-                            boxShadow: k.qty === 3
-                              ? '0 3px 8px rgba(220,38,38,.4)'
-                              : '0 3px 8px rgba(22,163,74,.4)',
                           }}>
-                          🔥 {k.disc} OFF
+                          {k.disc} OFF
                         </span>
                       )}
-
-                      {/* PREÇO POR FRASCO */}
-                      <p className="text-purple-300 text-[8px] font-bold uppercase tracking-[.2em]">/frasco</p>
-                      <p className="text-3xl font-black text-white leading-none">
-                        R$ {Math.floor(k.per)}<span className="text-lg font-bold">,{(k.per % 1 * 100).toFixed(0).padStart(2, '0')}</span>
-                      </p>
-
-                      {/* Total + From */}
-                      {k.qty > 1 ? (
-                        <p className="text-gray-400 text-[10px] mt-1">Total <span className="text-white font-bold">R$ {k.price}</span> <span className="text-gray-600 line-through ml-0.5">R$ {k.from}</span></p>
-                      ) : (
-                        <p className="text-gray-600 text-[10px] mt-1 line-through">De R$ {k.from},00</p>
-                      )}
-
-                      <p className="text-gray-500 text-[9px] mt-0.5">{k.inst} · <span className="text-green-400 font-bold">PIX R${k.pix.toFixed(0)}</span></p>
-
-                      {/* Frete grátis tarja minimalista */}
-                      <div className="w-full mt-1.5 flex items-center justify-center gap-1.5 py-1 px-2 rounded-md shipping-banner"
-                           style={{
-                             background: 'linear-gradient(90deg,rgba(22,163,74,.22),rgba(34,197,94,.32),rgba(22,163,74,.22))',
-                             border: '1px solid rgba(34,197,94,.5)',
-                           }}>
-                        <span className="airplane-bounce inline-flex items-center flex-shrink-0"><IconPlane className="w-5 h-3.5" /></span>
-                        <span className="text-green-200 text-[9px] font-black tracking-wide uppercase">Frete GRÁTIS</span>
-                      </div>
                     </div>
 
-                    {/* ── BUY BUTTON compacto ── */}
-                    <div className="px-3 mt-2">
+                    {/* Preço — compacto */}
+                    <div className="px-2.5 flex flex-col items-center mt-1">
+                      <p className="text-purple-300 text-[8px] font-bold uppercase tracking-[.2em] leading-none">/frasco</p>
+                      <p className="text-[26px] font-black text-white leading-none mt-0.5">
+                        R$ {Math.floor(k.per)}<span className="text-base font-bold">,{(k.per % 1 * 100).toFixed(0).padStart(2, '0')}</span>
+                      </p>
+
+                      {/* Total + From numa linha só */}
+                      {k.qty > 1 ? (
+                        <p className="text-gray-400 text-[10px] mt-0.5 leading-tight">Total <span className="text-white font-bold">R$ {k.price}</span> <span className="text-gray-600 line-through ml-0.5">R$ {k.from}</span></p>
+                      ) : (
+                        <p className="text-gray-600 text-[10px] mt-0.5 line-through leading-tight">De R$ {k.from},00</p>
+                      )}
+
+                      <p className="text-gray-500 text-[9px] mt-0.5 leading-tight">{k.inst} · <span className="text-green-400 font-bold">PIX R${k.pix.toFixed(0)}</span> · <span className="text-green-300 font-bold">Frete GRÁTIS</span></p>
+                    </div>
+
+                    {/* ── BUY BUTTON ── */}
+                    <div className="px-2.5 mt-2">
                       <a href={k.link}
                          onClick={(e) => { e.stopPropagation(); setKit(k); triggerLoad() }}
                          onMouseEnter={() => prefetchCheckout(k.link)}
-                         className={`block w-full text-center font-black px-2 py-2 rounded-lg text-xs tracking-wide transition-transform duration-200 hover:scale-[1.03] active:scale-100 ${btnCls}`}>
+                         className={`block w-full text-center font-black px-2 py-2 rounded-lg text-[11px] tracking-wide transition-transform duration-200 hover:scale-[1.03] active:scale-100 ${btnCls}`}>
                         COMPRAR {k.qty} {k.qty === 1 ? 'FRASCO' : 'FRASCOS'} →
                       </a>
-                      <p className="text-gray-500 text-[9px] mt-1 tracking-wide">🔒 Seguro · 30d garantia</p>
+                      <p className="text-gray-500 text-[9px] mt-1 tracking-wide">Seguro · 30d garantia</p>
                     </div>
                   </div>
                 )
               })}
+            </div>
+
+            {/* Frete grátis + estoque — linha discreta abaixo dos cards */}
+            <div className="reveal mb-5 flex flex-wrap justify-center items-center gap-3 text-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg"
+                   style={{ background: 'rgba(22,163,74,.15)', border: '1px solid rgba(34,197,94,.4)' }}>
+                <IconPlane className="w-5 h-3.5" />
+                <span className="text-green-200 text-[11px] font-black tracking-wide uppercase">Frete GRÁTIS para todo Brasil</span>
+              </div>
+              <p className="text-amber-400 text-[11px] font-bold tracking-wide">Oferta válida enquanto durar o estoque</p>
             </div>
 
             {/* ── BÔNUS EXCLUSIVO BANNER ── */}
