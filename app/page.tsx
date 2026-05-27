@@ -1047,10 +1047,10 @@ export default function Page() {
                       </div>
                     )}
 
-                    {/* Image area — médio 200px */}
-                    <div className="relative mx-auto w-full px-5 pt-7" style={{ height: '200px' }}>
-                      <div className={`absolute inset-x-5 bottom-0 top-4 rounded-2xl ${glowCls}`}
-                        style={{ filter: 'blur(26px)', opacity: isOn ? 1 : 0.6, transition: 'opacity .35s ease' }} />
+                    {/* Image area — médio confortavel 160px */}
+                    <div className="relative mx-auto w-full px-4 pt-6" style={{ height: '160px' }}>
+                      <div className={`absolute inset-x-4 bottom-0 top-3 rounded-2xl ${glowCls}`}
+                        style={{ filter: 'blur(22px)', opacity: isOn ? 1 : 0.6, transition: 'opacity .35s ease' }} />
                       <div className={`relative w-full h-full ${isOn ? 'float' : ''}`}>
                         <ProductImg src={k.img} alt={`Kit ${k.qty} frasco(s) Eva Skin Caps`} />
                       </div>
@@ -1076,9 +1076,9 @@ export default function Page() {
 
                     {/* Preço — destaque */}
                     <div className="px-5 flex flex-col items-center mt-3">
-                      <p className="text-purple-300 text-[10px] font-bold uppercase tracking-[.25em] leading-none">PREÇO POR FRASCO</p>
-                      <p className="text-5xl font-black text-white leading-none mt-1.5">
-                        R$ {Math.floor(k.per)}<span className="text-2xl font-bold">,{(k.per % 1 * 100).toFixed(0).padStart(2, '0')}</span>
+                      <p className="text-purple-300 text-[9px] font-bold uppercase tracking-[.22em] leading-none">PREÇO POR FRASCO</p>
+                      <p className="text-4xl font-black text-white leading-none mt-1">
+                        R$ {Math.floor(k.per)}<span className="text-xl font-bold">,{(k.per % 1 * 100).toFixed(0).padStart(2, '0')}</span>
                       </p>
 
                       {/* Total + From */}
