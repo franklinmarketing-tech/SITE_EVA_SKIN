@@ -268,27 +268,6 @@ function ProductImg({ src, alt }: { src: string; alt: string }) {
   )
 }
 
-function Counter({ end, suffix = '', label = '' }: { end: number; suffix?: string; label?: string }) {
-  const [val, setVal] = useState(0)
-  const ref = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return
-      let start = 0; const step = end / 80
-      const t = setInterval(() => { start += step; if (start >= end) { setVal(end); clearInterval(t) } else setVal(Math.floor(start)) }, 16)
-      obs.disconnect()
-    }, { threshold: 0.3 })
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [end])
-  return (
-    <div ref={ref} className="text-center">
-      <div className="text-3xl lg:text-4xl font-black text-white">{val.toLocaleString('pt-BR')}{suffix}</div>
-      {label && <div className="text-gray-400 text-xs mt-1">{label}</div>}
-    </div>
-  )
-}
-
 function PhotoCard({ img, fallback, overlay, stat, title, sub, delay = 0 }: {
   img: string; fallback: string; overlay: string; stat: string; title: string; sub: string; delay?: number
 }) {
@@ -385,8 +364,7 @@ const faqs = [
   { q: 'Quantas cápsulas tomar por dia?', a: '2 cápsulas de 500mg por dia, preferencialmente com as refeições (almoço ou jantar) para melhor absorção dos nutrientes.' },
   { q: 'Pode ser usado junto com outros medicamentos?', a: 'Em geral sim, mas recomendamos consultar seu médico, especialmente se faz uso de anticoagulantes ou medicamentos para artrite.' },
   { q: 'Pode ajudar com desconfortos em articulações, ossos e cartilagens?', a: 'O Colágeno Hidrolisado e o Ácido Hialurônico são amplamente estudados por sua contribuição para a saúde articular, auxiliando na lubrificação e na manutenção das cartilagens. Consulte seu médico para orientação específica sobre seu caso.' },
-  { q: 'Tem garantia de devolução?', a: 'Garantia total de 30 dias. Se não ficar satisfeita por qualquer motivo, devolvemos 100% do dinheiro sem burocracia e sem perguntas.' },
-  { q: 'Qual o prazo de entrega?', a: '5 a 15 dias úteis. Após confirmação do pagamento, enviamos em até 24 horas para todo o Brasil.' },
+  { q: 'Qual o prazo de entrega?', a: '5 a 15 dias úteis com FRETE GRÁTIS para todo o Brasil. Após confirmação do pagamento, enviamos em até 24 horas.' },
   { q: 'Quais formas de pagamento são aceitas?', a: 'Aceitamos PIX (com desconto especial), cartão de crédito em até 6x sem juros e boleto bancário.' },
 ]
 
@@ -561,10 +539,10 @@ export default function Page() {
               <span key={i} className="flex gap-10 pr-10">
                 <span>🚚 FRETE GRÁTIS para todo Brasil</span>
                 <span>🔒 Pagamento 100% Seguro</span>
-                <span>🛡️ Garantia de 30 dias</span>
-                <span>⭐ 50.800 compras esse mês</span>
                 <span>💳 Parcelamos em até 6x sem juros</span>
                 <span>🚚 Envio em até 24 horas</span>
+                <span>✅ Registrado ANVISA</span>
+                <span>📦 Embalagem discreta</span>
               </span>
             ))}
           </div>
@@ -611,7 +589,7 @@ export default function Page() {
             <div className="order-2 lg:order-1">
               <div className="fade-up-1 inline-flex items-center gap-2 border border-purple-700/50 bg-purple-950/60 text-purple-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
                 <span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse" />
-                ✨ Mais de 50.800 mulheres já transformaram sua qualidade de vida
+                ✨ Beleza e Bem-Estar de dentro para fora
               </div>
 
               <h1 className="fade-up-2 text-5xl lg:text-[3.8rem] font-black leading-[1.05] mb-6 text-white">
@@ -662,12 +640,12 @@ export default function Page() {
                     {[...Array(5)].map((_, i) => <span key={i} className="text-amber-400 text-sm">★</span>)}
                     <span className="text-gray-400 text-xs ml-1">4.9/5</span>
                   </div>
-                  <p className="text-gray-400 text-xs">Junte-se a 50.800+ mulheres transformadas</p>
+                  <p className="text-gray-400 text-xs">Avaliação média das clientes</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-5 mt-4 text-xs text-gray-600">
-                <span>🔒 SSL Seguro</span><span>🛡️ 30 dias garantia</span><span>🚚 Envio em 24h</span>
+                <span>🔒 SSL Seguro</span><span>✅ Registrado ANVISA</span><span>🚚 Envio em 24h</span>
               </div>
             </div>
 
@@ -725,7 +703,7 @@ export default function Page() {
                 </div>
 
                 <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 z-20 bg-gradient-to-r from-purple-600 to-violet-600 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-xl shadow-purple-900/50 whitespace-nowrap">
-                  🛡️ Garantia Incondicional 30 dias
+                  ✅ Suplemento Notificado ANVISA
                 </div>
               </div>
             </div>
@@ -763,8 +741,7 @@ export default function Page() {
         {/* TRUST BAR */}
         <section style={{ background: '#0a0a14' }} className="py-10 px-4 border-t border-white/5">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
-              <Counter end={50800} suffix="+" label="Clientes Satisfeitas" />
+            <div className="grid grid-cols-2 gap-6 mb-6 max-w-md mx-auto">
               <div className="text-center">
                 <div className="text-3xl lg:text-4xl font-black text-white">4.9</div>
                 <div className="flex justify-center gap-0.5 my-1">{[...Array(5)].map((_,i)=><span key={i} className="text-amber-400 text-sm">★</span>)}</div>
@@ -773,10 +750,6 @@ export default function Page() {
               <div className="text-center">
                 <div className="text-3xl lg:text-4xl font-black text-white">24h</div>
                 <div className="text-gray-400 text-xs mt-1">Envio após confirmação</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl lg:text-4xl font-black text-white">30d</div>
-                <div className="text-gray-400 text-xs mt-1">Garantia incondicional</div>
               </div>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 pt-5 border-t border-white/5">
@@ -902,23 +875,6 @@ export default function Page() {
                 <PhotoCard key={i} {...p} />
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════
-            CTA INTERMEDIÁRIO
-        ══════════════════════════════════════ */}
-        <section className="py-16 px-4" style={{ background: 'linear-gradient(135deg,#3b0764 0%,#5b21b6 50%,#3b0764 100%)' }}>
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-purple-200 font-semibold mb-3 text-sm uppercase tracking-widest">Pronta para dar o primeiro passo?</p>
-            <h3 className="text-3xl lg:text-4xl font-black text-white mb-6 leading-tight">
-              Mais de 50.800 mulheres já recuperaram{' '}
-              <span className="text-purple-200 italic">a liberdade de se mover</span>
-            </h3>
-            <MagBtn href="#kits"
-              className="btn-white-hover inline-block bg-white text-purple-700 px-12 py-4 rounded-2xl text-lg font-black shadow-2xl">
-              ESCOLHER MEU KIT COM DESCONTO →
-            </MagBtn>
           </div>
         </section>
 
@@ -1141,7 +1097,7 @@ export default function Page() {
                          className={`block w-full text-center font-black px-2 py-2 rounded-lg text-[11px] tracking-wide transition-transform duration-200 hover:scale-[1.03] active:scale-100 ${btnCls}`}>
                         COMPRAR {k.qty} {k.qty === 1 ? 'FRASCO' : 'FRASCOS'} →
                       </a>
-                      <p className="text-gray-500 text-[9px] mt-1 tracking-wide">Seguro · 30d garantia</p>
+                      <p className="text-gray-500 text-[9px] mt-1 tracking-wide">🔒 Compra 100% segura</p>
                     </div>
                   </div>
                 )
@@ -1256,7 +1212,7 @@ export default function Page() {
                   {[
                     { icon: '🔒', text: 'SSL Seguro' },
                     { icon: '💳', text: 'PIX · Cartão · Boleto' },
-                    { icon: '🛡️', text: 'Garantia 30 dias' },
+                    { icon: '✅', text: 'Notificado ANVISA' },
                     { icon: '🚚', text: 'FRETE GRÁTIS Brasil' },
                     { icon: '⚡', text: 'Envio em 24h' },
                   ].map(({ icon, text }) => (
@@ -1380,7 +1336,7 @@ export default function Page() {
               <span className="shimmer-text italic">com liberdade</span>
             </h2>
             <p className="reveal text-gray-300 text-lg mb-8 max-w-xl mx-auto leading-relaxed">
-              Mais de 50.000 mulheres já recuperaram a liberdade de se mover — dançar, caminhar, brincar com os netos. Sua vez chegou.
+              Volte a dançar, caminhar e brincar com os netos. A fórmula completa para apoiar suas articulações e sua beleza, todos os dias.
             </p>
 
             {/* Kit mini-summary */}
@@ -1406,7 +1362,7 @@ export default function Page() {
             </div>
 
             <div className="reveal flex flex-wrap items-center justify-center gap-5 text-gray-600 text-xs">
-              {['🔒 SSL Seguro', '🚚 Envio 24h', '🛡️ 30 dias garantia', '💳 6x sem juros', '📦 Embalagem discreta'].map(t => (
+              {['🔒 SSL Seguro', '🚚 FRETE GRÁTIS Brasil', '✅ Notificado ANVISA', '💳 6x sem juros', '📦 Embalagem discreta'].map(t => (
                 <span key={t} className="flex items-center gap-1">{t}</span>
               ))}
             </div>
