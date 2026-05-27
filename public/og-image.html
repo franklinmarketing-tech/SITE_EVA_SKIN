@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Playfair+Display:ital,wght@1,900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact}
+body{width:1200px;height:630px;overflow:hidden;background:#08080f;font-family:'Inter',sans-serif;position:relative}
+.bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 30% 50%,rgba(124,58,237,.4) 0%,rgba(76,29,149,.2) 40%,#08080f 80%)}
+.bg::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04}
+.container{position:relative;width:100%;height:100%;display:flex;align-items:center;padding:0 70px;gap:50px;z-index:10}
+
+/* LEFT - TEXTO */
+.left{flex:1;color:#fff;max-width:600px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.2);border:1px solid rgba(167,139,250,.4);color:#c4b5fd;padding:8px 16px;border-radius:50px;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+.badge::before{content:'';width:6px;height:6px;background:#a78bfa;border-radius:50%}
+.headline{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:62px;line-height:1.05;color:#fff;margin-bottom:18px;letter-spacing:-1.5px}
+.headline em{background:linear-gradient(90deg,#a78bfa,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subline{font-family:'Inter',sans-serif;font-weight:400;font-size:20px;line-height:1.5;color:rgba(255,255,255,.8);margin-bottom:32px}
+.benefits{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+.benefit{background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.35);padding:10px 16px;border-radius:12px;font-size:14px;font-weight:700;color:#e9d5ff;display:flex;align-items:center;gap:8px}
+.benefit::before{content:'✓';color:#22c55e;font-weight:900;font-size:16px}
+.price-row{display:flex;align-items:baseline;gap:14px}
+.from-label{color:#9ca3af;font-size:14px;font-weight:600;text-decoration:line-through}
+.price{font-family:'Inter',sans-serif;font-weight:900;font-size:52px;color:#fff;line-height:1;letter-spacing:-1.5px}
+.price em{font-style:normal;background:linear-gradient(90deg,#a78bfa,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.unit{color:#a78bfa;font-size:14px;font-weight:700;margin-top:6px}
+
+/* RIGHT - PRODUTO */
+.right{flex:0 0 480px;position:relative;height:520px;display:flex;align-items:center;justify-content:center}
+.glow{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.6) 0%,rgba(124,58,237,.3) 35%,transparent 70%);filter:blur(40px)}
+.bottle{position:relative;z-index:2;width:auto;height:480px;object-fit:contain;filter:drop-shadow(0 30px 60px rgba(124,58,237,.5)) drop-shadow(0 0 80px rgba(167,139,250,.3))}
+
+/* CORNER LOGO */
+.logo-corner{position:absolute;top:32px;right:40px;display:flex;align-items:center;gap:10px;z-index:20}
+.logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#4c1d95,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:900;color:#fff;font-size:26px;padding-bottom:4px;box-shadow:0 6px 16px rgba(124,58,237,.4)}
+.logo-text{display:flex;flex-direction:column;line-height:1}
+.logo-brand{display:flex;align-items:baseline;gap:2px}
+.logo-eva{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:22px;color:#fff;letter-spacing:-.5px}
+.logo-skin{font-family:'Inter',sans-serif;font-weight:800;font-size:22px;color:#a78bfa;letter-spacing:-.5px}
+.logo-caps{margin-top:1px;font-family:'Inter',sans-serif;font-weight:700;font-size:8px;color:#c4b5fd;letter-spacing:3px;text-transform:uppercase}
+
+/* BOTTOM RIBBON */
+.bottom-ribbon{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(90deg,#15803d 0%,#16a34a 50%,#15803d 100%);padding:14px 70px;display:flex;align-items:center;justify-content:center;gap:14px;z-index:15}
+.bottom-ribbon-text{color:#fff;font-weight:900;font-size:16px;letter-spacing:1.5px;text-transform:uppercase}
+.airplane{font-size:22px}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<div class="logo-corner">
+  <div class="logo-icon">E</div>
+  <div class="logo-text">
+    <div class="logo-brand"><span class="logo-eva">Eva</span><span class="logo-skin">Skin</span></div>
+    <div class="logo-caps">CAPS</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="left">
+    <div class="badge">Beleza com Saúde</div>
+    <h1 class="headline">Livre-se das dores<br><em>Mova-se com liberdade</em></h1>
+    <p class="subline">Colágeno Hidrolisado + Ácido Hialurônico + Trans-Resveratrol — A fórmula completa para suas articulações e sua pele.</p>
+    <div class="benefits">
+      <span class="benefit">Articulações</span>
+      <span class="benefit">Pele Radiante</span>
+      <span class="benefit">Cabelos & Unhas</span>
+    </div>
+    <div class="price-row">
+      <div>
+        <div class="from-label">De R$ 127,00</div>
+        <div class="price">R$ <em>77,00</em>/frasco</div>
+        <div class="unit">No kit 3 frascos · até 20% OFF</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="glow"></div>
+    <img class="bottle" src="https://eva-skin-caps.vercel.app/images/produto-hero.webp" alt="Eva Skin Caps">
+  </div>
+</div>
+
+<div class="bottom-ribbon">
+  <span class="airplane">✈️</span>
+  <span class="bottom-ribbon-text">FRETE GRÁTIS para TODO o Brasil · Notificado ANVISA</span>
+</div>
+</body>
+</html>
