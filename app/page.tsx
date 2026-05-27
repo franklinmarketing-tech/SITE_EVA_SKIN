@@ -365,7 +365,7 @@ const faqs = [
   { q: 'Pode ser usado junto com outros medicamentos?', a: 'Em geral sim, mas recomendamos consultar seu médico, especialmente se faz uso de anticoagulantes ou medicamentos para artrite.' },
   { q: 'Pode ajudar com desconfortos em articulações, ossos e cartilagens?', a: 'O Colágeno Hidrolisado e o Ácido Hialurônico são amplamente estudados por sua contribuição para a saúde articular, auxiliando na lubrificação e na manutenção das cartilagens. Consulte seu médico para orientação específica sobre seu caso.' },
   { q: 'Qual o prazo de entrega?', a: '5 a 15 dias úteis com FRETE GRÁTIS para todo o Brasil. Após confirmação do pagamento, enviamos em até 24 horas.' },
-  { q: 'Quais formas de pagamento são aceitas?', a: 'Aceitamos PIX (com desconto especial), cartão de crédito em até 6x sem juros e boleto bancário.' },
+  { q: 'Quais formas de pagamento são aceitas?', a: 'Aceitamos PIX, cartão de crédito em até 6x sem juros e boleto bancário.' },
 ]
 
 export default function Page() {
@@ -611,7 +611,7 @@ export default function Page() {
                   <span className="text-5xl font-black text-white leading-none">R$ 97</span>
                   <span className="text-purple-400 font-bold text-xl mb-1">,00</span>
                 </div>
-                <p className="text-xs text-gray-500">3x de R$ 32,33 sem juros &nbsp;|&nbsp; PIX: <strong className="text-gray-200">R$ 87,30</strong></p>
+                <p className="text-xs text-gray-500">3x de R$ 32,33 sem juros</p>
               </div>
 
               <div className="fade-up-4 flex flex-col sm:flex-row gap-3 mb-5">
@@ -1088,8 +1088,7 @@ export default function Page() {
                         <p className="text-gray-600 text-xs mt-2 line-through leading-tight">De R$ {k.from},00</p>
                       )}
 
-                      <p className="text-gray-500 text-xs mt-1.5">{k.inst} sem juros</p>
-                      <p className="text-green-400 text-sm font-black mt-1.5">PIX: R$ {k.pix.toFixed(2).replace('.', ',')}</p>
+                      <p className="text-gray-400 text-sm font-bold mt-2">{k.inst} sem juros</p>
 
                       {/* Tarja Frete GRÁTIS com avião */}
                       <div className="w-full mt-3 flex items-center justify-center gap-2 py-2 px-3 rounded-xl shipping-banner"
@@ -1192,8 +1191,7 @@ export default function Page() {
                     R$ {kit.price}<span className="text-3xl font-bold">,00</span>
                   </p>
                   <p className="text-purple-300 text-sm mt-2">
-                    {kit.inst} sem juros &nbsp;·&nbsp;{' '}
-                    <strong className="text-green-300">PIX: R$ {kit.pix.toFixed(2).replace('.', ',')}</strong>
+                    {kit.inst} sem juros
                   </p>
                 </div>
 
@@ -1360,7 +1358,7 @@ export default function Page() {
               <div className="text-left">
                 <p className="text-purple-300 text-xs font-semibold">{kit.qty} {kit.qty === 1 ? 'Frasco' : 'Frascos'} · {kit.days} dias</p>
                 <p className="text-white font-black text-2xl leading-none">R$ {kit.price},<span className="text-lg">00</span></p>
-                <p className="text-green-400 text-xs font-bold">PIX: R$ {kit.pix.toFixed(2).replace('.',',')} · {kit.disc} OFF</p>
+                <p className="text-green-400 text-xs font-bold">{kit.inst} sem juros</p>
               </div>
             </div>
 
