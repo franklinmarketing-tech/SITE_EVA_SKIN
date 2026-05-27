@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const SITE = 'https://eva-skin-caps.vercel.app'
+const SITE = 'https://www.evaskincaps.com.br'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

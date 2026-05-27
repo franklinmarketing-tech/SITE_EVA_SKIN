@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/_next/', '/api/'],
       },
     ],
-    sitemap: 'https://eva-skin-caps.vercel.app/sitemap.xml',
-    host: 'https://eva-skin-caps.vercel.app',
+    sitemap: 'https://www.evaskincaps.com.br/sitemap.xml',
+    host: 'https://www.evaskincaps.com.br',
   }
 }
