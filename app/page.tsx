@@ -307,9 +307,9 @@ const Stars = () => (
 )
 
 const kits = [
-  { id: 1, qty: 1, badge: '', badgeCls: '', from: 127, price: 97, pix: 87.30, per: 97, inst: '3x de R$ 32,33', disc: '0%', days: 30, link: LINK_1, img: '/images/produto-hero.webp' },
-  { id: 2, qty: 2, badge: '⭐ Mais Vendido', badgeCls: 'from-purple-600 to-violet-500', from: 194, price: 174, pix: 156.60, per: 87, inst: '6x de R$ 29,00', disc: '10%', days: 60, link: LINK_2, img: '/images/produto-2.webp' },
-  { id: 3, qty: 3, badge: '🔥 Melhor Preço', badgeCls: 'from-amber-500 to-orange-500', from: 291, price: 231, pix: 207.90, per: 77, inst: '6x de R$ 38,50', disc: '20%', days: 90, link: LINK_3, img: '/images/produto-3.webp' },
+  { id: 1, qty: 1, badge: '', badgeCls: '', from: 157, price: 127, pix: 114.30, per: 127, inst: '3x de R$ 42,33', disc: '0%', days: 30, link: LINK_1, img: '/images/produto-hero.webp' },
+  { id: 2, qty: 2, badge: '⭐ Mais Vendido', badgeCls: 'from-purple-600 to-violet-500', from: 254, price: 194, pix: 174.60, per: 97, inst: '6x de R$ 32,33', disc: '20%', days: 60, link: LINK_2, img: '/images/produto-2.webp' },
+  { id: 3, qty: 3, badge: '🔥 Melhor Preço', badgeCls: 'from-amber-500 to-orange-500', from: 381, price: 261, pix: 234.90, per: 87, inst: '6x de R$ 43,50', disc: '30%', days: 90, link: LINK_3, img: '/images/produto-3.webp' },
 ]
 
 const ingr = [
@@ -604,14 +604,14 @@ export default function Page() {
               {/* Price block */}
               <div className="fade-up-3 glass rounded-2xl p-5 mb-6 max-w-sm">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-gray-500 line-through">De R$ 127,00</span>
-                  <span className="bg-green-500/20 text-green-400 border border-green-500/30 text-xs font-black px-2.5 py-1 rounded-full">24% OFF</span>
+                  <span className="text-xs text-gray-500 line-through">De R$ 157,00</span>
+                  <span className="bg-green-500/20 text-green-400 border border-green-500/30 text-xs font-black px-2.5 py-1 rounded-full">Até 30% OFF</span>
                 </div>
                 <div className="flex items-end gap-2 mb-1">
-                  <span className="text-5xl font-black text-white leading-none">R$ 97</span>
+                  <span className="text-5xl font-black text-white leading-none">R$ 127</span>
                   <span className="text-purple-400 font-bold text-xl mb-1">,00</span>
                 </div>
-                <p className="text-xs text-gray-500">3x de R$ 32,33 sem juros</p>
+                <p className="text-xs text-gray-500">3x de R$ 42,33 sem juros</p>
               </div>
 
               <div className="fade-up-4 flex flex-col sm:flex-row gap-3 mb-5">
