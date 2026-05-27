@@ -172,26 +172,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* DNS prefetch para Unsplash (fotos dos benefícios) */}
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
-
-        {/* Speculation Rules: Chrome/Edge faz prerender do checkout — abertura quase instantânea */}
-        <script
-          type="speculationrules"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              prerender: [
-                {
-                  source: 'list',
-                  urls: [
-                    'https://pra-saude.pay.yampi.com.br/r/DH6V3EFXVZ:1',
-                    'https://pra-saude.pay.yampi.com.br/r/DH6V3EFXVZ:2',
-                    'https://pra-saude.pay.yampi.com.br/r/DH6V3EFXVZ:3',
-                  ],
-                  eagerness: 'moderate',
-                },
-              ],
-            }),
-          }}
-        />
       </head>
       <body className="bg-white text-gray-900 font-sans">{children}</body>
     </html>

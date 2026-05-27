@@ -234,7 +234,7 @@ function IconHeartCrack({ className = '' }: { className?: string }) {
   )
 }
 
-function MagBtn({ href, onClick, onMouseEnter, onTouchStart, children, className = '' }: { href: string; onClick?: (e: React.MouseEvent) => void; onMouseEnter?: () => void; onTouchStart?: () => void; children: React.ReactNode; className?: string }) {
+function MagBtn({ href, onClick, children, className = '' }: { href: string; onClick?: (e: React.MouseEvent) => void; children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLAnchorElement>(null)
   const move = (e: React.MouseEvent) => {
     const el = ref.current; if (!el) return
@@ -243,7 +243,7 @@ function MagBtn({ href, onClick, onMouseEnter, onTouchStart, children, className
   }
   const leave = () => { if (ref.current) ref.current.style.transform = '' }
   return (
-    <a ref={ref} href={href} onClick={onClick} onMouseEnter={onMouseEnter} onTouchStart={onTouchStart} onMouseMove={move} onMouseLeave={leave}
+    <a ref={ref} href={href} onClick={onClick} onMouseMove={move} onMouseLeave={leave}
       className={`inline-block transition-transform duration-300 ease-out ${className}`}>
       {children}
     </a>
@@ -382,32 +382,7 @@ export default function Page() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Dispara prefetch dos 3 checkouts quando a seção #kits entra na viewport
-  useEffect(() => {
-    const target = document.getElementById('kits')
-    if (!target) return
-    const io = new IntersectionObserver((entries) => {
-      if (entries.some((e) => e.isIntersecting)) {
-        kits.forEach((k) => prefetchCheckout(k.link))
-        io.disconnect()
-      }
-    }, { rootMargin: '200px' })
-    io.observe(target)
-    return () => io.disconnect()
-  }, [])
-
   const triggerLoad = () => setLoading(true)
-
-  // Pré-busca o checkout (dedup: 1 link por URL no DOM)
-  const prefetchCheckout = (url: string) => {
-    try {
-      if (document.querySelector(`link[rel="prefetch"][href="${url}"]`)) return
-      const link = document.createElement('link')
-      link.rel = 'prefetch'
-      link.href = url
-      document.head.appendChild(link)
-    } catch {}
-  }
 
   return (
     <>
@@ -525,8 +500,7 @@ export default function Page() {
             <p className="text-purple-300 text-[10px] font-semibold uppercase tracking-wider">Kit selecionado</p>
             <p className="text-white font-black text-sm leading-tight">{kit.qty} {kit.qty === 1 ? 'Frasco' : 'Frascos'} — <span className="text-green-300">R$ {kit.price},00</span></p>
           </div>
-          <a href={kit.link} onClick={triggerLoad} onMouseEnter={() => prefetchCheckout(kit.link)} onTouchStart={() => prefetchCheckout(kit.link)}
-            className="flex-shrink-0 bg-white text-purple-700 font-black px-5 py-3 rounded-xl text-sm shadow-xl active:scale-95 transition-transform">
+          <a href={kit.link} onClick={triggerLoad}            className="flex-shrink-0 bg-white text-purple-700 font-black px-5 py-3 rounded-xl text-sm shadow-xl active:scale-95 transition-transform">
             COMPRAR AGORA →
           </a>
         </div>
@@ -581,8 +555,7 @@ export default function Page() {
               ))}
             </nav>
 
-            <MagBtn href={kit.link} onClick={triggerLoad} onMouseEnter={() => prefetchCheckout(kit.link)} onTouchStart={() => prefetchCheckout(kit.link)}
-              className="btn-mag bg-gradient-to-r from-purple-600 to-violet-600 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-purple-900/40">
+            <MagBtn href={kit.link} onClick={triggerLoad}              className="btn-mag bg-gradient-to-r from-purple-600 to-violet-600 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-purple-900/40">
               Comprar Agora →
             </MagBtn>
           </div>
@@ -628,8 +601,7 @@ export default function Page() {
               </div>
 
               <div className="fade-up-4 flex flex-col sm:flex-row gap-3 mb-5">
-                <MagBtn href={LINK_1} onClick={triggerLoad} onMouseEnter={() => prefetchCheckout(LINK_1)} onTouchStart={() => prefetchCheckout(LINK_1)}
-                  className="btn-mag flex-1 text-center bg-gradient-to-r from-purple-600 to-violet-600 text-white px-8 py-4 rounded-2xl text-base font-black shadow-xl shadow-purple-900/50">
+                <MagBtn href={LINK_1} onClick={triggerLoad}                  className="btn-mag flex-1 text-center bg-gradient-to-r from-purple-600 to-violet-600 text-white px-8 py-4 rounded-2xl text-base font-black shadow-xl shadow-purple-900/50">
                   QUERO ALIVIAR MINHA DOR →
                 </MagBtn>
                 <a href="#kits"
@@ -1118,8 +1090,7 @@ export default function Page() {
                     <div className="px-5 mt-5">
                       <a href={k.link}
                          onClick={(e) => { e.stopPropagation(); setKit(k); triggerLoad() }}
-                         onMouseEnter={() => prefetchCheckout(k.link)} onTouchStart={() => prefetchCheckout(k.link)}
-                         className={`block w-full text-center font-black px-4 py-3.5 rounded-xl text-sm tracking-wide transition-transform duration-200 hover:scale-[1.03] active:scale-100 ${btnCls}`}>
+                                                 className={`block w-full text-center font-black px-4 py-3.5 rounded-xl text-sm tracking-wide transition-transform duration-200 hover:scale-[1.03] active:scale-100 ${btnCls}`}>
                         COMPRAR {k.qty} {k.qty === 1 ? 'FRASCO' : 'FRASCOS'} →
                       </a>
                       <p className="text-gray-500 text-[10px] mt-2 tracking-wide">🔒 Compra 100% segura · Pagamento criptografado</p>
@@ -1225,8 +1196,7 @@ export default function Page() {
 
                 {/* CTA button */}
                 <div className="flex justify-center mb-8">
-                  <MagBtn href={kit.link} onClick={triggerLoad} onMouseEnter={() => prefetchCheckout(kit.link)} onTouchStart={() => prefetchCheckout(kit.link)}
-                    className="btn-white-hover inline-block bg-white text-purple-700 px-12 py-5 rounded-2xl text-xl font-black shadow-2xl tracking-tight">
+                  <MagBtn href={kit.link} onClick={triggerLoad}                    className="btn-white-hover inline-block bg-white text-purple-700 px-12 py-5 rounded-2xl text-xl font-black shadow-2xl tracking-tight">
                     GARANTIR MEU DESCONTO →
                   </MagBtn>
                 </div>
@@ -1376,8 +1346,7 @@ export default function Page() {
             </div>
 
             <div className="reveal flex flex-col gap-3 items-center mb-8">
-              <MagBtn href={kit.link} onClick={triggerLoad} onMouseEnter={() => prefetchCheckout(kit.link)} onTouchStart={() => prefetchCheckout(kit.link)}
-                className="btn-mag bg-gradient-to-r from-purple-600 to-violet-600 text-white px-14 py-5 rounded-2xl text-xl font-black shadow-2xl shadow-purple-900/60 w-full sm:w-auto text-center">
+              <MagBtn href={kit.link} onClick={triggerLoad}                className="btn-mag bg-gradient-to-r from-purple-600 to-violet-600 text-white px-14 py-5 rounded-2xl text-xl font-black shadow-2xl shadow-purple-900/60 w-full sm:w-auto text-center">
                 GARANTIR MEU KIT AGORA →
               </MagBtn>
               <a href="#kits" className="text-gray-500 text-xs hover:text-gray-300 transition-colors underline underline-offset-2">
