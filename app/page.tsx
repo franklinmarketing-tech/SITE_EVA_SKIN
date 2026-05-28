@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
-const YAMPI_BASE = 'https://pra-saude.pay.yampi.com.br/r/DH6V3EFXVZ'
+const YAMPI_BASE = 'https://seguro.evaskincaps.com.br/r/DH6V3EFXVZ'
 const LINK_1 = `${YAMPI_BASE}:1`
 const LINK_2 = `${YAMPI_BASE}:2`
 const LINK_3 = `${YAMPI_BASE}:3`
