@@ -27,3 +27,20 @@ body {
 .kit-selected {
   box-shadow: 0 0 0 3px #7c3aed, 0 20px 40px rgba(124, 58, 237, 0.15);
 }
+
+/* Páginas legais (Política de Privacidade, Termos, Trocas) */
+.legal-page h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.legal-page p { margin-top: 0.75rem; margin-bottom: 0.75rem; }
+.legal-page ul, .legal-page ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+.legal-page ul { list-style: disc; }
+.legal-page ol { list-style: decimal; }
+.legal-page li { margin: 0.35rem 0; }
+.legal-page a { color: #7c3aed; text-decoration: underline; text-underline-offset: 2px; }
+.legal-page a:hover { color: #6d28d9; }
+.legal-page strong { color: #111827; font-weight: 700; }

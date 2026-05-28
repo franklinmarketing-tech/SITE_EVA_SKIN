@@ -1405,9 +1405,16 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-              <p>© 2026 Eva Skin Caps · PRA SAUDE SUPLEMENTAÇÃO ALIMENTAR LTDA · Todos os direitos reservados.</p>
-              <p>CNPJ: 43.892.071/0001-59 · Produto notificado na ANVISA</p>
+            <div className="border-t border-white/5 pt-8 flex flex-col gap-4 text-xs text-gray-500">
+              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+                <a href="/politica-de-privacidade" className="hover:text-purple-400 transition-colors">Política de Privacidade</a>
+                <a href="/termos-de-uso" className="hover:text-purple-400 transition-colors">Termos de Uso</a>
+                <a href="/politica-de-trocas" className="hover:text-purple-400 transition-colors">Trocas & Devoluções</a>
+              </div>
+              <div className="flex flex-col md:flex-row items-center justify-between gap-2">
+                <p>© 2026 Eva Skin Caps · PRA SAUDE SUPLEMENTAÇÃO ALIMENTAR LTDA · Todos os direitos reservados.</p>
+                <p>CNPJ: 43.892.071/0001-59 · Produto notificado na ANVISA</p>
+              </div>
             </div>
           </div>
         </footer>
