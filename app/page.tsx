@@ -528,7 +528,7 @@ export default function Page() {
                 <span>🔒 Pagamento 100% Seguro</span>
                 <span>💳 Parcelamos em até 6x sem juros</span>
                 <span>🚚 Envio em até 24 horas</span>
-                <span>✅ Registrado ANVISA</span>
+                <span>✅ Notificado ANVISA</span>
                 <span>📦 Embalagem discreta</span>
               </span>
             ))}
@@ -630,7 +630,7 @@ export default function Page() {
               </div>
 
               <div className="flex items-center gap-5 mt-4 text-xs text-gray-600">
-                <span>🔒 SSL Seguro</span><span>✅ Registrado ANVISA</span><span>🚚 Envio em 24h</span>
+                <span>🔒 SSL Seguro</span><span>✅ Notificado ANVISA</span><span>🚚 Envio em 24h</span>
               </div>
             </div>
 
@@ -738,7 +738,7 @@ export default function Page() {
               </div>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 pt-5 border-t border-white/5">
-              {['🔒 Pagamento Seguro SSL', '📦 Embalagem discreta', '🇧🇷 Produto brasileiro', '✅ Registrado ANVISA', '💳 6x sem juros'].map(t => (
+              {['🔒 Pagamento Seguro SSL', '📦 Embalagem discreta', '🇧🇷 Produto brasileiro', '✅ Notificado ANVISA', '💳 6x sem juros'].map(t => (
                 <span key={t} className="text-gray-400 text-xs font-medium">{t}</span>
               ))}
             </div>
@@ -1406,8 +1406,8 @@ export default function Page() {
             </div>
 
             <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-              <p>© 2026 Eva Skin Caps · PraSaúde · Todos os direitos reservados.</p>
-              <p>CNPJ: 00.000.000/0001-00 · Produto registrado na ANVISA</p>
+              <p>© 2026 Eva Skin Caps · PRA SAUDE SUPLEMENTAÇÃO ALIMENTAR LTDA · Todos os direitos reservados.</p>
+              <p>CNPJ: 43.892.071/0001-59 · Produto notificado na ANVISA</p>
             </div>
           </div>
         </footer>

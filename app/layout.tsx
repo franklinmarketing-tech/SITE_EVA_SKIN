@@ -144,6 +144,8 @@ const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'PraSaúde',
+  legalName: 'PRA SAUDE SUPLEMENTAÇÃO ALIMENTAR LTDA',
+  taxID: '43.892.071/0001-59',
   url: SITE_URL,
   logo: `${SITE_URL}/logo-eva-square.png`,
   sameAs: [],
