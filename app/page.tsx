@@ -498,7 +498,7 @@ export default function Page() {
         <div className="px-4 py-3 flex items-center gap-3">
           <div className="flex-1 min-w-0">
             <p className="text-purple-300 text-[10px] font-semibold uppercase tracking-wider">Kit selecionado</p>
-            <p className="text-white font-black text-sm leading-tight">{kit.qty} {kit.qty === 1 ? 'Frasco' : 'Frascos'} — <span className="text-green-300">R$ {kit.price},00</span></p>
+            <p className="text-white font-black text-sm leading-tight">{kit.qty} {kit.qty === 1 ? 'Frasco' : 'Frascos'} · <span className="text-green-300">R$ {kit.price},00</span></p>
           </div>
           <a href={kit.link} onClick={triggerLoad}            className="flex-shrink-0 bg-white text-purple-700 font-black px-5 py-3 rounded-xl text-sm shadow-xl active:scale-95 transition-transform">
             COMPRAR AGORA →
@@ -528,7 +528,7 @@ export default function Page() {
                 <span>🔒 Pagamento 100% Seguro</span>
                 <span>💳 Parcelamos em até 6x sem juros</span>
                 <span>🚚 Envio em até 24 horas</span>
-                <span>✅ Notificado ANVISA</span>
+                <span>✅ Regularizado na ANVISA</span>
                 <span>📦 Embalagem discreta</span>
               </span>
             ))}
@@ -569,32 +569,32 @@ export default function Page() {
           <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle,rgba(139,92,246,.25),transparent 70%)' }} />
           <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle,rgba(167,139,250,.15),transparent 70%)' }} />
 
-          <div className="max-w-6xl mx-auto px-4 pt-16 pb-24 grid lg:grid-cols-2 gap-14 items-center relative z-10">
+          <div className="max-w-6xl mx-auto px-4 pt-4 pb-10 lg:pt-10 lg:pb-16 grid lg:grid-cols-2 gap-4 lg:gap-12 items-center relative z-10">
 
             {/* LEFT — COPY */}
             <div className="order-2 lg:order-1">
-              <div className="fade-up-1 inline-flex items-center gap-2 border border-purple-700/50 bg-purple-950/60 text-purple-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+              <div className="fade-up-1 inline-flex items-center gap-2 border border-purple-700/50 bg-purple-950/60 text-purple-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-3">
                 <span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse" />
                 ✨ Beleza e Bem-Estar de dentro para fora
               </div>
 
-              <h1 className="fade-up-2 text-5xl lg:text-[3.8rem] font-black leading-[1.05] mb-6 text-white">
+              <h1 className="fade-up-2 text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] mb-4 text-white">
                 Livre-se das dores.<br />
                 <span className="shimmer-text italic">Mova-se com liberdade.</span>
               </h1>
 
-              <p className="fade-up-3 text-gray-300 text-lg leading-relaxed mb-8 max-w-lg">
-                Eva Skin Caps combina <strong className="text-white">3 ativos científicos</strong> que auxiliam na saúde das articulações, contribuem para o alívio de desconfortos e apóiam a renovação da pele — tudo em uma única cápsula diária.
+              <p className="fade-up-3 text-gray-300 text-base leading-relaxed mb-5 max-w-lg">
+                Eva Skin Caps combina <strong className="text-white">3 ativos científicos</strong> que auxiliam na saúde das articulações, contribuem para o alívio de desconfortos e apoiam a renovação da pele no seu dia a dia.
               </p>
 
               {/* Price block */}
-              <div className="fade-up-3 glass rounded-2xl p-5 mb-6 max-w-sm">
+              <div className="fade-up-3 glass rounded-2xl p-3 mb-4 max-w-sm">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-gray-500 line-through">De R$ 157,00</span>
                   <span className="bg-green-500/20 text-green-400 border border-green-500/30 text-xs font-black px-2.5 py-1 rounded-full">Até 30% OFF</span>
                 </div>
                 <div className="flex items-end gap-2 mb-1">
-                  <span className="text-5xl font-black text-white leading-none">R$ 127</span>
+                  <span className="text-4xl font-black text-white leading-none">R$ 127</span>
                   <span className="text-purple-400 font-bold text-xl mb-1">,00</span>
                 </div>
                 <p className="text-xs text-gray-500">3x de R$ 42,33 sem juros</p>
@@ -630,13 +630,13 @@ export default function Page() {
               </div>
 
               <div className="flex items-center gap-5 mt-4 text-xs text-gray-600">
-                <span>🔒 SSL Seguro</span><span>✅ Notificado ANVISA</span><span>🚚 Envio em 24h</span>
+                <span>🔒 SSL Seguro</span><span>✅ Regularizado na ANVISA</span><span>🚚 Envio em 24h</span>
               </div>
             </div>
 
             {/* RIGHT — PRODUTO */}
             <div className="order-1 lg:order-2 flex justify-center">
-              <div className="relative w-72 h-[420px] lg:w-[400px] lg:h-[520px] orbit-container">
+              <div className="relative w-44 h-[230px] sm:w-64 sm:h-[360px] lg:w-[380px] lg:h-[480px] orbit-container">
                 {/* Glow */}
                 <div className="absolute inset-0 rounded-full blur-3xl pointer-events-none glow-ring-anim"
                   style={{ background: 'radial-gradient(circle,rgba(139,92,246,.35),transparent 65%)' }} />
@@ -688,7 +688,7 @@ export default function Page() {
                 </div>
 
                 <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 z-20 bg-gradient-to-r from-purple-600 to-violet-600 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-xl shadow-purple-900/50 whitespace-nowrap">
-                  ✅ Suplemento Notificado ANVISA
+                  ✅ Suplemento Regularizado na ANVISA
                 </div>
               </div>
             </div>
@@ -738,7 +738,7 @@ export default function Page() {
               </div>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 pt-5 border-t border-white/5">
-              {['🔒 Pagamento Seguro SSL', '📦 Embalagem discreta', '🇧🇷 Produto brasileiro', '✅ Notificado ANVISA', '💳 6x sem juros'].map(t => (
+              {['🔒 Pagamento Seguro SSL', '📦 Embalagem discreta', '🇧🇷 Produto brasileiro', '✅ Regularizado na ANVISA', '💳 6x sem juros'].map(t => (
                 <span key={t} className="text-gray-400 text-xs font-medium">{t}</span>
               ))}
             </div>
@@ -761,7 +761,7 @@ export default function Page() {
                 <span className="text-red-400 italic">mais comuns do que parecem</span>
               </h2>
               <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-                Milhões de mulheres sofrem caladas achando que é inevitável. <strong className="text-white">Não é — existe solução.</strong>
+                Milhões de mulheres sofrem caladas achando que é inevitável. <strong className="text-white">Não é. Existe solução.</strong>
               </p>
             </div>
 
@@ -772,7 +772,7 @@ export default function Page() {
                 { Icon: IconClock, text: 'Rigidez matinal que dura horas' },
                 { Icon: IconWave, text: 'Estalos e inchaço nas articulações' },
                 { Icon: IconBlock, text: 'Dificuldade em agachar ou ajoelhar' },
-                { Icon: IconHeartCrack, text: 'Dores que impedem o que você ama' },
+                { Icon: IconHeartCrack, text: 'Dores que impedem de fazer o que ama' },
               ].map((p, i) => (
                 <div key={i} className="pain-item reveal flex items-center gap-4 p-5 rounded-2xl cursor-default" style={{ background: 'rgba(239,68,68,.06)', border: '1px solid rgba(239,68,68,.14)' }}>
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(239,68,68,.12)', border: '1px solid rgba(239,68,68,.2)' }}>
@@ -791,7 +791,7 @@ export default function Page() {
                   ✅ A ciência tem a resposta
                 </span>
                 <h3 className="text-3xl lg:text-4xl font-black text-white mb-4">
-                  Seus ossos e articulações precisam de nutrição —{' '}
+                  Seus ossos e articulações precisam de nutrição:{' '}
                   <span className="shimmer-text italic">Eva Skin entrega</span>
                 </h3>
                 <p className="text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
@@ -994,7 +994,7 @@ export default function Page() {
                 <span className="shimmer-text italic">Kit Eva Skin</span>
               </h2>
               <p className="text-gray-400 text-base max-w-xl mx-auto leading-relaxed mt-3">
-                Quanto mais frascos, maior o desconto — e melhores resultados.
+                Quanto mais frascos, maior o desconto e melhores resultados.
               </p>
             </div>
 
@@ -1007,7 +1007,7 @@ export default function Page() {
                   ? 'bg-gradient-to-r from-purple-600 to-violet-500 text-white shadow-[0_8px_20px_-4px_rgba(124,58,237,.55)]'
                   : k.id === 3
                   ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-[0_8px_20px_-4px_rgba(245,158,11,.55)]'
-                  : 'bg-white text-purple-700 shadow-[0_6px_18px_-4px_rgba(255,255,255,.18)]'
+                  : 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-[0_8px_20px_-4px_rgba(124,58,237,.5)]'
                 return (
                   <div key={k.id} onClick={() => setKit(k)}
                     className={`kcard relative rounded-3xl text-center cursor-pointer flex flex-col ${isOn ? 'kcard-on' : ''}`}
@@ -1162,7 +1162,7 @@ export default function Page() {
                   <div className="text-center sm:text-left">
                     <p className="text-purple-200 text-sm font-semibold mb-0.5">Kit selecionado</p>
                     <p className="text-white font-black text-xl leading-tight">
-                      {kit.qty} {kit.qty === 1 ? 'Frasco' : 'Frascos'} — {kit.days} dias de tratamento
+                      {kit.qty} {kit.qty === 1 ? 'Frasco' : 'Frascos'} para {kit.days} dias de tratamento
                     </p>
                     <p className="text-purple-300 text-sm mt-0.5">Economia de R$ {kit.from - kit.price},00 ({kit.disc} OFF)</p>
                   </div>
@@ -1206,7 +1206,7 @@ export default function Page() {
                   {[
                     { icon: '🔒', text: 'SSL Seguro' },
                     { icon: '💳', text: 'PIX · Cartão · Boleto' },
-                    { icon: '✅', text: 'Notificado ANVISA' },
+                    { icon: '✅', text: 'Regularizado na ANVISA' },
                     { icon: '🚚', text: 'FRETE GRÁTIS Brasil' },
                     { icon: '⚡', text: 'Envio em 24h' },
                   ].map(({ icon, text }) => (
@@ -1355,7 +1355,7 @@ export default function Page() {
             </div>
 
             <div className="reveal flex flex-wrap items-center justify-center gap-5 text-gray-600 text-xs">
-              {['🔒 SSL Seguro', '🚚 FRETE GRÁTIS Brasil', '✅ Notificado ANVISA', '💳 6x sem juros', '📦 Embalagem discreta'].map(t => (
+              {['🔒 SSL Seguro', '🚚 FRETE GRÁTIS Brasil', '✅ Regularizado na ANVISA', '💳 6x sem juros', '📦 Embalagem discreta'].map(t => (
                 <span key={t} className="flex items-center gap-1">{t}</span>
               ))}
             </div>
@@ -1377,7 +1377,7 @@ export default function Page() {
                   <span className="text-purple-400 text-[10px] font-bold tracking-[.2em] uppercase">caps</span>
                 </div>
                 <p className="text-sm leading-relaxed mb-4">
-                  Suplemento alimentar premium com Colágeno Hidrolisado, Ácido Hialurônico e Trans-Resveratrol — formulado para articulações saudáveis e beleza de dentro para fora.
+                  Suplemento alimentar premium com Colágeno Hidrolisado, Ácido Hialurônico e Trans-Resveratrol, formulado para articulações saudáveis e beleza de dentro para fora.
                 </p>
                 <p className="text-sm text-gray-400">www.prasaude.com.br/eva-skin</p>
               </div>
@@ -1394,7 +1394,7 @@ export default function Page() {
               <div>
                 <h4 className="font-bold text-white mb-5 text-sm uppercase tracking-wide">Aviso Legal</h4>
                 <p className="text-sm leading-relaxed text-gray-400 mb-4">
-                  Suplemento alimentar — não substitui tratamento médico. Não indicado para gestantes, lactantes e menores de 18 anos. Consulte seu médico.
+                  Suplemento alimentar. Não substitui tratamento médico. Não indicado para gestantes, lactantes e menores de 18 anos. Consulte seu médico.
                 </p>
                 <h4 className="font-bold text-white mb-3 text-sm uppercase tracking-wide">Pagamentos</h4>
                 <div className="flex flex-wrap gap-2 text-xs">
@@ -1413,7 +1413,7 @@ export default function Page() {
               </div>
               <div className="flex flex-col md:flex-row items-center justify-between gap-2">
                 <p>© 2026 Eva Skin Caps · PRA SAUDE SUPLEMENTAÇÃO ALIMENTAR LTDA · Todos os direitos reservados.</p>
-                <p>CNPJ: 43.892.071/0001-59 · Produto notificado na ANVISA</p>
+                <p>CNPJ: 43.892.071/0001-59 · Produto regularizado na ANVISA</p>
               </div>
             </div>
           </div>

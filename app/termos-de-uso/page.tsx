@@ -18,7 +18,7 @@ export default function TermosDeUso() {
       </p>
 
       <h2>1. Sobre o produto</h2>
-      <p>Eva Skin Caps é um suplemento alimentar em cápsulas, contendo Colágeno Hidrolisado, Ácido Hialurônico e Trans-Resveratrol, devidamente <strong>notificado na ANVISA</strong> conforme legislação aplicável a suplementos alimentares.</p>
+      <p>Eva Skin Caps é um suplemento alimentar em cápsulas, contendo Colágeno Hidrolisado, Ácido Hialurônico e Trans-Resveratrol, devidamente <strong>regularizado na ANVISA</strong> conforme legislação aplicável a suplementos alimentares.</p>
       <p>O produto <strong>não substitui</strong> uma alimentação variada e equilibrada nem dispensa orientação médica ou nutricional. Não é recomendado para gestantes, lactantes, menores de 18 anos ou pessoas com restrições específicas sem consulta a profissional de saúde.</p>
 
       <h2>2. Cadastro e veracidade das informações</h2>
