@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import LegalLayout from '../_components/LegalLayout'
 
 export const metadata: Metadata = {
-  title: 'Política de Privacidade — Eva Skin Caps',
+  title: 'Política de Privacidade - Eva Skin Caps',
   description:
     'Política de Privacidade da PraSaúde Suplementação Alimentar LTDA para o site Eva Skin Caps, em conformidade com a LGPD (Lei 13.709/2018).',
   alternates: { canonical: 'https://www.evaskincaps.com.br/politica-de-privacidade' },
@@ -13,7 +13,7 @@ export default function PoliticaDePrivacidade() {
   return (
     <LegalLayout title="Política de Privacidade" updatedAt="28 de maio de 2026">
       <p>
-        Esta Política de Privacidade descreve como a <strong>PRA SAUDE SUPLEMENTAÇÃO ALIMENTAR LTDA</strong> (&ldquo;PraSaúde&rdquo;, &ldquo;nós&rdquo;), inscrita no CNPJ <strong>43.892.071/0001-59</strong>, coleta, usa, armazena, compartilha e protege as informações pessoais dos visitantes e clientes do site <a href="https://www.evaskincaps.com.br">www.evaskincaps.com.br</a>, em conformidade com a Lei Geral de Proteção de Dados Pessoais — LGPD (Lei nº 13.709/2018).
+        Esta Política de Privacidade descreve como a <strong>PRA SAUDE SUPLEMENTAÇÃO ALIMENTAR LTDA</strong> (&ldquo;PraSaúde&rdquo;, &ldquo;nós&rdquo;), inscrita no CNPJ <strong>43.892.071/0001-59</strong>, coleta, usa, armazena, compartilha e protege as informações pessoais dos visitantes e clientes do site <a href="https://www.evaskincaps.com.br">www.evaskincaps.com.br</a>, em conformidade com a Lei Geral de Proteção de Dados Pessoais, a LGPD (Lei nº 13.709/2018).
       </p>
 
       <h2>1. Dados que coletamos</h2>
@@ -35,10 +35,10 @@ export default function PoliticaDePrivacidade() {
       <h2>3. Compartilhamento de dados</h2>
       <p>Compartilhamos seus dados apenas com terceiros estritamente necessários à prestação do serviço:</p>
       <ul>
-        <li><strong>Yampi</strong> — plataforma de checkout e processamento de pagamento.</li>
-        <li><strong>Operadoras de pagamento</strong> (cartões, PIX, boleto) — para processar a transação.</li>
-        <li><strong>Transportadoras</strong> (Correios e empresas privadas) — para entrega do produto.</li>
-        <li><strong>Autoridades públicas</strong> — quando exigido por lei ou decisão judicial.</li>
+        <li><strong>Yampi</strong>: plataforma de checkout e processamento de pagamento.</li>
+        <li><strong>Operadoras de pagamento</strong> (cartões, PIX, boleto): para processar a transação.</li>
+        <li><strong>Transportadoras</strong> (Correios e empresas privadas): para entrega do produto.</li>
+        <li><strong>Autoridades públicas</strong>: quando exigido por lei ou decisão judicial.</li>
       </ul>
       <p>Não vendemos nem alugamos seus dados pessoais a terceiros para fins de marketing.</p>
 

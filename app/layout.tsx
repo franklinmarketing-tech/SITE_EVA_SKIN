@@ -14,7 +14,7 @@ const SITE_URL = 'https://www.evaskincaps.com.br'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'Eva Skin Caps — Colágeno, Ácido Hialurônico e Resveratrol | Frete Grátis',
+  title: 'Eva Skin Caps - Colágeno, Ácido Hialurônico e Resveratrol | Frete Grátis',
   description:
     'Eva Skin Caps reúne Colágeno Hidrolisado, Ácido Hialurônico e Trans-Resveratrol em cápsulas. Apoia articulações, pele, cabelos e bem-estar. 60 cápsulas. Frete grátis Brasil.',
   keywords: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     url: SITE_URL,
     siteName: 'Eva Skin Caps',
-    title: 'Eva Skin Caps — Beleza, Articulações & Bem-Estar',
+    title: 'Eva Skin Caps - Beleza, Articulações & Bem-Estar',
     description:
       'A combinação perfeita: Colágeno Hidrolisado + Ácido Hialurônico + Trans-Resveratrol. 60 cápsulas. Frete grátis para todo o Brasil. Regularizado na ANVISA.',
     images: [
@@ -58,14 +58,14 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Eva Skin Caps — Suplemento de Beleza e Bem-Estar',
+        alt: 'Eva Skin Caps - Suplemento de Beleza e Bem-Estar',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Eva Skin Caps — Beleza, Articulações & Bem-Estar',
+    title: 'Eva Skin Caps - Beleza, Articulações & Bem-Estar',
     description:
       'Colágeno Hidrolisado + Ácido Hialurônico + Trans-Resveratrol. Frete grátis Brasil.',
     images: ['/og-image.png'],

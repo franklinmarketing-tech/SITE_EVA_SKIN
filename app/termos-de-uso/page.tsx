@@ -3,7 +3,7 @@ import Link from 'next/link'
 import LegalLayout from '../_components/LegalLayout'
 
 export const metadata: Metadata = {
-  title: 'Termos de Uso — Eva Skin Caps',
+  title: 'Termos de Uso - Eva Skin Caps',
   description:
     'Termos e Condições de Uso do site Eva Skin Caps, mantido por PRA SAUDE SUPLEMENTAÇÃO ALIMENTAR LTDA.',
   alternates: { canonical: 'https://www.evaskincaps.com.br/termos-de-uso' },
@@ -35,7 +35,7 @@ export default function TermosDeUso() {
       <p>O cliente possui o direito de arrependimento previsto no Art. 49 do Código de Defesa do Consumidor: <strong>7 dias corridos</strong> a contar do recebimento do produto. As regras detalhadas estão na <Link href="/politica-de-trocas">Política de Trocas e Devoluções</Link>.</p>
 
       <h2>6. Propriedade intelectual</h2>
-      <p>Todos os conteúdos do site — textos, imagens, logotipos, design, código, materiais bônus (incluindo o guia em PDF) — são protegidos por direitos autorais e pertencem à PraSaúde ou aos respectivos licenciantes. É proibida a reprodução, redistribuição ou uso comercial sem autorização expressa por escrito.</p>
+      <p>Todos os conteúdos do site (textos, imagens, logotipos, design, código, materiais bônus, incluindo o guia em PDF) são protegidos por direitos autorais e pertencem à PraSaúde ou aos respectivos licenciantes. É proibida a reprodução, redistribuição ou uso comercial sem autorização expressa por escrito.</p>
 
       <h2>7. Limitação de responsabilidade</h2>
       <p>O conteúdo informativo do site e dos materiais bônus tem caráter <strong>educativo</strong> e não substitui consulta médica. A PraSaúde não se responsabiliza por uso indevido do produto, reações individuais ou interações medicamentosas que poderiam ter sido evitadas com avaliação profissional prévia.</p>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import LegalLayout from '../_components/LegalLayout'
 
 export const metadata: Metadata = {
-  title: 'Política de Trocas e Devoluções — Eva Skin Caps',
+  title: 'Política de Trocas e Devoluções - Eva Skin Caps',
   description:
     'Política de Trocas, Devoluções e Reembolso da Eva Skin Caps. Direito de arrependimento de 7 dias conforme CDC.',
   alternates: { canonical: 'https://www.evaskincaps.com.br/politica-de-trocas' },
@@ -32,7 +32,7 @@ export default function PoliticaDeTrocas() {
 
       <h2>3. Como solicitar a devolução</h2>
       <ol>
-        <li>Envie um e-mail para <a href="mailto:prasaudeecia@gmail.com">prasaudeecia@gmail.com</a> com o assunto &ldquo;<strong>Devolução — pedido nº [seu número]</strong>&rdquo;.</li>
+        <li>Envie um e-mail para <a href="mailto:prasaudeecia@gmail.com">prasaudeecia@gmail.com</a> com o assunto &ldquo;<strong>Devolução - pedido nº [seu número]</strong>&rdquo;.</li>
         <li>Informe seu nome completo, CPF, número do pedido e o motivo (opcional).</li>
         <li>Aguarde nossa resposta em até 2 dias úteis com as instruções de postagem.</li>
         <li>Postar o produto nos Correios conforme orientação recebida.</li>
@@ -61,7 +61,7 @@ export default function PoliticaDeTrocas() {
         <li>Produto com lacre rompido, exceto comprovação de defeito.</li>
         <li>Solicitação fora do prazo de 7 dias após o recebimento.</li>
         <li>Produto com sinais de uso, manchas, marcas ou avarias causadas pelo cliente.</li>
-        <li>Reclamações de &ldquo;não fez efeito&rdquo; após uso do produto — suplementos alimentares dependem de continuidade de uso (mínimo 90 dias) e variam de organismo para organismo. A eficácia individual não constitui defeito.</li>
+        <li>Reclamações de &ldquo;não fez efeito&rdquo; após uso do produto: suplementos alimentares dependem de continuidade de uso (mínimo 90 dias) e variam de organismo para organismo. A eficácia individual não constitui defeito.</li>
       </ul>
 
       <h2>8. Contato</h2>
