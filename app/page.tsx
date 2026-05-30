@@ -636,7 +636,7 @@ export default function Page() {
 
             {/* RIGHT — PRODUTO */}
             <div className="order-1 lg:order-2 flex justify-center">
-              <div className="relative w-44 h-[230px] sm:w-64 sm:h-[360px] lg:w-[380px] lg:h-[480px] orbit-container">
+              <div className="relative w-52 h-[280px] sm:w-60 sm:h-[340px] lg:w-[380px] lg:h-[480px] orbit-container">
                 {/* Glow */}
                 <div className="absolute inset-0 rounded-full blur-3xl pointer-events-none glow-ring-anim"
                   style={{ background: 'radial-gradient(circle,rgba(139,92,246,.35),transparent 65%)' }} />
@@ -657,7 +657,7 @@ export default function Page() {
                 </div>
 
                 {/* Floating badges */}
-                <div className="absolute top-6 -left-6 lg:-left-10 z-20 glass rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5 card-hover cursor-default">
+                <div className="absolute top-6 -left-6 lg:-left-10 z-20 glass rounded-2xl shadow-xl px-4 py-3 hidden lg:flex items-center gap-2.5 card-hover cursor-default">
                   <div className="w-9 h-9 bg-gradient-to-br from-purple-600 to-violet-700 rounded-xl flex items-center justify-center flex-shrink-0">
                     <IconCollagen className="w-5 h-5 text-white" />
                   </div>
@@ -667,7 +667,7 @@ export default function Page() {
                   </div>
                 </div>
 
-                <div className="absolute top-1/2 -right-6 lg:-right-10 z-20 -translate-y-1/2 glass rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5 card-hover cursor-default">
+                <div className="absolute top-1/2 -right-6 lg:-right-10 z-20 -translate-y-1/2 glass rounded-2xl shadow-xl px-4 py-3 hidden lg:flex items-center gap-2.5 card-hover cursor-default">
                   <div className="w-9 h-9 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center flex-shrink-0">
                     <IconDroplet className="w-5 h-5 text-white" />
                   </div>
@@ -677,7 +677,7 @@ export default function Page() {
                   </div>
                 </div>
 
-                <div className="absolute bottom-16 -left-6 lg:-left-10 z-20 glass rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5 card-hover cursor-default">
+                <div className="absolute bottom-16 -left-6 lg:-left-10 z-20 glass rounded-2xl shadow-xl px-4 py-3 hidden lg:flex items-center gap-2.5 card-hover cursor-default">
                   <div className="w-9 h-9 bg-gradient-to-br from-fuchsia-600 to-purple-700 rounded-xl flex items-center justify-center flex-shrink-0">
                     <IconMolecule className="w-5 h-5 text-white" />
                   </div>
